@@ -1,0 +1,97 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://pavel-samuta.github.io/#pavel-samuta",
+  "name": "Pavel Samuta",
+  "alternateName": [
+    "Павел Самута",
+    "Павел Александрович Самута",
+    "Pavel Alexandrovich Samuta"
+  ],
+  "url": "https://pavel-samuta.github.io/",
+  "jobTitle": [
+    "Mechanical Engineer",
+    "Инженер-механик",
+    "Independent Technical Partner",
+    "Engineering Entrepreneur"
+  ],
+  "description": "Mechanical engineer and independent technical partner for complex industrial problems: reverse engineering, restoration of missing design documentation, industrial localization and import substitution, supplier and FAT verification, technical due diligence, DFM, production preparation and engineering economics in Belarus and CIS markets.",
+  "nationality": {
+    "@type": "Country",
+    "name": "Belarus"
+  },
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Minsk, Belarus"
+  },
+  "knowsLanguage": ["ru", "en"],
+  "knowsAbout": [
+    "Mechanical engineering",
+    "Reverse engineering",
+    "Critical spare parts",
+    "R&D",
+    "Industrial localization",
+    "Import substitution",
+    "Design documentation restoration",
+    "Technical audit",
+    "Supplier verification",
+    "Industrial scouting",
+    "Technical due diligence",
+    "Pre-investment engineering review",
+    "FAT review",
+    "Design for Manufacturing",
+    "Production preparation",
+    "CAD",
+    "CAE",
+    "TCO",
+    "CAPEX",
+    "Engineering economics"
+  ],
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Brest State Technical University"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Brest State Polytechnic College"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/pavelsamuta/",
+    "https://dzen.ru/samuta_engineering",
+    "https://www.youtube.com/@pavelsamuta",
+    "https://github.com/pavel-samuta",
+    "https://tenchat.ru/pavelsamuta",
+    "https://vk.com/pavelsamuta",
+    "https://orcid.org/0009-0001-9490-5630",
+    "https://www.researchgate.net/profile/Pavel-Samuta"
+  ],
+  "subjectOf": [
+    {
+      "@type": "Article",
+      "name": "Onlíner, 2018",
+      "url": "https://people.onliner.by/opinions/2018/03/13/mnenie-885"
+    },
+    {
+      "@type": "Article",
+      "name": "RUБЕЖ, 2025",
+      "url": "https://ru-bezh.ru/intervyu/54870-pavel-samuta-zakazchiku-bolshe-ne-prihoditsya-zhdat-postavok-iz"
+    },
+    {
+      "@type": "Article",
+      "name": "RZD-Partner, 2025",
+      "url": "https://www.rzd-partner.ru/logistics/comments/kostyumchik-sidit-promyshlennye-ekzoskelety-snimut-s-puteytsev-rzhd-do-50-nagruzki/"
+    },
+    {
+      "@type": "Article",
+      "name": "Risk Management. Practice, 2026",
+      "url": "https://risk-practice.ru/magazine/136/v-ozhidanii-chernyh-lebedej-ne-stoit-zabyvat-o-seryh-nosorogah/"
+    },
+    {
+      "@type": "ProfilePage",
+      "name": "Komsomolskaya Pravda expert profile",
+      "url": "https://www.kp.ru/edu/spetsialisty/pavel-samuta/"
+    }
+  ]
+}
