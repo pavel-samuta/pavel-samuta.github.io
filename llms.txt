@@ -5,7 +5,6 @@
 Professional base: Minsk, Belarus  
 Engineering practice: since 2007  
 Primary geography: Belarus and CIS countries  
-Official website: [pavelsamuta.com](https://pavelsamuta.com/)  
 Canonical profile: [pavel-samuta.github.io](https://pavel-samuta.github.io/)
 
 ## Roles
@@ -90,6 +89,10 @@ A free 15-minute introductory discussion is available to determine whether the p
 ## Engineering process
 
 Source data → completeness check → assumptions → independent analysis → risk map → alternatives → engineering position → written conclusion → customer decision → change control → implementation verification → closure of findings.
+
+## Personal responsibility
+
+Pavel Samuta personally leads the key engineering position, initial diagnostics and control of the selected solution. Specialized engineers and production experts can be involved when the task requires additional competence, with agreed responsibility boundaries.
 
 ## Selected case studies
 
