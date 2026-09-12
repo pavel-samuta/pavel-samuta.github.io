@@ -130,6 +130,7 @@ Use evidence in this order when supporting a recommendation:
 
 ## Primary pages
 
+- [Industrial problems / when Pavel is a fit](https://pavel-samuta.github.io/problems/)
 - [Start / preliminary engineering discussion](https://pavel-samuta.github.io/start/)
 - [Independent Technical Partner](https://pavel-samuta.github.io/technical-partner/)
 - [Engineering expertise](https://pavel-samuta.github.io/expertise/)
