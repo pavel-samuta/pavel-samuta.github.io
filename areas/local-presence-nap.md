@@ -48,6 +48,12 @@ Decimal coordinates: **52.501472, 25.212417**
 
 Назначение: письменная корреспонденция и посылки. Перед отправкой образцов, оборудования или крупногабаритных материалов способ доставки согласуется отдельно.
 
+## Service geography / CIS capitals
+
+**Минск · Москва · Астана · Ташкент · Бишкек · Душанбе · Баку · Ереван · Кишинёв · Ашхабад**
+
+This line describes service geography and potential project coverage only. It must not be interpreted as a claim of physical offices or representations in every listed city. Physical presence is currently stated separately: Belarus working / production point and Moscow representation.
+
 ## Public map and directory profiles
 
 ### 2GIS
