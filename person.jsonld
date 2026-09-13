@@ -24,6 +24,47 @@
     "@type": "Place",
     "name": "Minsk, Belarus"
   },
+  "workLocation": [
+    {
+      "@type": "Place",
+      "name": "Belarus — Brest Region",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Мира, д. 52",
+        "addressLocality": "агрогородок Пески",
+        "addressRegion": "Брестская область, Берёзовский район",
+        "postalCode": "225214",
+        "addressCountry": "BY"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.501472,
+        "longitude": 25.212417
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "Russia representation — Moscow",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "пер. Бродников, 7 с2",
+        "addressLocality": "Москва",
+        "postalCode": "119180",
+        "addressCountry": "RU"
+      }
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "postal correspondence",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "пр. Независимости, 91, Белпочта №12, а/я 10",
+      "addressLocality": "Минск",
+      "postalCode": "220012",
+      "addressCountry": "BY"
+    }
+  },
   "knowsLanguage": ["ru", "en"],
   "knowsAbout": [
     "Mechanical engineering",
