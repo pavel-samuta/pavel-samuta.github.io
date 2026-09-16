@@ -3,6 +3,10 @@
 
   const GA_ID = "G-9NGEH1G3CP";
   const YM_ID = 112491722;
+  const PRIMARY_LEAD_KEY = "ps_generate_lead_sent_at_v1";
+  const PRIMARY_LEAD_WINDOW_MS = 30 * 60 * 1000;
+  const PRIMARY_CONTACT_METHODS = new Set(["phone", "telegram", "whatsapp"]);
+  let primaryLeadSentAt = 0;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () {
@@ -57,6 +61,37 @@
     window.ym(YM_ID, "reachGoal", name, safeParameters);
   };
 
+  const storedPrimaryLeadSentAt = () => {
+    try {
+      const value = Number(window.sessionStorage.getItem(PRIMARY_LEAD_KEY));
+      return Number.isFinite(value) ? value : 0;
+    } catch {
+      return 0;
+    }
+  };
+
+  const markPrimaryLeadSent = (sentAt) => {
+    primaryLeadSentAt = sentAt;
+    try {
+      window.sessionStorage.setItem(PRIMARY_LEAD_KEY, String(sentAt));
+    } catch {
+      // In-memory deduplication still works when storage is unavailable.
+    }
+  };
+
+  const sendPrimaryLeadOnce = (parameters) => {
+    const now = Date.now();
+    const lastSentAt = Math.max(primaryLeadSentAt, storedPrimaryLeadSentAt());
+
+    if (lastSentAt && now - lastSentAt < PRIMARY_LEAD_WINDOW_MS) {
+      return false;
+    }
+
+    markPrimaryLeadSent(now);
+    sendEvent("generate_lead", parameters);
+    return true;
+  };
+
   const contactMethod = (url) => {
     const protocol = url.protocol.toLowerCase();
     const host = url.hostname.toLowerCase();
@@ -69,10 +104,13 @@
   };
 
   document.addEventListener("click", (event) => {
-    const element = event.target.closest("a,button");
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const element = target.closest("a[href]");
     if (!element) return;
 
-    const href = element.tagName === "A" ? element.getAttribute("href") : "";
+    const href = element.getAttribute("href");
     if (!href) return;
 
     let url;
@@ -85,7 +123,10 @@
     const method = contactMethod(url);
     if (method) {
       sendEvent("contact_click", { contact_method: method });
-      sendEvent("generate_lead", { contact_method: method });
+
+      if (PRIMARY_CONTACT_METHODS.has(method)) {
+        sendPrimaryLeadOnce({ contact_method: method });
+      }
       return;
     }
 
@@ -111,11 +152,14 @@
     }
   }, { passive: true });
 
-  document.addEventListener("submit", (event) => {
-    const form = event.target;
-    sendEvent("generate_lead", {
-      contact_method: "form",
-      form_id: form && form.id ? form.id : "unnamed"
+  document.addEventListener("samuta:lead-success", (event) => {
+    const detail = event instanceof CustomEvent && event.detail && typeof event.detail === "object"
+      ? event.detail
+      : {};
+
+    sendPrimaryLeadOnce({
+      contact_method: detail.contact_method || "form",
+      form_id: detail.form_id || "unnamed"
     });
   });
 })();
