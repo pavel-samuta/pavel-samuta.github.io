@@ -33,16 +33,19 @@
   };
   window.ym.l = window.ym.l || Date.now();
   window.ym(YM_ID, "init", {
+    ssr: true,
     clickmap: true,
     trackLinks: true,
     accurateTrackBounce: true,
-    webvisor: true
+    webvisor: true,
+    referrer: document.referrer,
+    url: window.location.href
   });
 
   if (!document.querySelector('script[src*="mc.yandex.ru/metrika/tag.js"]')) {
     const yandexTag = document.createElement("script");
     yandexTag.async = true;
-    yandexTag.src = "https://mc.yandex.ru/metrika/tag.js";
+    yandexTag.src = "https://mc.yandex.ru/metrika/tag.js?id=" + encodeURIComponent(YM_ID);
     document.head.appendChild(yandexTag);
   }
 
