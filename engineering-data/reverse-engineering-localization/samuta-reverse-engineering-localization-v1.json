@@ -1,0 +1,399 @@
+{
+  "name": "Samuta Engineering Dataset: Reverse Engineering & Localization Workflow",
+  "version": "1.0",
+  "datePublished": "2026-09-25",
+  "creator": "Pavel Samuta",
+  "description": "48 структурированных записей по реверс-инжинирингу и локализации: входные данные, go/no-go, КД, RFQ, себестоимость, прототип, тестовая партия и серийное производство.",
+  "sources": [
+    "https://pavel-samuta.livejournal.com/33322.html",
+    "https://dzen.ru/a/YrwwalnG3iPcTkVh",
+    "https://open.spotify.com/episode/6Wb5lopYxUysLPkp4tBFqc"
+  ],
+  "notice": "Набор структурирует авторскую публикацию 2022 года. Правовые тезисы о патентах не являются юридической консультацией и требуют проверки по юрисдикции и актуальному законодательству.",
+  "records": [
+    {
+      "record_id": "R001",
+      "category": "definition",
+      "item": "Реверс-инжиниринг",
+      "engineering_meaning": "Исследование готового изделия для понимания принципа работы и создания воспроизводимого аналога с возможной доработкой",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R002",
+      "category": "output",
+      "item": "Конструкторская документация",
+      "engineering_meaning": "Пакет КД должен функционально соответствовать физическому образцу и фиксировать требования для изготовления",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R003",
+      "category": "principle",
+      "item": "Не копировать только геометрию",
+      "engineering_meaning": "Форма изделия сама по себе не гарантирует сохранение технологии, ресурса и функции",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R004",
+      "category": "principle",
+      "item": "Проектировать продукт",
+      "engineering_meaning": "Аналог должен решать задачу пользователя, а не только внешне повторять исходник",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R005",
+      "category": "screening",
+      "item": "Уникальный софт",
+      "engineering_meaning": "Если ключевая ценность изделия находится в уникальной программной среде, локализация железа может не решить задачу",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R006",
+      "category": "screening",
+      "item": "Патентованный принцип",
+      "engineering_meaning": "Если критическая функция защищена патентом или зависит от недоступной технологии, требуется отдельная правовая и техническая оценка",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R007",
+      "category": "screening",
+      "item": "Спецматериал",
+      "engineering_meaning": "Недоступный специальный материал может стать ограничением локализации",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R008",
+      "category": "fit",
+      "item": "Механические изделия",
+      "engineering_meaning": "Валы, оси, втулки, шкивы, ступицы и другие механические детали названы подходящими объектами",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R009",
+      "category": "fit",
+      "item": "Передачи",
+      "engineering_meaning": "Зубчатые колёса, венцы, червячные пары, вал-шестерни и сателлиты",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R010",
+      "category": "fit",
+      "item": "Оснастка",
+      "engineering_meaning": "Матрицы, пуансоны, детали штампов и пресс-форм",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R011",
+      "category": "fit",
+      "item": "Энергетика и машиностроение",
+      "engineering_meaning": "Механические и функциональные устройства этих отраслей названы перспективными для реверса",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R012",
+      "category": "workflow",
+      "item": "1. Техническая возможность и бюджет",
+      "engineering_meaning": "Проверить, можно ли изготовить продукт доступными технологиями и в требуемой экономике",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R013",
+      "category": "workflow",
+      "item": "2. Реверс-инжиниринг",
+      "engineering_meaning": "Исследовать образец, конструкцию, функцию, материалы и производственные ограничения",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R014",
+      "category": "workflow",
+      "item": "3. Конструкторская документация",
+      "engineering_meaning": "Зафиксировать воспроизводимое техническое решение",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R015",
+      "category": "workflow",
+      "item": "4. Расчёт себестоимости",
+      "engineering_meaning": "Получить производственную экономику по деталям, операциям, комплектующим и объёму",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R016",
+      "category": "workflow",
+      "item": "5. Прототипирование",
+      "engineering_meaning": "Физически проверить документацию и конструкцию до серии",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R017",
+      "category": "workflow",
+      "item": "6. Минимальный продукт",
+      "engineering_meaning": "Сформировать минимально достаточную продаваемую версию",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R018",
+      "category": "workflow",
+      "item": "7. Производство оснастки",
+      "engineering_meaning": "Подготовить специальную оснастку, если она нужна выбранной технологии",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R019",
+      "category": "workflow",
+      "item": "8. Тестовая партия",
+      "engineering_meaning": "Проверить повторяемость решения на малой серии",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R020",
+      "category": "workflow",
+      "item": "9. Серийное производство",
+      "engineering_meaning": "Перейти к повторяемому изготовлению после проверок",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R021",
+      "category": "input",
+      "item": "Живой образец",
+      "engineering_meaning": "Физический образец даёт исходную геометрию и возможность исследовать конструкцию",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R022",
+      "category": "input",
+      "item": "Фотографии",
+      "engineering_meaning": "Собрать фотографии образца, но не использовать их как единственную основу для точной оценки производства",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R023",
+      "category": "input",
+      "item": "Чертежи и даташиты",
+      "engineering_meaning": "Собрать существующую техническую информацию в единый архив",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R024",
+      "category": "input",
+      "item": "Данные конкурентов",
+      "engineering_meaning": "Собрать доступные сведения об аналогах и исходном производителе",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R025",
+      "category": "business_input",
+      "item": "Годовой объём",
+      "engineering_meaning": "До запроса производителю определить ожидаемую потребность или хотя бы сценарии тиража",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R026",
+      "category": "business_input",
+      "item": "Предельная цена",
+      "engineering_meaning": "Задать максимальную допустимую себестоимость или цену продукта для своей экономики",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R027",
+      "category": "rfq",
+      "item": "Не просить оценку по фотографии",
+      "engineering_meaning": "Для сложного изделия фотография не даёт фабрике данных для расчёта технологии и стоимости",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R028",
+      "category": "rfq",
+      "item": "Говорить техническим языком",
+      "engineering_meaning": "Передавать описание, спецификацию, материалы, характеристики, КД и при возможности образец",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R029",
+      "category": "rfq",
+      "item": "Задать конкретный тираж",
+      "engineering_meaning": "Разные объёмы требуют разных технологий; пример источника - тестовая партия 100 шт., затем 1000",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R030",
+      "category": "rfq",
+      "item": "Критические свойства",
+      "engineering_meaning": "Заранее указывать температуру, взрывозащиту, покрытия, упаковку, тестирование и другие обязательные требования",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R031",
+      "category": "economics",
+      "item": "CAPEX отдельно",
+      "engineering_meaning": "Отделять затраты на оснастку и запуск от переменной стоимости производства",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R032",
+      "category": "economics",
+      "item": "Себестоимость на складе",
+      "engineering_meaning": "Считать не только изготовление, но итоговую стоимость готового упакованного продукта в целевой точке",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R033",
+      "category": "economics",
+      "item": "Проверка рентабельности",
+      "engineering_meaning": "Сопоставить производственную себестоимость с продажной ценой до масштабирования",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R034",
+      "category": "drawing_role",
+      "item": "Однозначность требований",
+      "engineering_meaning": "Чертёж передаёт размеры, допуски, материалы, отделку и другие требования, которых недостаточно в одной 3D-модели",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R035",
+      "category": "drawing_role",
+      "item": "Проверка изготовления",
+      "engineering_meaning": "Чертёж может использоваться как контрольная база при приёмке изготовленной детали",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R036",
+      "category": "drawing_role",
+      "item": "Снижение зависимости от фабрики",
+      "engineering_meaning": "Собственная КД позволяет передать изготовление другому производителю",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R037",
+      "category": "drawing_role",
+      "item": "Основа расчёта",
+      "engineering_meaning": "Полная КД позволяет производителю точнее оценить технологию и стоимость",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R038",
+      "category": "prototype",
+      "item": "Первая физическая проверка",
+      "engineering_meaning": "Прототип выявляет недостатки, которые могли не проявиться в расчётах и цифровой модели",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R039",
+      "category": "prototype",
+      "item": "Эргономика",
+      "engineering_meaning": "Физический образец позволяет проверить взаимодействие пользователя с изделием",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R040",
+      "category": "prototype",
+      "item": "Традиционный прототип",
+      "engineering_meaning": "Может быть изготовлен механической обработкой и сборкой как единичное изделие",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R041",
+      "category": "prototype",
+      "item": "Быстрое прототипирование",
+      "engineering_meaning": "3D-печать может использоваться для макета или проверки части решений",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R042",
+      "category": "control",
+      "item": "Тестовая партия перед серией",
+      "engineering_meaning": "Малая серия нужна для проверки повторяемости производства, а не только единичного прототипа",
+      "verification_status": "inference_from_workflow",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R043",
+      "category": "benefit",
+      "item": "Снижение зависимости от импорта",
+      "engineering_meaning": "Локализация даёт больше контроля над производством, логистикой, запасными частями и сервисом",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R044",
+      "category": "benefit",
+      "item": "Скорость изменений",
+      "engineering_meaning": "Локальное производство сокращает путь между изменением конструкции и внедрением",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R045",
+      "category": "benefit",
+      "item": "Контроль качества",
+      "engineering_meaning": "При локализованном продукте заказчик получает больше возможностей влиять на производственный контроль",
+      "verification_status": "source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R046",
+      "category": "risk",
+      "item": "Интеллектуальная собственность",
+      "engineering_meaning": "Перед воспроизведением защищённого решения требуется проверка прав, патентов и территории действия; Dataset не является юридической консультацией",
+      "verification_status": "editorial_safety",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R047",
+      "category": "decision",
+      "item": "Go / no-go после первичной оценки",
+      "engineering_meaning": "Продолжать проект имеет смысл после проверки технической реализуемости и порядка экономики",
+      "verification_status": "inference_from_source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    },
+    {
+      "record_id": "R048",
+      "category": "decision",
+      "item": "КД до конкурентного RFQ",
+      "engineering_meaning": "Для сравнимых предложений нескольких производств им нужно передать единый набор технических требований",
+      "verification_status": "inference_from_source",
+      "source_url": "https://pavel-samuta.livejournal.com/33322.html"
+    }
+  ]
+}
