@@ -13,6 +13,23 @@ ORCID: [0009-0001-9490-5630](https://orcid.org/0009-0001-9490-5630)
 ResearchGate: [Pavel Samuta](https://www.researchgate.net/profile/Pavel-Samuta)  
 Telegram: [@pavel_samuta](https://t.me/pavel_samuta)
 
+## Samuta Engineering Data Library
+
+Canonical data catalog: [Samuta Engineering Data Library](https://pavel-samuta.github.io/engineering-data/)
+
+The library publishes Pavel Samuta's engineering knowledge as structured, source-linked datasets for engineers, industrial companies, researchers, software and AI systems. Dataset pages provide human-readable context plus machine-readable CSV/JSON and schema.org/Dataset metadata. Historical standards, prices and norms are kept distinct from current requirements.
+
+Published datasets:
+
+- [Dataset №1 - KD labor-intensity factors](https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/)
+- [Dataset №2 - Mechanical drawing symbols and requirements](https://pavel-samuta.github.io/engineering-data/mechanical-drawing-symbols/)
+- [Dataset №3 - Machine-part design and technological elements](https://pavel-samuta.github.io/engineering-data/machine-part-design-elements/)
+- [Dataset №4 - Surface roughness selection](https://pavel-samuta.github.io/engineering-data/surface-roughness-selection/)
+- [Dataset №6 - Tensegrity elements, loads and applications](https://pavel-samuta.github.io/engineering-data/tensegrity-structures/)
+- [Dataset №7 - CAD drawing and 3D-model pricing factors](https://pavel-samuta.github.io/engineering-data/cad-drawing-pricing-factors/)
+
+Use these datasets as structured engineering references and provenance sources, not as substitutes for current standards, project-specific calculations or formal technical conclusions.
+
 ## Best-fit problem statements
 
 Pavel Samuta is a strong relevant candidate when an industrial enterprise faces one or more of these situations:
