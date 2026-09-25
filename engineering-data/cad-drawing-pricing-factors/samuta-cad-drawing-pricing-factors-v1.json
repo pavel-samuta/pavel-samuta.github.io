@@ -1,0 +1,356 @@
+{
+  "name": "Samuta Engineering Dataset: CAD Drawing & 3D Model Pricing Factors",
+  "version": "1.0",
+  "datePublished": "2026-09-25",
+  "creator": "Павел Самута",
+  "sources": [
+    "https://dzen.ru/a/XmDqUh3RL15c7fLm",
+    "https://pavel-samuta.livejournal.com/19332.html",
+    "https://cont.ws/@pavelsamuta/2118471/full"
+  ],
+  "note": "Набор структурирует факторы оценки трудоемкости и стоимости чертежей и 3D-моделей из авторской статьи 2020 года. Денежные значения сохранены только как исторические значения из публикации и не являются актуальным прайс-листом 2026 года.",
+  "records": [
+    {
+      "record_id": "CAD-001",
+      "category": "scope",
+      "factor": "Содержание и тип работы",
+      "description": "Состав требуемой КД и характер задачи влияют на оценку",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-002",
+      "category": "scope",
+      "factor": "Объем работ",
+      "description": "Количество документов, моделей и связанных операций влияет на трудоемкость",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-003",
+      "category": "complexity",
+      "factor": "Сложность",
+      "description": "Сложность геометрии и инженерной задачи влияет на время и стоимость",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-004",
+      "category": "schedule",
+      "factor": "Срок",
+      "description": "Срочность может увеличивать стоимость из-за приоритета и загрузки исполнителя",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-005",
+      "category": "qualification",
+      "factor": "Квалификация исполнителя",
+      "description": "Опыт и подготовка конструктора влияют на цену и риск переделок",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-006",
+      "category": "drawing",
+      "factor": "Формат листа",
+      "description": "Сам по себе формат не определяет трудоемкость: на одинаковом формате может быть разная плотность информации",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-007",
+      "category": "drawing",
+      "factor": "Плотность графической информации",
+      "description": "Количество графической информации на формате листа используется как фактор оценки",
+      "example_or_value": "7222 объекта на A3; 46 объектов на A4",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-008",
+      "category": "accuracy",
+      "factor": "Точность размеров",
+      "description": "Более жесткие требования к точности повышают сложность подготовки и изготовления",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-009",
+      "category": "accuracy",
+      "factor": "Точность формы",
+      "description": "Один из показателей точности детали, который должен быть задан в КД",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-010",
+      "category": "accuracy",
+      "factor": "Взаимное расположение поверхностей",
+      "description": "Требования к расположению поверхностей входят в оценку точности детали",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-011",
+      "category": "accuracy",
+      "factor": "Шероховатость поверхности",
+      "description": "Требуемая шероховатость входит в набор параметров точности и технологичности",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-012",
+      "category": "reverse_engineering",
+      "factor": "Точность измерительного инструмента",
+      "description": "При восстановлении КД по готовой детали учитывается точность применяемых средств измерения",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-013",
+      "category": "reverse_engineering",
+      "factor": "Габариты измеряемой детали",
+      "description": "Размер физического образца влияет на трудоемкость замеров и восстановления КД",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-014",
+      "category": "reverse_engineering",
+      "factor": "Криволинейные поверхности",
+      "description": "Количество сложных криволинейных поверхностей влияет на трудоемкость измерения и моделирования",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-015",
+      "category": "manufacturability",
+      "factor": "Технологичность конструкции",
+      "description": "Конструкция должна учитывать производственную, эксплуатационную и ремонтную технологичность",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-016",
+      "category": "engineering",
+      "factor": "Разработка идеи",
+      "description": "Цена оформления чертежа не равна цене разработки технической идеи и ее реализации",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-017",
+      "category": "engineering",
+      "factor": "Сопровождающие расчеты",
+      "description": "Расчеты добавляют инженерную трудоемкость сверх построения модели и чертежа",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-018",
+      "category": "cad",
+      "factor": "Сложность 3D-моделирования",
+      "description": "Трудоемкость ассоциативного чертежа зависит от сложности построения исходной 3D-модели",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-019",
+      "category": "change",
+      "factor": "Изменения по инициативе заказчика",
+      "description": "Стоимость корректировок зависит от масштаба изменений и затрачиваемых усилий",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-020",
+      "category": "change",
+      "factor": "Исправление ошибки исполнителя",
+      "description": "В статье рекомендуется заранее различать исправление ошибки инженера и изменение требований заказчика",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-021",
+      "category": "software",
+      "factor": "Требуемая CAD-система",
+      "description": "Требование выполнить проект в конкретной САПР может влиять на стоимость лицензии и организацию работы",
+      "example_or_value": "SolidWorks; КОМПАС-3D; Inventor; Mechanical AutoCAD",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-022",
+      "category": "software",
+      "factor": "Версия CAD",
+      "description": "Требование конкретной версии программного обеспечения может создавать дополнительные затраты",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-023",
+      "category": "data_exchange",
+      "factor": "Формат обмена",
+      "description": "Нейтральные и обменные форматы снижают риск несовместимости",
+      "example_or_value": "STEP AP203/AP214; IGES; STL; VRML; DWG; DXF",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-024",
+      "category": "standards",
+      "factor": "Стандарт оформления",
+      "description": "Национальный или международный стандарт документации влияет на требования к результату",
+      "example_or_value": "ISO; ASME; BS; DIN; JIS; TIS; AS; ГОСТ/ЕСКД; GB",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-025",
+      "category": "language",
+      "factor": "Язык документации",
+      "description": "Перевод КД на другой язык может потребоваться для международной передачи работ",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-026",
+      "category": "risk",
+      "factor": "Ответственность за производственный результат",
+      "description": "Ошибки в КД могут приводить к дорогим производственным последствиям; риск должен учитываться при выборе исполнителя",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-027",
+      "category": "location",
+      "factor": "Регион и затраты исполнителя",
+      "description": "В статье регион и связанные расходы названы одним из факторов ставки",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-028",
+      "category": "input",
+      "factor": "Полнота технического задания",
+      "description": "Чем полнее исходные данные и ТЗ, тем меньше неопределенность и риск оплачивать переделки",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-029",
+      "category": "delivery",
+      "factor": "Дополнительные форматы выдачи",
+      "description": "Сохранение результата в нескольких форматах повышает совместимость и может входить в объем услуги",
+      "example_or_value": "",
+      "reference_period": "",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-030",
+      "category": "historical_price",
+      "factor": "Почасовая ставка",
+      "description": "В статье 2020 года приведен ориентир для внештатных CAD-инженеров в разных регионах",
+      "example_or_value": "10-50 USD/ч",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-031",
+      "category": "historical_price",
+      "factor": "Ассоциативный чертеж по 3D-модели",
+      "description": "Историческая рекомендованная цена из статьи",
+      "example_or_value": "от 35 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-032",
+      "category": "historical_price",
+      "factor": "Комплект документов",
+      "description": "Историческая рекомендованная цена из статьи",
+      "example_or_value": "от 450 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-033",
+      "category": "historical_price",
+      "factor": "Сборочный чертеж рабочего колеса",
+      "description": "Историческая рекомендованная цена комплекта КД",
+      "example_or_value": "от 400 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-034",
+      "category": "historical_price",
+      "factor": "Чертеж детали Гильза",
+      "description": "Историческая рекомендованная цена",
+      "example_or_value": "от 50 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-035",
+      "category": "historical_price",
+      "factor": "Чертеж детали Кожух выключателя",
+      "description": "Историческая рекомендованная цена",
+      "example_or_value": "от 35 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-036",
+      "category": "historical_price",
+      "factor": "Чертеж детали Патрубок",
+      "description": "Историческая рекомендованная цена",
+      "example_or_value": "от 80 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-037",
+      "category": "historical_price",
+      "factor": "Чертеж Корпус",
+      "description": "Историческая рекомендованная цена",
+      "example_or_value": "от 350 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    },
+    {
+      "record_id": "CAD-038",
+      "category": "historical_price",
+      "factor": "Примеры A4 разной плотности",
+      "description": "Исторические рекомендованные цены для примеров разной сложности",
+      "example_or_value": "от 10 / 17 / 25 USD",
+      "reference_period": "2020",
+      "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
+    }
+  ]
+}
