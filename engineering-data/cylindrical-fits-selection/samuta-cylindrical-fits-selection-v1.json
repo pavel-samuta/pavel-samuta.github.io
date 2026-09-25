@@ -1,0 +1,401 @@
+{
+  "name": "Samuta Engineering Dataset: Cylindrical Fits Selection",
+  "version": "1.0",
+  "datePublished": "2026-09-25",
+  "description": "Структурированные данные по выбору посадок гладких цилиндрических поверхностей: квалитеты, зазоры, натяги, переходные посадки, примеры обозначений и факторы выбора.",
+  "creator": "Pavel Samuta",
+  "sources": [
+    "https://dzen.ru/a/YC5Ktv-i2GrkVltW",
+    "https://pavel-samuta.livejournal.com/24925.html"
+  ],
+  "notice": "Материал структурирован по авторской публикации 2021 года. Ссылки на стандарты и справочные рекомендации исходной статьи требуют проверки по действующим редакциям перед применением в реальной КД.",
+  "records": [
+    {
+      "record_id": "F001",
+      "category": "definition",
+      "item": "Посадка",
+      "engineering_meaning": "Характер соединения двух деталей, определяемый разностью их размеров до сборки",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F002",
+      "category": "notation",
+      "item": "Поле допуска отверстия",
+      "engineering_meaning": "В обозначении посадки записывается в числителе",
+      "examples": "H7",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F003",
+      "category": "notation",
+      "item": "Поле допуска вала",
+      "engineering_meaning": "В обозначении посадки записывается в знаменателе",
+      "examples": "g6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F004",
+      "category": "tolerance",
+      "item": "Допуск посадки",
+      "engineering_meaning": "Сумма допусков отверстия и вала, составляющих соединение",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F005",
+      "category": "quality_grade",
+      "item": "Квалитет IT02",
+      "engineering_meaning": "Квалитет 02",
+      "examples": "IT02",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F006",
+      "category": "quality_grade",
+      "item": "Квалитет IT07",
+      "engineering_meaning": "Седьмой квалитет",
+      "examples": "IT07",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F007",
+      "category": "quality_grade",
+      "item": "Квалитет IT14",
+      "engineering_meaning": "Четырнадцатый квалитет",
+      "examples": "IT14",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F008",
+      "category": "deviation",
+      "item": "Основные отклонения отверстий",
+      "engineering_meaning": "Обозначаются прописными латинскими буквами",
+      "examples": "A...ZC",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F009",
+      "category": "deviation",
+      "item": "Основные отклонения валов",
+      "engineering_meaning": "Обозначаются строчными латинскими буквами",
+      "examples": "a...zc",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F010",
+      "category": "selection_factor",
+      "item": "Характер сопряжения",
+      "engineering_meaning": "Перед выбором посадки определяется подвижное или неподвижное сопряжение",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F011",
+      "category": "selection_factor",
+      "item": "Скорость относительного перемещения",
+      "engineering_meaning": "Учитывается как конструктивное требование при выборе посадки",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F012",
+      "category": "selection_factor",
+      "item": "Компенсация погрешностей монтажа",
+      "engineering_meaning": "Учитывается при выборе посадки",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F013",
+      "category": "selection_factor",
+      "item": "Центрирование",
+      "engineering_meaning": "Необходимость центрирования влияет на выбор посадки",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F014",
+      "category": "selection_factor",
+      "item": "Нагрузка",
+      "engineering_meaning": "Учитываются величина и характер нагрузок, передаваемых сопряжением",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F015",
+      "category": "machining",
+      "item": "Черновая обработка",
+      "engineering_meaning": "Диапазон точности 12-16 квалитетов; шероховатость Ra 100...25 мкм",
+      "examples": "IT12-IT16; Ra 100...25 μm",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F016",
+      "category": "machining",
+      "item": "Получистовая обработка",
+      "engineering_meaning": "Точность 11-12 квалитетов; Ra 50...12,5 мкм",
+      "examples": "IT11-IT12; Ra 50...12.5 μm",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F017",
+      "category": "machining",
+      "item": "Чистовая обработка",
+      "engineering_meaning": "Точность 8-11 квалитетов; Ra 12,5...2,5 мкм",
+      "examples": "IT8-IT11; Ra 12.5...2.5 μm",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F018",
+      "category": "machining",
+      "item": "Тонкая обработка",
+      "engineering_meaning": "Точность 5-7 квалитетов; для стали Ra 2,5...0,63 мкм",
+      "examples": "IT5-IT7; Ra 2.5...0.63 μm",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F019",
+      "category": "machining",
+      "item": "Отделочная обработка",
+      "engineering_meaning": "В исходной статье приведён ориентир Ra 0,63...0,16 мкм",
+      "examples": "Ra 0.63...0.16 μm",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F020",
+      "category": "quality_grade",
+      "item": "Квалитеты 4-5",
+      "engineering_meaning": "Особо точные соединения с высокой однородностью зазора или натяга",
+      "examples": "IT4-IT5",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F021",
+      "category": "quality_grade",
+      "item": "Квалитеты 6-7",
+      "engineering_meaning": "Ответственные соединения с высокими требованиями к зазору, натягу, плавности, герметичности и сборке",
+      "examples": "IT6-IT7",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F022",
+      "category": "quality_grade",
+      "item": "Квалитеты 8-9",
+      "engineering_meaning": "Средняя точность сборки и меньшие требования к однородности зазоров или натягов",
+      "examples": "IT8-IT9",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F023",
+      "category": "quality_grade",
+      "item": "Квалитет 10",
+      "engineering_meaning": "Посадки с зазором, когда допустимо большее колебание зазора",
+      "examples": "IT10",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F024",
+      "category": "quality_grade",
+      "item": "Квалитеты 11-12",
+      "engineering_meaning": "Большие зазоры и грубая сборка в неответственных соединениях",
+      "examples": "IT11-IT12",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F025",
+      "category": "clearance_fit",
+      "item": "Посадка с зазором",
+      "engineering_meaning": "Всегда образуется зазор: минимальный размер отверстия не меньше максимального размера вала",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F026",
+      "category": "clearance_fit",
+      "item": "Посадка скольжения",
+      "engineering_meaning": "Нулевой гарантированный зазор для установочных или регулировочных перемещений",
+      "examples": "H11/h11; H8/h7; H7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F027",
+      "category": "clearance_fit",
+      "item": "Посадка движения",
+      "engineering_meaning": "Точное вращение при небольшой скорости",
+      "examples": "H/g; G/h",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F028",
+      "category": "clearance_fit",
+      "item": "Опора скольжения средней скорости",
+      "engineering_meaning": "Несколько больший гарантированный зазор",
+      "examples": "H7/f7; H8/f8",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F029",
+      "category": "clearance_fit",
+      "item": "Ходовая посадка",
+      "engineering_meaning": "Свободное перемещение при сравнительно невысокой точности и более высокой скорости",
+      "examples": "H7/e8; H8/e8",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F030",
+      "category": "clearance_fit",
+      "item": "Легкоразъёмное неподвижное соединение",
+      "engineering_meaning": "Примеры более грубых посадок для крышки-корпуса",
+      "examples": "E9/h8; H8/d9; H9/d9; H11/d11",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F031",
+      "category": "interference_fit",
+      "item": "Посадка с натягом",
+      "engineering_meaning": "Всегда образуется натяг; используется для передачи момента/осевой силы или неразъёмного соединения",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F032",
+      "category": "interference_fit",
+      "item": "Легкопрессовая",
+      "engineering_meaning": "Минимальный гарантированный натяг",
+      "examples": "H7/p6; H7/r6; P7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F033",
+      "category": "interference_fit",
+      "item": "Среднепрессовая",
+      "engineering_meaning": "В статье: относительный натяг до 0,5 мкм/мм; передача момента до 1/2 предельного",
+      "examples": "H7/s6; H7/s7; S7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F034",
+      "category": "interference_fit",
+      "item": "Тяжёлая прессовая",
+      "engineering_meaning": "В статье: относительный натяг до 1 мкм/мм; при достаточной площади соединение равнопрочно валу",
+      "examples": "H7/t6; H7/u7; T7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F035",
+      "category": "interference_fit",
+      "item": "Усиленная прессовая",
+      "engineering_meaning": "В статье: относительный натяг более 1 мкм/мм",
+      "examples": "H8/x8; H8/z8",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F036",
+      "category": "transition_fit",
+      "item": "Переходная посадка",
+      "engineering_meaning": "Возможно получение как зазора, так и натяга в зависимости от действительных размеров",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F037",
+      "category": "transition_fit",
+      "item": "Плотная переходная",
+      "engineering_meaning": "Преимущественный зазор, высокая точность центрирования",
+      "examples": "H7/js6; H8/js7; Js7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F038",
+      "category": "transition_fit",
+      "item": "Напряжённая переходная",
+      "engineering_meaning": "Примерно равная вероятность зазора и натяга; высокая точность центрирования",
+      "examples": "H7/k6; H8/k7; K7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F039",
+      "category": "transition_fit",
+      "item": "Глухая переходная",
+      "engineering_meaning": "Преимущественный натяг; сборка может требовать нагрева, охлаждения или пресса",
+      "examples": "H7/n6; N6/h5; N7/h6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F040",
+      "category": "drawing_notation",
+      "item": "Буквенно-цифровая запись посадки",
+      "engineering_meaning": "Обозначение номинального размера и полей допусков",
+      "examples": "20 H7/g6",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F041",
+      "category": "drawing_notation",
+      "item": "Симметричное поле допуска",
+      "engineering_meaning": "Абсолютная величина отклонения указывается один раз со знаком ±",
+      "examples": "60±0.23",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F042",
+      "category": "economics",
+      "item": "Избыточная точность",
+      "engineering_meaning": "Исходная статья предупреждает: чрезмерно высокая точность обработки приводит к неоправданным затратам",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    },
+    {
+      "record_id": "F043",
+      "category": "economics",
+      "item": "Стоимость жёстких допусков",
+      "engineering_meaning": "Более жёсткие допуски обычно требуют более дорогого изготовления; конкретная экономика зависит от процесса и предприятия",
+      "examples": "",
+      "verification_status": "source_article",
+      "source_url": "https://dzen.ru/a/YC5Ktv-i2GrkVltW"
+    }
+  ]
+}
