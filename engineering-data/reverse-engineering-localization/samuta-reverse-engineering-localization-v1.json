@@ -395,5 +395,14 @@
       "verification_status": "inference_from_source",
       "source_url": "https://pavel-samuta.livejournal.com/33322.html"
     }
-  ]
+  ],
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/reverse-engineering-localization/#dataset",
+  "name_ru": "Реверс-инжиниринг и локализация производства",
+  "name_en": "Reverse Engineering and Manufacturing Localization",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/reverse-engineering-localization/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/reverse-engineering-localization/"
 }
