@@ -1,41 +1,41 @@
-record_id,category,name,definition_or_role,load_mode_or_property,example_or_period,source_url
-TEN-001,concept,Tensegrity,"Принцип построения самонапряженных структур из раздельных сжатых элементов и непрерывной системы растянутых элементов","сжатие + растяжение",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-002,terminology,Tensional integrity,"Английское выражение, от которого образован термин tensegrity","целостность посредством растяжения",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-003,element,Стержень,"Жесткий элемент структуры","сжатие",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-004,element,Трос,"Гибкий растянутый элемент, фиксирующий относительное положение стержней","растяжение",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-005,principle,Самонапряжение,"Предварительно напряженное состояние системы растянутых и сжатых элементов","prestress",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-006,principle,Самоуравновешивание,"Баланс внутренних усилий обеспечивает устойчивость системы","equilibrium",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-007,principle,Разделение режимов нагрузки,"Элементы нагружены преимущественно либо чистым сжатием, либо чистым растяжением","compression/tension",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-008,geometry,Раздельные стержни,"Стержни в описанной структуре не соприкасаются и удерживаются системой растянутых тросов","discontinuous compression",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-009,property,Стабильность,"Минимальное число жестких элементов может образовывать устойчивую структуру при наличии натяжения","stability",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-010,property,Распределение деформации,"При деформации изменение распределяется по взаимосвязанной структуре","distributed deformation",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-011,property,Обратимая переориентация,"Компоненты переориентируются при деформации и могут возвращаться без разрушения","reversible response",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-012,property,Модульность,"Завершенные структуры могут объединяться в более крупную систему","modularity",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-013,property,Иерархичность,"Меньшая tensegrity-структура может работать как компонент большей системы","hierarchy",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-014,property,Визуальная прозрачность,"Разнесенные сжатые элементы и тонкие растянутые связи создают открытую структуру","aesthetic/structural",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-015,failure_mode,Разрыв троса,"Один из указанных в статье предельных сценариев","tension failure",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-016,failure_mode,Потеря устойчивости стержня,"Один из указанных в статье предельных сценариев","buckling",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-017,design_object,X-модуль Кеннета Снелсона,"Ранний модуль tensegrity, показанный в статье как двухмодульная колонна",,1948,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-018,person,Бакминстер Фуллер,"Автор термина tensegrity и популяризатор принципа",,1920s-1950s,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-019,person,Кеннет Снелсон,"Скульптор; в статье ему приписано создание в 1949 году первой структуры, позднее определенной как tensegrity",,1949,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-020,person,Карл Иогансон,"Русский конструктивист; его самонапряженные конструкции 1921 года в статье названы предвосхитившими tensegrity",,1921,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-021,person,Вячеслав Колейчук,"Реконструировал выставку Карла Иогансона по двум сохранившимся фотографиям",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-022,application,Скульптура,"Художественные пространственные самонапряженные структуры",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-023,application,Мосты,"Применение принципов tensegrity в мостовых конструкциях",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-024,application,Развертываемые купола,"Пространственные конструкции, упомянутые среди применений",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-025,application,Космические рамы,"Пространственные системы, упомянутые среди инженерных применений",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-026,application,Робототехника,"Модульная tensegrity-конструкция показана как пример устойчивой робототехнической системы",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-027,application,Мебель,"В статье приведен журнальный столик Robby Cuthbert как пример tensegrity-дизайна",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-028,application,Сбор дождевой воды и тумана,"Концепт системы на стальной проволоке и деревянных сжатых элементах",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-029,structure,Spodek,"Объект в Катовице; статья относит его к ранним крупным применениям принципа",,1960s,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-030,structure,Seoul Olympic Gymnastics Arena,"В статье указана как проект Дэвида Гейгера для летних Олимпийских игр 1988 года",,1988,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-031,structure,Georgia Dome,"Крупное сооружение, описанное в статье как tensegrity-подобная купольная система",,1990s,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-032,structure,Tropicana Field,"Купольная крыша упомянута как поддерживаемая большой tensegrity-конструкцией",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-033,structure,Kurilpa Bridge,"Мост через реку Брисбен, приведенный как крупный пример применения принципов tensegrity",,2009,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-034,engineering_effect,Жесткость относительно массы,"Статья связывает tensegrity с высокой жесткостью при малой массе и сечении компонентов","stiffness-to-mass",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-035,engineering_effect,Экономия материала,"В статье названа следствием высокой эффективности структуры по массе и сечению","material efficiency",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-036,biological_analogy,Опорно-двигательная система,"Мышцы, связки и сухожилия описаны как растянутые элементы вокруг жестких костей","tension/compression analogy",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-037,learning,Физическая модель,"Статья рекомендует построить модель своими руками, чтобы увидеть устойчивость и распределение усилий",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-038,software,Springie,"Упомянут как наглядный симулятор самонапряженных структур",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-039,reference,Tensegrity Systems,"Книга Robert E. Skelton и Mauricio C. de Oliveira приведена в литературе",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
-TEN-040,publication,Ridus,"Независимая публикация об истории tensegrity, предоставленная автором набора",,,"https://www.ridus.ru/stabilnost-sterzhnej-i-trosov--kak-razvivalas-istoriya-tensegriti-354667.html"
+dataset_name_ru,dataset_name_en,record_id,category,name,definition_or_role,load_mode_or_property,example_or_period,source_url
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-001,concept,Tensegrity,"Принцип построения самонапряженных структур из раздельных сжатых элементов и непрерывной системы растянутых элементов","сжатие + растяжение",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-002,terminology,Tensional integrity,"Английское выражение, от которого образован термин tensegrity","целостность посредством растяжения",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-003,element,Стержень,"Жесткий элемент структуры","сжатие",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-004,element,Трос,"Гибкий растянутый элемент, фиксирующий относительное положение стержней","растяжение",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-005,principle,Самонапряжение,"Предварительно напряженное состояние системы растянутых и сжатых элементов","prestress",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-006,principle,Самоуравновешивание,"Баланс внутренних усилий обеспечивает устойчивость системы","equilibrium",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-007,principle,Разделение режимов нагрузки,"Элементы нагружены преимущественно либо чистым сжатием, либо чистым растяжением","compression/tension",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-008,geometry,Раздельные стержни,"Стержни в описанной структуре не соприкасаются и удерживаются системой растянутых тросов","discontinuous compression",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-009,property,Стабильность,"Минимальное число жестких элементов может образовывать устойчивую структуру при наличии натяжения","stability",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-010,property,Распределение деформации,"При деформации изменение распределяется по взаимосвязанной структуре","distributed deformation",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-011,property,Обратимая переориентация,"Компоненты переориентируются при деформации и могут возвращаться без разрушения","reversible response",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-012,property,Модульность,"Завершенные структуры могут объединяться в более крупную систему","modularity",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-013,property,Иерархичность,"Меньшая tensegrity-структура может работать как компонент большей системы","hierarchy",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-014,property,Визуальная прозрачность,"Разнесенные сжатые элементы и тонкие растянутые связи создают открытую структуру","aesthetic/structural",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-015,failure_mode,Разрыв троса,"Один из указанных в статье предельных сценариев","tension failure",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-016,failure_mode,Потеря устойчивости стержня,"Один из указанных в статье предельных сценариев","buckling",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-017,design_object,X-модуль Кеннета Снелсона,"Ранний модуль tensegrity, показанный в статье как двухмодульная колонна",,1948,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-018,person,Бакминстер Фуллер,"Автор термина tensegrity и популяризатор принципа",,1920s-1950s,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-019,person,Кеннет Снелсон,"Скульптор; в статье ему приписано создание в 1949 году первой структуры, позднее определенной как tensegrity",,1949,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-020,person,Карл Иогансон,"Русский конструктивист; его самонапряженные конструкции 1921 года в статье названы предвосхитившими tensegrity",,1921,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-021,person,Вячеслав Колейчук,"Реконструировал выставку Карла Иогансона по двум сохранившимся фотографиям",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-022,application,Скульптура,"Художественные пространственные самонапряженные структуры",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-023,application,Мосты,"Применение принципов tensegrity в мостовых конструкциях",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-024,application,Развертываемые купола,"Пространственные конструкции, упомянутые среди применений",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-025,application,Космические рамы,"Пространственные системы, упомянутые среди инженерных применений",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-026,application,Робототехника,"Модульная tensegrity-конструкция показана как пример устойчивой робототехнической системы",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-027,application,Мебель,"В статье приведен журнальный столик Robby Cuthbert как пример tensegrity-дизайна",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-028,application,Сбор дождевой воды и тумана,"Концепт системы на стальной проволоке и деревянных сжатых элементах",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-029,structure,Spodek,"Объект в Катовице; статья относит его к ранним крупным применениям принципа",,1960s,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-030,structure,Seoul Olympic Gymnastics Arena,"В статье указана как проект Дэвида Гейгера для летних Олимпийских игр 1988 года",,1988,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-031,structure,Georgia Dome,"Крупное сооружение, описанное в статье как tensegrity-подобная купольная система",,1990s,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-032,structure,Tropicana Field,"Купольная крыша упомянута как поддерживаемая большой tensegrity-конструкцией",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-033,structure,Kurilpa Bridge,"Мост через реку Брисбен, приведенный как крупный пример применения принципов tensegrity",,2009,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-034,engineering_effect,Жесткость относительно массы,"Статья связывает tensegrity с высокой жесткостью при малой массе и сечении компонентов","stiffness-to-mass",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-035,engineering_effect,Экономия материала,"В статье названа следствием высокой эффективности структуры по массе и сечению","material efficiency",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-036,biological_analogy,Опорно-двигательная система,"Мышцы, связки и сухожилия описаны как растянутые элементы вокруг жестких костей","tension/compression analogy",,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-037,learning,Физическая модель,"Статья рекомендует построить модель своими руками, чтобы увидеть устойчивость и распределение усилий",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-038,software,Springie,"Упомянут как наглядный симулятор самонапряженных структур",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-039,reference,Tensegrity Systems,"Книга Robert E. Skelton и Mauricio C. de Oliveira приведена в литературе",,,https://dzen.ru/a/XpgZ6-KkPjd1INyO
+"Тенсегрити: элементы, нагрузки и применения","Tensegrity Structures",TEN-040,publication,Ridus,"Независимая публикация об истории tensegrity, предоставленная автором набора",,,"https://www.ridus.ru/stabilnost-sterzhnej-i-trosov--kak-razvivalas-istoriya-tensegriti-354667.html"
