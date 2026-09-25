@@ -29,3 +29,25 @@ SR-027,selection,Скорость,,,,"При выборе требования �
 SR-028,selection,Срок службы,,,,"При выборе требования автор предлагает учитывать требуемый срок службы",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
 SR-029,selection,Свойства материала,,,,"При выборе требования автор предлагает учитывать свойства материала",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
 SR-030,selection,Точность,,,,"При выборе требования автор предлагает учитывать требуемый уровень точности",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
+SR-031,parameter,Ra,,,,"Среднее арифметическое отклонение профиля",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-032,parameter,Rz,,,,"Высота неровностей профиля по десяти точкам",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-033,parameter,Rmax,,,,"Наибольшая высота неровностей профиля",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-034,parameter,Sm,,,,"Средний шаг неровностей профиля",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-035,parameter,S,,,,"Средний шаг неровностей профиля по вершинам",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-036,parameter,tp,,,,"Относительная опорная длина профиля",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-037,surface_type,Ограничительные и соединительные поверхности,2.5,20,,"В публикации приведены Ra 20...2,5 мкм и Rz 80...10 мкм",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-038,surface_type,Установочные поверхности,2.5,20,,"Неподвижный контакт без требований по герметичности; Ra 20...2,5 мкм, Rz 80...10 мкм",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-039,surface_type,Рабочие поверхности,0.16,2.5,,"Поверхности с относительным движением; Ra 2,5...0,16 мкм, Rz 10...0,8 мкм",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-040,surface_type,Специальные поверхности,1.25,5,,"Для внешних корпусов механизмов и агрегатов в публикации приведены Ra 5,0...1,25 мкм",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-041,selection,Несопрягаемые неответственные поверхности,12.5,12.5,,"Авторский ориентир: основания, кронштейны, корпуса, проходные отверстия под крепёж, детали под сварку и гибку",author_practice,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-042,selection,Прилегающие непосадочные поверхности,6.3,6.3,,"Авторский ориентир: опорные плоскости корпусов и кронштейнов, крышки, торцы бобышек, канавки, фаски и зенковки",author_practice,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-043,selection,Гладкие функциональные поверхности,1.6,3.2,,"Авторская группа Ra 3,2; 2,5; 1,6: рабочие шпонки и пазы, профиль зуба, канавки под уплотнения, тепловой контакт и склейка",author_practice,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-044,selection,Точные посадочные и герметичные поверхности,0.2,0.8,,"Авторская группа Ra 0,8; 0,4; 0,2: точные посадки, притираемые герметичные соединения, цилиндры с манжетами, посадочные места подшипников",author_practice,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-045,control,Образцы шероховатости,,,,"Сравнение поверхности изделия с образцами для конкретного способа обработки; публикация ссылается на ГОСТ 9378-93",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-046,control,Профилометр,,,,"Непосредственное измерение параметров шероховатости прибором",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-047,principle,Экономически достаточная шероховатость,,,,"Авторский принцип: назначать наиболее грубую отделку, которая обеспечивает требуемую работу детали, и не обрабатывать лучше требования без необходимости",author_practice,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-048,principle,Согласование параметров приёмки,,,,"Проектировщику и производителю следует заранее согласовать, какие параметры Ra/Rz применяются для проверки и приёмки",author_practice,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-049,direction,Произвольное направление M,,,,"В публикации M используется для произвольного направления неровностей",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-050,direction,Кругообразное направление C,,,,"Кругообразное направление неровностей относительно центра поверхности",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-051,direction,Радиальное направление R,,,,"Радиальное направление неровностей относительно центра поверхности",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
+SR-052,direction,Хаотичное направление P,,,,"Хаотичное направление неровностей",source_statement,https://dzen.ru/a/YC5P7zrW7nh8YsuH
