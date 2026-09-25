@@ -582,5 +582,14 @@
       "source_status": "source_statement",
       "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
     }
-  ]
+  ],
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/surface-roughness-selection/#dataset",
+  "name_ru": "Выбор шероховатости поверхности",
+  "name_en": "Surface Roughness Selection",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/surface-roughness-selection/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/surface-roughness-selection/"
 }
