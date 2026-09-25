@@ -390,5 +390,14 @@
       "verification_status": "source_statement",
       "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
     }
-  ]
+  ],
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/machine-part-design-elements/#dataset",
+  "name_ru": "Конструктивные и технологические элементы деталей",
+  "name_en": "Design and Manufacturing Elements of Machine Parts",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/machine-part-design-elements/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/machine-part-design-elements/"
 }
