@@ -352,5 +352,14 @@
       "reference_period": "2020",
       "source_url": "https://dzen.ru/a/XmDqUh3RL15c7fLm"
     }
-  ]
+  ],
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/cad-drawing-pricing-factors/#dataset",
+  "name_ru": "Факторы стоимости чертежа и 3D-модели",
+  "name_en": "CAD Drawing and 3D Model Pricing Factors",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/cad-drawing-pricing-factors/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/cad-drawing-pricing-factors/"
 }
