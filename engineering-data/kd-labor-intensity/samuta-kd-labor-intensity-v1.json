@@ -50,5 +50,14 @@
     "KD-028,planning,factor,\"Выделяемый бюджет\",,,,,,\"Авторский перечень факторов в публикации\",\"Ограничение проекта; не самостоятельная мера инженерной сложности\"",
     "KD-029,quality_metric,metric,\"Замечания по КД при отработке на технологичность\",,count,,,\"Метрика, предложенная в публикации\",\"Требует классификации причин замечаний\"",
     "KD-030,quality_metric,metric,\"Извещения об изменении КД за период эксплуатации\",,count,,,\"Метрика, предложенная в публикации\",\"Количество без причины и стадии обнаружения не показывает качество само по себе\""
-  ]
+  ],
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/#dataset",
+  "name_ru": "Факторы трудоёмкости разработки КД",
+  "name_en": "Design Documentation Labor Intensity",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/kd-labor-intensity/"
 }
