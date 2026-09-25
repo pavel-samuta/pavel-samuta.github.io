@@ -1,0 +1,31 @@
+record_id,category,process_or_factor,ra_min_um,ra_max_um,class_range,function_or_effect,source_status,source_url
+SR-001,process,Фрезерование,0.4,12.5,3-8,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-002,process,Сверление,0.2,12.5,3-9,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-003,process,Прорезание,3.2,50,1-5,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-004,process,Протягивание,0.2,6.3,4-9,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-005,process,Резьбонарезание,1.6,6.3,4-6,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-006,process,Развертывание,0.4,2.5,5-8,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-007,process,Растачивание,0.1,3.2,5-10,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-008,process,Шлифование,0.1,3.2,5-10,"Ориентировочный диапазон шероховатости, приводимый автором для процесса",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-009,function,Трение и износ,,,,"Шероховатость контактирующих поверхностей влияет на трение и износ",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-010,function,Уплотнение,,,,"Текстура поверхности влияет на способность контактной пары образовывать уплотнение",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-011,function,Окраска,,,,"Шероховатость влияет на смачивание и толщину лакокрасочного слоя",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-012,function,Коррозионная стойкость,,,,"В публикации более высокая шероховатость связана со снижением коррозионной стойкости из-за смачивания и большего числа активных участков",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-013,function,Оптические поверхности,,,,"Оптические и рентгеновские компоненты требуют особенно высокого качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-014,function,Гидродинамическая поверхность,,,,"Для гребного винта качество поверхности связано с трением, вибрацией и кавитационными явлениями",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-015,function,Цилиндр двигателя,,,,"Минимальная шероховатость может быть функционально нужна для удержания масла в профиле поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-016,factor,Режущий инструмент,,,,"Выбор и состояние режущего инструмента влияют на получаемую поверхность",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-017,factor,Состояние станка,,,,"Состояние оборудования влияет на качество обработанной поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-018,factor,Подача,,,,"Подача названа одним из факторов качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-019,factor,Скорость обработки,,,,"Скорость обработки названа одним из факторов качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-020,factor,Ширина реза,,,,"Ширина реза названа одним из факторов качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-021,factor,Глубина резания,,,,"Глубина резания названа одним из факторов качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-022,factor,Температура в помещении,,,,"Температура в помещении названа среди факторов, влияющих на результат обработки",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-023,factor,СОЖ,,,,"Тип смазочно-охлаждающей жидкости назван среди факторов качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-024,factor,Вибрация,,,,"Вибрация названа среди факторов качества поверхности",source_statement,https://pavel-samuta.livejournal.com/24787.html
+SR-025,selection,Условия эксплуатации,,,,"При выборе требования автор предлагает учитывать условия эксплуатации",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
+SR-026,selection,Нагрузка,,,,"При выборе требования автор предлагает учитывать уровень нагрузки",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
+SR-027,selection,Скорость,,,,"При выборе требования автор предлагает учитывать скорость работы",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
+SR-028,selection,Срок службы,,,,"При выборе требования автор предлагает учитывать требуемый срок службы",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
+SR-029,selection,Свойства материала,,,,"При выборе требования автор предлагает учитывать свойства материала",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
+SR-030,selection,Точность,,,,"При выборе требования автор предлагает учитывать требуемый уровень точности",source_statement,https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti
