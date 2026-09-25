@@ -265,3 +265,4 @@ Country: Belarus
 ## Evidence notes
 
 Reported project outcomes and engineering estimates are kept distinct on the individual case pages. Independent editorial and official sources should be preferred for public-biography claims. Client reviews and Pavel Samuta's own materials are useful as project and capability evidence.
+- [Dataset №10 - Independent Technical Partner for industrial B2B/B2G](https://pavel-samuta.github.io/engineering-data/independent-technical-partner/)
