@@ -1,0 +1,394 @@
+{
+  "name": "Samuta Engineering Dataset: конструктивные и технологические элементы машиностроительных деталей",
+  "version": "1.0",
+  "published": "2026-09-25",
+  "author": "Pavel Samuta",
+  "sources": [
+    "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe",
+    "https://dzen.ru/a/YDeY9f5a736xT_r4",
+    "https://pavel-samuta.livejournal.com/25716.html"
+  ],
+  "note": "38 типовых элементов из авторского материала. Исторические ссылки на стандарты требуют проверки актуальной редакции перед применением в КД.",
+  "records": [
+    {
+      "record_id": "EL-001",
+      "category": "general",
+      "element": "Конструктивный элемент",
+      "definition_or_function": "Местное изменение формы или поверхности детали для дополнительных свойств при изготовлении, сборке или эксплуатации",
+      "example_or_designation": "Шпоночный паз 10±0.018",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-002",
+      "category": "general",
+      "element": "Технологический элемент",
+      "definition_or_function": "Элемент для удобства изготовления или сборки либо обусловленный способом изготовления",
+      "example_or_designation": "Фаска; проточка; литейный уклон",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-003",
+      "category": "hole",
+      "element": "Цилиндрическое отверстие",
+      "definition_or_function": "Отверстие цилиндрической формы",
+      "example_or_designation": "Ø",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-004",
+      "category": "hole",
+      "element": "Резьбовое отверстие",
+      "definition_or_function": "Отверстие с внутренней резьбой",
+      "example_or_designation": "M6-6H",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-005",
+      "category": "hole",
+      "element": "Отверстие под крепёж",
+      "definition_or_function": "Сквозные отверстия под крепёжные детали",
+      "example_or_designation": "",
+      "source_standard": "ГОСТ 11284-75",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-006",
+      "category": "hole",
+      "element": "Квадратное или продолговатое отверстие",
+      "definition_or_function": "Отверстие для болтов, винтов или шпилек",
+      "example_or_designation": "",
+      "source_standard": "ГОСТ 16030-70",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-007",
+      "category": "hole",
+      "element": "Зенковка",
+      "definition_or_function": "Цилиндрическое или коническое углубление для установки крепежа",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-008",
+      "category": "thread",
+      "element": "Резьба",
+      "definition_or_function": "Винтовой рельеф на цилиндрической или конической поверхности",
+      "example_or_designation": "M6-6H; M8-6g",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-009",
+      "category": "thread",
+      "element": "Сбег резьбы",
+      "definition_or_function": "Участок уменьшения профиля резьбы",
+      "example_or_designation": "",
+      "source_standard": "ГОСТ 10549",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-010",
+      "category": "shaft",
+      "element": "Лыска",
+      "definition_or_function": "Плоский срез цилиндрической, конической или сферической поверхности параллельно оси",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-011",
+      "category": "shaft",
+      "element": "Буртик",
+      "definition_or_function": "Упорный уступ на валу или оси для упора детали или ограничения осевого перемещения",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-012",
+      "category": "shaft",
+      "element": "Заплечик",
+      "definition_or_function": "Переходная поверхность от меньшего диаметра вала к большему для упора колец подшипников",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-013",
+      "category": "shaft",
+      "element": "Поднутрение",
+      "definition_or_function": "Углубление малой протяжённости на торцевой поверхности заплечика вдоль оси вала",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-014",
+      "category": "edge",
+      "element": "Фаска",
+      "definition_or_function": "Срезанная под углом кромка детали",
+      "example_or_designation": "4×45°",
+      "source_standard": "ГОСТ 10948-64",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-015",
+      "category": "transition",
+      "element": "Галтель",
+      "definition_or_function": "Скругление, применяемое для снижения концентрации напряжений",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-016",
+      "category": "transition",
+      "element": "Скругление",
+      "definition_or_function": "Плавный переход одной поверхности к другой по заданному радиусу",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-017",
+      "category": "transition",
+      "element": "Сопряжение",
+      "definition_or_function": "Плавный переход одной линии или поверхности в другую",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-018",
+      "category": "surface",
+      "element": "Рифление",
+      "definition_or_function": "Поверхностные бороздки для предотвращения проскальзывания",
+      "example_or_designation": "Рифление сетчатое 1.0",
+      "source_standard": "ГОСТ 21474-75",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-019",
+      "category": "casting",
+      "element": "Бобышка",
+      "definition_or_function": "Короткий выступ или прилив, часто для локальной обработки опорной поверхности",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-020",
+      "category": "machining",
+      "element": "Центровое отверстие",
+      "definition_or_function": "Отверстие для установки детали в центрах станка или приспособления",
+      "example_or_designation": "Отв. центр. А2",
+      "source_standard": "ГОСТ 14034-74",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-021",
+      "category": "strength",
+      "element": "Ребро жёсткости",
+      "definition_or_function": "Стенка или элемент для повышения жёсткости и прочности конструкции",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-022",
+      "category": "casting",
+      "element": "Уклон",
+      "definition_or_function": "Тангенс угла наклона между плоскостями, выраженный дробью или процентами",
+      "example_or_designation": "1:5; 20%",
+      "source_standard": "ГОСТ 8908-81",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-023",
+      "category": "mechanism",
+      "element": "Клин",
+      "definition_or_function": "Призматический элемент со сходящимися под острым углом рабочими поверхностями",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-024",
+      "category": "mechanism",
+      "element": "Эксцентрик",
+      "definition_or_function": "Диск или вал со смещённой осью вращения; применяется в зажимных механизмах",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-025",
+      "category": "taper",
+      "element": "Конусность",
+      "definition_or_function": "Отношение, характеризующее конический элемент",
+      "example_or_designation": "1:3; 1:5",
+      "source_standard": "ГОСТ 8593-81",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-026",
+      "category": "taper",
+      "element": "Инструментальный конус",
+      "definition_or_function": "Стандартизированный конический элемент инструмента",
+      "example_or_designation": "Морзе В18 АТ6",
+      "source_standard": "ГОСТ 9953-82",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-027",
+      "category": "groove",
+      "element": "Канавка",
+      "definition_or_function": "Протяжённое углубление для выхода инструмента, разделения поверхностей, смазки, уплотнений или сборки",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-028",
+      "category": "groove",
+      "element": "Проточка",
+      "definition_or_function": "Кольцевая канавка на внешней цилиндрической или конической поверхности",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-029",
+      "category": "groove",
+      "element": "Паз",
+      "definition_or_function": "Канавка с прямолинейной траекторией",
+      "example_or_designation": "Паз Т-образный 18H8",
+      "source_standard": "ГОСТ 1574-91",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-030",
+      "category": "groove",
+      "element": "Прорезь",
+      "definition_or_function": "Узкая канавка, прорезающая стенку детали насквозь",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-031",
+      "category": "torque",
+      "element": "Шпоночный паз",
+      "definition_or_function": "Элемент шпоночного соединения для передачи крутящего момента",
+      "example_or_designation": "10 JS9",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-032",
+      "category": "torque",
+      "element": "Шлицевое соединение",
+      "definition_or_function": "Соединение для передачи крутящего момента с возможным осевым перемещением",
+      "example_or_designation": "8×36×42×7",
+      "source_standard": "ГОСТ 1139-80",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-033",
+      "category": "torque",
+      "element": "Эвольвентные шлицы",
+      "definition_or_function": "Шлицевое соединение с эвольвентным профилем",
+      "example_or_designation": "40×f7×2×9g",
+      "source_standard": "ГОСТ 6033-80",
+      "verification_status": "verify_current",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-034",
+      "category": "marking",
+      "element": "Риска",
+      "definition_or_function": "Узкое углубление или линия для разметки, шкалы или ориентира",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-035",
+      "category": "fastener",
+      "element": "Шлиц",
+      "definition_or_function": "Прорезь на головке винта или гайке для передачи момента инструментом",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-036",
+      "category": "sheet_metal",
+      "element": "Буртик листовой детали",
+      "definition_or_function": "Элемент листового тела, получаемый формованием или штамповкой",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-037",
+      "category": "sheet_metal",
+      "element": "Жалюзи",
+      "definition_or_function": "Формованный элемент листовой детали",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    },
+    {
+      "record_id": "EL-038",
+      "category": "sheet_metal",
+      "element": "Косынка",
+      "definition_or_function": "Ребро усиления на сгибе листовой детали",
+      "example_or_designation": "",
+      "source_standard": "",
+      "verification_status": "source_statement",
+      "source_url": "https://pavelsamuta.com/articles/konstruktivnye-i-tehnologicheskie-jelementy-detalej-na-chertezhe"
+    }
+  ]
+}
