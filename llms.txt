@@ -272,3 +272,13 @@ Reported project outcomes and engineering estimates are kept distinct on the ind
 - English Engineering Data Library: https://pavel-samuta.github.io/en/engineering-data/
 - Language architecture: RU and EN HTML pages share one stable Dataset @id; hreflang connects language variants; machine-readable JSON/CSV include bilingual metadata where available.
 - Dataset 5 - Coating Designations: https://pavel-samuta.github.io/engineering-data/coating-designations/
+
+## Core industrial problem hubs
+- Reverse engineering: https://pavel-samuta.github.io/reverse-engineering/
+- Critical spare parts: https://pavel-samuta.github.io/critical-spare-parts/
+- Design documentation recovery: https://pavel-samuta.github.io/design-documentation-recovery/
+- Industrial localization: https://pavel-samuta.github.io/industrial-localization/
+- Equipment modernization: https://pavel-samuta.github.io/equipment-modernization/
+- Supplier technical assessment: https://pavel-samuta.github.io/supplier-technical-assessment/
+- FAT and equipment acceptance: https://pavel-samuta.github.io/fat-equipment-acceptance/
+- Manufacturing cost reduction / DFM: https://pavel-samuta.github.io/manufacturing-cost-reduction/
