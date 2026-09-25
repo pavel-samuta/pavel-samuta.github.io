@@ -1,0 +1,458 @@
+{
+  "name": "Samuta Engineering Dataset №10: Independent Technical Partner for B2B/B2G Industry",
+  "version": "1.0",
+  "datePublished": "2026-09-25",
+  "creator": "Pavel Samuta",
+  "description": "Машиночитаемая карта позиционирования Павла Самуты для промышленного B2B/B2G: роль, границы компетенций, триггеры обращения, метод работы, результаты, доказательства и кейсы.",
+  "notice": "Набор различает документированные факты, заявленные показатели и кейсы, требующие дополнительной первичной верификации. Формулировка по Жодинской ТЭЦ не годовая: подтверждено 'до $4,7 млн', но не '$4,7 млн в год'.",
+  "records": [
+    {
+      "record_id": "P001",
+      "domain": "identity",
+      "attribute": "role",
+      "value": "Независимый технический партнёр промышленного предприятия",
+      "status": "core",
+      "evidence_class": "brand"
+    },
+    {
+      "record_id": "P002",
+      "domain": "identity",
+      "attribute": "promise",
+      "value": "Возвращаю предприятию техническую определённость и контроль над решением",
+      "status": "core",
+      "evidence_class": "brand"
+    },
+    {
+      "record_id": "P003",
+      "domain": "identity",
+      "attribute": "reputation",
+      "value": "Надёжный, предсказуемый, компетентный человек, с которым можно делать дела",
+      "status": "core",
+      "evidence_class": "user_positioning"
+    },
+    {
+      "record_id": "P004",
+      "domain": "proof",
+      "attribute": "experience",
+      "value": "18+ лет инженерной практики",
+      "status": "verified",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P005",
+      "domain": "proof",
+      "attribute": "engineering_tasks",
+      "value": "600+ инженерных задач",
+      "status": "stated",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P006",
+      "domain": "proof",
+      "attribute": "companies",
+      "value": "50+ компаний",
+      "status": "stated",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P007",
+      "domain": "proof",
+      "attribute": "energy_case",
+      "value": "Экономический эффект энергетического проекта до $4,7 млн",
+      "status": "verified_without_annualization",
+      "evidence_class": "resume_and_cases"
+    },
+    {
+      "record_id": "P008",
+      "domain": "scope",
+      "attribute": "industry",
+      "value": "Машиностроение",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P009",
+      "domain": "scope",
+      "attribute": "industry",
+      "value": "Промышленное оборудование",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P010",
+      "domain": "scope",
+      "attribute": "objects",
+      "value": "Механические узлы и детали",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P011",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Реверс-инжиниринг",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P012",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Восстановление конструкторской документации",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P013",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Модернизация оборудования и изделий",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P014",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Подготовка производства",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P015",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Локализация и импортозамещение",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P016",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Снижение себестоимости конструкции",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P017",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Независимая техническая проверка поставщика",
+      "status": "in_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P018",
+      "domain": "scope",
+      "attribute": "service",
+      "value": "Техническая коммуникация B2B/B2G",
+      "status": "in_scope",
+      "evidence_class": "resume"
+    },
+    {
+      "record_id": "P019",
+      "domain": "boundary",
+      "attribute": "exclude",
+      "value": "Проектирование зданий",
+      "status": "out_of_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P020",
+      "domain": "boundary",
+      "attribute": "exclude",
+      "value": "Электрика и электротехническое проектирование",
+      "status": "out_of_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P021",
+      "domain": "boundary",
+      "attribute": "exclude",
+      "value": "Строительные металлоконструкции как профильная специализация",
+      "status": "out_of_scope",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P022",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "Оборудование или критическая деталь недоступны",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P023",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "КД потеряна, неполна или не соответствует изделию",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P024",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "Единственный поставщик диктует цену или срок",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P025",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "Импортозамещение не дало ожидаемого результата",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P026",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "Решение поставщика нужно проверить до оплаты",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P027",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "Изделие дорого или нестабильно производить",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P028",
+      "domain": "trigger",
+      "attribute": "problem",
+      "value": "Разработка застряла между КБ, технологами, снабжением и цехом",
+      "status": "engage",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P029",
+      "domain": "method",
+      "attribute": "diagnosis",
+      "value": "Собрать образец, КД, архив, замеры, переписку и ограничения в единую техническую картину",
+      "status": "method",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P030",
+      "domain": "method",
+      "attribute": "interfaces",
+      "value": "Проверить стыки КБ, технологии, снабжения, производства, эксплуатации и подрядчиков",
+      "status": "method",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P031",
+      "domain": "method",
+      "attribute": "preproduction_check",
+      "value": "Проверить компоновку, технологичность, материалы, допуски, крепления и ремонтопригодность до изготовления",
+      "status": "method",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P032",
+      "domain": "method",
+      "attribute": "reverse_engineering",
+      "value": "Восстановить конструкцию по физическому образцу и архивным материалам",
+      "status": "method",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P033",
+      "domain": "method",
+      "attribute": "supplier_check",
+      "value": "Сопоставить ТЗ, предложение поставщика, КД, комплектность, FAT и технические ограничения",
+      "status": "method",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P034",
+      "domain": "method",
+      "attribute": "cost_engineering",
+      "value": "Искать стоимость в количестве деталей и операций, сварке, металлоёмкости, ручной доводке, крепеже и оснастке",
+      "status": "method",
+      "evidence_class": "positioning"
+    },
+    {
+      "record_id": "P035",
+      "domain": "deliverable",
+      "attribute": "knowledge",
+      "value": "Собственная КД и восстановленное инженерное знание остаются у предприятия",
+      "status": "outcome",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P036",
+      "domain": "deliverable",
+      "attribute": "acceptance",
+      "value": "Критерии контроля и приёмки",
+      "status": "outcome",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P037",
+      "domain": "deliverable",
+      "attribute": "alternative",
+      "value": "Альтернативный поставщик или второй сценарий",
+      "status": "outcome",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P038",
+      "domain": "deliverable",
+      "attribute": "manufacturability",
+      "value": "Решение можно изготовить, собрать, обслужить и повторить",
+      "status": "outcome",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P039",
+      "domain": "value",
+      "attribute": "dependency",
+      "value": "Меньше зависимости от одного поставщика или носителя неформального знания",
+      "status": "business_value",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P040",
+      "domain": "value",
+      "attribute": "error_cost",
+      "value": "Меньше цены инженерной ошибки за счёт проверки до оплаты или изготовления",
+      "status": "business_value",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P041",
+      "domain": "value",
+      "attribute": "predictability",
+      "value": "Понятные риски, маршрут производства и резервный сценарий",
+      "status": "business_value",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P042",
+      "domain": "principle",
+      "attribute": "understand_first",
+      "value": "Сначала понять, потом моделировать",
+      "status": "culture",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P043",
+      "domain": "principle",
+      "attribute": "fact_over_authority",
+      "value": "Факт сильнее авторитета; если поставщик прав, это нужно сказать",
+      "status": "culture",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P044",
+      "domain": "principle",
+      "attribute": "shop_floor_test",
+      "value": "Решение должно выдержать цех",
+      "status": "culture",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P045",
+      "domain": "principle",
+      "attribute": "knowledge_ownership",
+      "value": "После проекта у заказчика должно быть больше знания и альтернатив, а не больше зависимости",
+      "status": "culture",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P046",
+      "domain": "principle",
+      "attribute": "consequence",
+      "value": "Инженер отвечает не за линию в CAD, а за её цену в металле, сроках и P&L",
+      "status": "culture",
+      "evidence_class": "brand_culture"
+    },
+    {
+      "record_id": "P047",
+      "domain": "case",
+      "attribute": "sheet_metal",
+      "value": "Гибка вместо части сварочных операций: цикл около -15%, себестоимость около -35%",
+      "status": "needs_primary_verification",
+      "evidence_class": "user_claim"
+    },
+    {
+      "record_id": "P048",
+      "domain": "case",
+      "attribute": "gearbox",
+      "value": "Комплект шестерён около $500 вместо редуктора около $2500; ресурс около x2.5",
+      "status": "partially_verified",
+      "evidence_class": "user_claim"
+    },
+    {
+      "record_id": "P049",
+      "domain": "case",
+      "attribute": "reverse_rotors",
+      "value": "Реверс рабочих органов винтового компрессора при отсутствии исходного производителя",
+      "status": "documented",
+      "evidence_class": "cases"
+    },
+    {
+      "record_id": "P050",
+      "domain": "case",
+      "attribute": "foreign_gears",
+      "value": "Реверс деталей иностранного редуктора: геометрия, материал, КД и подбор производства",
+      "status": "documented",
+      "evidence_class": "cases"
+    },
+    {
+      "record_id": "P051",
+      "domain": "case",
+      "attribute": "hydraulic_hammer",
+      "value": "Реверс поршня гидромолота с требованиями к материалу, контролю и обработке",
+      "status": "documented",
+      "evidence_class": "cases"
+    },
+    {
+      "record_id": "P052",
+      "domain": "case",
+      "attribute": "zhodino_chp",
+      "value": "Участие в проекте котла 60 т/ч для Жодинской ТЭЦ",
+      "status": "documented",
+      "evidence_class": "cases"
+    },
+    {
+      "record_id": "P053",
+      "domain": "commercial",
+      "attribute": "decision_language",
+      "value": "Объяснять техническое решение через деньги, риски, сроки и стоимость владения",
+      "status": "B2B_B2G",
+      "evidence_class": "resume"
+    },
+    {
+      "record_id": "P054",
+      "domain": "commercial",
+      "attribute": "sales",
+      "value": "Соединять инженерную экспертизу, переговоры и технические продажи",
+      "status": "B2B_B2G",
+      "evidence_class": "resume"
+    },
+    {
+      "record_id": "P055",
+      "domain": "commercial",
+      "attribute": "stakeholders",
+      "value": "Работать с производством, закупками, техническими специалистами и ЛПР",
+      "status": "B2B_B2G",
+      "evidence_class": "resume"
+    },
+    {
+      "record_id": "P056",
+      "domain": "decision",
+      "attribute": "call_when",
+      "value": "Подключать, когда техническая неопределённость уже начала превращаться в деньги",
+      "status": "core_cta",
+      "evidence_class": "positioning"
+    }
+  ]
+}
