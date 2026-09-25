@@ -1,0 +1,29 @@
+record_id,section,item,meaning,example,source_standard,standard_status,current_reference,source_url
+SD-001,images,"Виды, разрезы и сечения","Количество изображений должно быть минимальным, но достаточным для полного определения формы детали",Шесть основных видов,ГОСТ 2.305-68,replaced,ГОСТ 2.305-2008,https://pavel-samuta.livejournal.com/9815.html
+SD-002,images,Штриховка материалов,Штриховка сечений передаёт материал и должна быть согласована для одной детали,,ГОСТ 2.306-68,verify_current,,https://pavel-samuta.livejournal.com/9815.html
+SD-003,dimensions,Линейные размеры,Линейные и радиальные размерные числа указываются в миллиметрах без обозначения единицы,Ø12,ГОСТ 2.307-68,replaced,ГОСТ 2.307-2011,https://pavel-samuta.livejournal.com/9815.html
+SD-004,dimensions,Угловые размеры,"Угловые размеры задаются в градусах, минутах и секундах",30°15',ГОСТ 2.307-68,replaced,ГОСТ 2.307-2011,https://pavel-samuta.livejournal.com/9815.html
+SD-005,dimensions,Посадки и предельные отклонения,Размер может сопровождаться буквенно-цифровым полем допуска или числовыми отклонениями,Ø12H12,ГОСТ 2.307-68,replaced,ГОСТ 2.307-2011,https://pavel-samuta.livejournal.com/9815.html
+SD-006,dimensions,Толщина плоской детали,Для простой плоской детали толщина может обозначаться буквой S,S5,ГОСТ 2.307-68,replaced,ГОСТ 2.307-2011,https://pavel-samuta.livejournal.com/9815.html
+SD-007,thread,Резьба,Изображение и обозначение резьбы передают тип и основные параметры,M30; G1⅜; Tr30x6,ГОСТ 2.311-68,verify_current,,https://pavel-samuta.livejournal.com/9815.html
+SD-008,geometric_tolerance,Допуски формы и расположения,"Геометрические допуски задают требования к форме, ориентации и расположению поверхностей",,ГОСТ 2.308-68,historical_reference,ГОСТ Р 2.308-2023,https://pavel-samuta.livejournal.com/9815.html
+SD-009,roughness,Шероховатость поверхности,Требование к микрогеометрии поверхности назначается по функциональному назначению,Ra,ГОСТ 2.309-68,verify_current,ГОСТ 2.309,https://pavel-samuta.livejournal.com/9815.html
+SD-010,treatment,Покрытия и термообработка,"На чертеже фиксируют требования к покрытию, термической и другим видам обработки",Хим. Окс. прм.,ГОСТ 2.310-68,verify_current,ГОСТ 2.310,https://pavel-samuta.livejournal.com/9815.html
+SD-011,marking,Маркирование и клеймение,Чертёж может задавать место и требования к маркированию или клеймению,ссылка на пункт ТТ,ГОСТ 2.314-68,verify_current,,https://pavel-samuta.livejournal.com/9815.html
+SD-012,text,Текстовые указания,"Информация, которую нельзя передать графически, помещается в технические требования, характеристики, надписи или таблицы",,ГОСТ 2.316-68,verify_current,,https://pavel-samuta.livejournal.com/9815.html
+SD-013,title_block,Основная надпись,"Основная надпись идентифицирует изделие и документ: наименование, обозначение, материал, массу и сведения об исполнении",,ГОСТ 2.104,verify_current,ГОСТ 2.104,https://pavel-samuta.livejournal.com/9815.html
+SD-014,assembly,Сборочный чертёж,"Содержит изображение сборочной единицы и сведения, необходимые для сборки и контроля",,,source_definition,,https://pavel-samuta.livejournal.com/9815.html
+SD-015,assembly,Справочные размеры,"Размеры, не подлежащие выполнению по данному чертежу, отмечаются как справочные",* Размеры для справок,,source_rule,,https://pavel-samuta.livejournal.com/9815.html
+SD-016,assembly,Исполнительные и присоединительные размеры,"Сборочный чертёж должен содержать размеры, необходимые для сборки, установки и присоединения",,,source_rule,,https://pavel-samuta.livejournal.com/9815.html
+SD-017,assembly,Сборочные операции,"На чертеже могут задаваться требования к сварке, пайке, клёпке, склеиванию и другим соединениям",,ГОСТ 2.313-82; ГОСТ 2.312-72,verify_current,,https://pavel-samuta.livejournal.com/9815.html
+SD-018,assembly,Номера позиций,"Позиция связывает элемент на сборочном чертеже с наименованием, обозначением и количеством в спецификации",,,source_rule,,https://pavel-samuta.livejournal.com/9815.html
+SD-019,technical_requirements,Требования к сборке,"Технические требования могут задавать размеры, отклонения и условия сборки",,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-020,technical_requirements,Качество поверхностей и покрытия,"Технические требования могут задавать качество поверхности, покрытие и отделку",,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-021,technical_requirements,Расположение и зазоры,Технические требования могут задавать взаимное расположение элементов и зазоры,,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-022,technical_requirements,Регулировка и настройка,Технические требования могут задавать порядок и критерии регулировки изделия,,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-023,technical_requirements,Функциональные свойства,"Могут задаваться требования к бесшумности, самоторможению, виброустойчивости и другим свойствам",,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-024,technical_requirements,Испытания,Чертёж может содержать методику и условия испытаний,,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-025,technical_requirements,Маркирование,Технические требования могут задавать маркирование и клеймение,,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-026,technical_requirements,Хранение и транспортировка,Технические требования могут задавать правила хранения и транспортировки,,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-027,technical_requirements,Особые условия эксплуатации,Технические требования могут фиксировать специальные условия использования изделия,,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
+SD-028,technical_requirements,Ссылочная документация,"Требования могут ссылаться на другие документы, содержащие отсутствующую на чертеже информацию",,,source_sequence,,https://pavel-samuta.livejournal.com/9815.html
