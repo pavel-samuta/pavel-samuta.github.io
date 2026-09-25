@@ -1,0 +1,321 @@
+{
+  "name": "Samuta Engineering Dataset: обозначения и требования на машиностроительных чертежах",
+  "version": "1.0",
+  "published": "2026-09-25",
+  "author": "Pavel Samuta",
+  "source": [
+    "https://pavel-samuta.livejournal.com/9815.html",
+    "https://dzen.ru/a/XjAeChDkjwO54o4A"
+  ],
+  "note": "Набор извлечён из авторской публикации 2018 года. Исторические ссылки на стандарты сохранены; поле standard_status отмечает необходимость проверки или найденную замену. Набор не заменяет официальный текст ЕСКД.",
+  "records": [
+    {
+      "record_id": "SD-001",
+      "section": "images",
+      "item": "Виды, разрезы и сечения",
+      "meaning": "Количество изображений должно быть минимальным, но достаточным для полного определения формы детали",
+      "example": "Шесть основных видов",
+      "source_standard": "ГОСТ 2.305-68",
+      "standard_status": "replaced",
+      "current_reference": "ГОСТ 2.305-2008",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-002",
+      "section": "images",
+      "item": "Штриховка материалов",
+      "meaning": "Штриховка сечений передаёт материал и должна быть согласована для одной детали",
+      "example": "",
+      "source_standard": "ГОСТ 2.306-68",
+      "standard_status": "verify_current",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-003",
+      "section": "dimensions",
+      "item": "Линейные размеры",
+      "meaning": "Линейные и радиальные размерные числа указываются в миллиметрах без обозначения единицы",
+      "example": "Ø12",
+      "source_standard": "ГОСТ 2.307-68",
+      "standard_status": "replaced",
+      "current_reference": "ГОСТ 2.307-2011",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-004",
+      "section": "dimensions",
+      "item": "Угловые размеры",
+      "meaning": "Угловые размеры задаются в градусах, минутах и секундах",
+      "example": "30°15'",
+      "source_standard": "ГОСТ 2.307-68",
+      "standard_status": "replaced",
+      "current_reference": "ГОСТ 2.307-2011",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-005",
+      "section": "dimensions",
+      "item": "Посадки и предельные отклонения",
+      "meaning": "Размер может сопровождаться буквенно-цифровым полем допуска или числовыми отклонениями",
+      "example": "Ø12H12",
+      "source_standard": "ГОСТ 2.307-68",
+      "standard_status": "replaced",
+      "current_reference": "ГОСТ 2.307-2011",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-006",
+      "section": "dimensions",
+      "item": "Толщина плоской детали",
+      "meaning": "Для простой плоской детали толщина может обозначаться буквой S",
+      "example": "S5",
+      "source_standard": "ГОСТ 2.307-68",
+      "standard_status": "replaced",
+      "current_reference": "ГОСТ 2.307-2011",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-007",
+      "section": "thread",
+      "item": "Резьба",
+      "meaning": "Изображение и обозначение резьбы передают тип и основные параметры",
+      "example": "M30; G1⅜; Tr30x6",
+      "source_standard": "ГОСТ 2.311-68",
+      "standard_status": "verify_current",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-008",
+      "section": "geometric_tolerance",
+      "item": "Допуски формы и расположения",
+      "meaning": "Геометрические допуски задают требования к форме, ориентации и расположению поверхностей",
+      "example": "",
+      "source_standard": "ГОСТ 2.308-68",
+      "standard_status": "historical_reference",
+      "current_reference": "ГОСТ Р 2.308-2023",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-009",
+      "section": "roughness",
+      "item": "Шероховатость поверхности",
+      "meaning": "Требование к микрогеометрии поверхности назначается по функциональному назначению",
+      "example": "Ra",
+      "source_standard": "ГОСТ 2.309-68",
+      "standard_status": "verify_current",
+      "current_reference": "ГОСТ 2.309",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-010",
+      "section": "treatment",
+      "item": "Покрытия и термообработка",
+      "meaning": "На чертеже фиксируют требования к покрытию, термической и другим видам обработки",
+      "example": "Хим. Окс. прм.",
+      "source_standard": "ГОСТ 2.310-68",
+      "standard_status": "verify_current",
+      "current_reference": "ГОСТ 2.310",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-011",
+      "section": "marking",
+      "item": "Маркирование и клеймение",
+      "meaning": "Чертёж может задавать место и требования к маркированию или клеймению",
+      "example": "ссылка на пункт ТТ",
+      "source_standard": "ГОСТ 2.314-68",
+      "standard_status": "verify_current",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-012",
+      "section": "text",
+      "item": "Текстовые указания",
+      "meaning": "Информация, которую нельзя передать графически, помещается в технические требования, характеристики, надписи или таблицы",
+      "example": "",
+      "source_standard": "ГОСТ 2.316-68",
+      "standard_status": "verify_current",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-013",
+      "section": "title_block",
+      "item": "Основная надпись",
+      "meaning": "Основная надпись идентифицирует изделие и документ: наименование, обозначение, материал, массу и сведения об исполнении",
+      "example": "",
+      "source_standard": "ГОСТ 2.104",
+      "standard_status": "verify_current",
+      "current_reference": "ГОСТ 2.104",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-014",
+      "section": "assembly",
+      "item": "Сборочный чертёж",
+      "meaning": "Содержит изображение сборочной единицы и сведения, необходимые для сборки и контроля",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_definition",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-015",
+      "section": "assembly",
+      "item": "Справочные размеры",
+      "meaning": "Размеры, не подлежащие выполнению по данному чертежу, отмечаются как справочные",
+      "example": "* Размеры для справок",
+      "source_standard": "",
+      "standard_status": "source_rule",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-016",
+      "section": "assembly",
+      "item": "Исполнительные и присоединительные размеры",
+      "meaning": "Сборочный чертёж должен содержать размеры, необходимые для сборки, установки и присоединения",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_rule",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-017",
+      "section": "assembly",
+      "item": "Сборочные операции",
+      "meaning": "На чертеже могут задаваться требования к сварке, пайке, клёпке, склеиванию и другим соединениям",
+      "example": "",
+      "source_standard": "ГОСТ 2.313-82; ГОСТ 2.312-72",
+      "standard_status": "verify_current",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-018",
+      "section": "assembly",
+      "item": "Номера позиций",
+      "meaning": "Позиция связывает элемент на сборочном чертеже с наименованием, обозначением и количеством в спецификации",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_rule",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-019",
+      "section": "technical_requirements",
+      "item": "Требования к сборке",
+      "meaning": "Технические требования могут задавать размеры, отклонения и условия сборки",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-020",
+      "section": "technical_requirements",
+      "item": "Качество поверхностей и покрытия",
+      "meaning": "Технические требования могут задавать качество поверхности, покрытие и отделку",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-021",
+      "section": "technical_requirements",
+      "item": "Расположение и зазоры",
+      "meaning": "Технические требования могут задавать взаимное расположение элементов и зазоры",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-022",
+      "section": "technical_requirements",
+      "item": "Регулировка и настройка",
+      "meaning": "Технические требования могут задавать порядок и критерии регулировки изделия",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-023",
+      "section": "technical_requirements",
+      "item": "Функциональные свойства",
+      "meaning": "Могут задаваться требования к бесшумности, самоторможению, виброустойчивости и другим свойствам",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-024",
+      "section": "technical_requirements",
+      "item": "Испытания",
+      "meaning": "Чертёж может содержать методику и условия испытаний",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-025",
+      "section": "technical_requirements",
+      "item": "Маркирование",
+      "meaning": "Технические требования могут задавать маркирование и клеймение",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-026",
+      "section": "technical_requirements",
+      "item": "Хранение и транспортировка",
+      "meaning": "Технические требования могут задавать правила хранения и транспортировки",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-027",
+      "section": "technical_requirements",
+      "item": "Особые условия эксплуатации",
+      "meaning": "Технические требования могут фиксировать специальные условия использования изделия",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    },
+    {
+      "record_id": "SD-028",
+      "section": "technical_requirements",
+      "item": "Ссылочная документация",
+      "meaning": "Требования могут ссылаться на другие документы, содержащие отсутствующую на чертеже информацию",
+      "example": "",
+      "source_standard": "",
+      "standard_status": "source_sequence",
+      "current_reference": "",
+      "source_url": "https://pavel-samuta.livejournal.com/9815.html"
+    }
+  ]
+}
