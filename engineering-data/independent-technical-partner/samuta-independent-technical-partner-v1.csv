@@ -2,7 +2,7 @@ record_id,domain,attribute,value,status,evidence_class
 "P001","identity","role","Независимый технический партнёр промышленного предприятия","core","brand"
 "P002","identity","promise","Возвращаю предприятию техническую определённость и контроль над решением","core","brand"
 "P003","identity","reputation","Надёжный, предсказуемый, компетентный человек, с которым можно делать дела","core","user_positioning"
-"P004","proof","experience","18+ лет инженерной практики","verified","brand_culture"
+"P004","proof","experience","Опыт с 2007 года","verified","brand_culture"
 "P005","proof","engineering_tasks","600+ инженерных задач","stated","brand_culture"
 "P006","proof","companies","50+ компаний","stated","brand_culture"
 "P007","proof","energy_case","Экономический эффект энергетического проекта до $4,7 млн","verified_without_annualization","resume_and_cases"
