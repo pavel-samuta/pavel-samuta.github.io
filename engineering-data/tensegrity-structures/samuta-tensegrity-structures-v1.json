@@ -1,0 +1,374 @@
+{
+  "name": "Samuta Engineering Dataset: Tensegrity Structures",
+  "version": "1.0",
+  "datePublished": "2026-09-25",
+  "creator": "Павел Самута",
+  "sources": [
+    "https://dzen.ru/a/XpgZ6-KkPjd1INyO",
+    "https://pavel-samuta.livejournal.com/21532.html",
+    "https://www.ridus.ru/stabilnost-sterzhnej-i-trosov--kak-razvivalas-istoriya-tensegriti-354667.html"
+  ],
+  "note": "Структурированное представление авторского материала о tensegrity. Исторические и объектные утверждения сохранены в формулировках источника и не являются отдельной нормативной или расчетной верификацией.",
+  "records": [
+    {
+      "record_id": "TEN-001",
+      "category": "concept",
+      "name": "Tensegrity",
+      "definition_or_role": "Принцип построения самонапряженных структур из раздельных сжатых элементов и непрерывной системы растянутых элементов",
+      "load_mode_or_property": "сжатие + растяжение",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-002",
+      "category": "terminology",
+      "name": "Tensional integrity",
+      "definition_or_role": "Английское выражение, от которого образован термин tensegrity",
+      "load_mode_or_property": "целостность посредством растяжения",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-003",
+      "category": "element",
+      "name": "Стержень",
+      "definition_or_role": "Жесткий элемент структуры",
+      "load_mode_or_property": "сжатие",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-004",
+      "category": "element",
+      "name": "Трос",
+      "definition_or_role": "Гибкий растянутый элемент, фиксирующий относительное положение стержней",
+      "load_mode_or_property": "растяжение",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-005",
+      "category": "principle",
+      "name": "Самонапряжение",
+      "definition_or_role": "Предварительно напряженное состояние системы растянутых и сжатых элементов",
+      "load_mode_or_property": "prestress",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-006",
+      "category": "principle",
+      "name": "Самоуравновешивание",
+      "definition_or_role": "Баланс внутренних усилий обеспечивает устойчивость системы",
+      "load_mode_or_property": "equilibrium",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-007",
+      "category": "principle",
+      "name": "Разделение режимов нагрузки",
+      "definition_or_role": "Элементы нагружены преимущественно либо чистым сжатием, либо чистым растяжением",
+      "load_mode_or_property": "compression/tension",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-008",
+      "category": "geometry",
+      "name": "Раздельные стержни",
+      "definition_or_role": "Стержни в описанной структуре не соприкасаются и удерживаются системой растянутых тросов",
+      "load_mode_or_property": "discontinuous compression",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-009",
+      "category": "property",
+      "name": "Стабильность",
+      "definition_or_role": "Минимальное число жестких элементов может образовывать устойчивую структуру при наличии натяжения",
+      "load_mode_or_property": "stability",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-010",
+      "category": "property",
+      "name": "Распределение деформации",
+      "definition_or_role": "При деформации изменение распределяется по взаимосвязанной структуре",
+      "load_mode_or_property": "distributed deformation",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-011",
+      "category": "property",
+      "name": "Обратимая переориентация",
+      "definition_or_role": "Компоненты переориентируются при деформации и могут возвращаться без разрушения",
+      "load_mode_or_property": "reversible response",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-012",
+      "category": "property",
+      "name": "Модульность",
+      "definition_or_role": "Завершенные структуры могут объединяться в более крупную систему",
+      "load_mode_or_property": "modularity",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-013",
+      "category": "property",
+      "name": "Иерархичность",
+      "definition_or_role": "Меньшая tensegrity-структура может работать как компонент большей системы",
+      "load_mode_or_property": "hierarchy",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-014",
+      "category": "property",
+      "name": "Визуальная прозрачность",
+      "definition_or_role": "Разнесенные сжатые элементы и тонкие растянутые связи создают открытую структуру",
+      "load_mode_or_property": "aesthetic/structural",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-015",
+      "category": "failure_mode",
+      "name": "Разрыв троса",
+      "definition_or_role": "Один из указанных в статье предельных сценариев",
+      "load_mode_or_property": "tension failure",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-016",
+      "category": "failure_mode",
+      "name": "Потеря устойчивости стержня",
+      "definition_or_role": "Один из указанных в статье предельных сценариев",
+      "load_mode_or_property": "buckling",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-017",
+      "category": "design_object",
+      "name": "X-модуль Кеннета Снелсона",
+      "definition_or_role": "Ранний модуль tensegrity, показанный в статье как двухмодульная колонна",
+      "load_mode_or_property": "",
+      "example_or_period": "1948",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-018",
+      "category": "person",
+      "name": "Бакминстер Фуллер",
+      "definition_or_role": "Автор термина tensegrity и популяризатор принципа",
+      "load_mode_or_property": "",
+      "example_or_period": "1920s-1950s",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-019",
+      "category": "person",
+      "name": "Кеннет Снелсон",
+      "definition_or_role": "Скульптор; в статье ему приписано создание в 1949 году первой структуры, позднее определенной как tensegrity",
+      "load_mode_or_property": "",
+      "example_or_period": "1949",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-020",
+      "category": "person",
+      "name": "Карл Иогансон",
+      "definition_or_role": "Русский конструктивист; его самонапряженные конструкции 1921 года в статье названы предвосхитившими tensegrity",
+      "load_mode_or_property": "",
+      "example_or_period": "1921",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-021",
+      "category": "person",
+      "name": "Вячеслав Колейчук",
+      "definition_or_role": "Реконструировал выставку Карла Иогансона по двум сохранившимся фотографиям",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-022",
+      "category": "application",
+      "name": "Скульптура",
+      "definition_or_role": "Художественные пространственные самонапряженные структуры",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-023",
+      "category": "application",
+      "name": "Мосты",
+      "definition_or_role": "Применение принципов tensegrity в мостовых конструкциях",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-024",
+      "category": "application",
+      "name": "Развертываемые купола",
+      "definition_or_role": "Пространственные конструкции, упомянутые среди применений",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-025",
+      "category": "application",
+      "name": "Космические рамы",
+      "definition_or_role": "Пространственные системы, упомянутые среди инженерных применений",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-026",
+      "category": "application",
+      "name": "Робототехника",
+      "definition_or_role": "Модульная tensegrity-конструкция показана как пример устойчивой робототехнической системы",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-027",
+      "category": "application",
+      "name": "Мебель",
+      "definition_or_role": "В статье приведен журнальный столик Robby Cuthbert как пример tensegrity-дизайна",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-028",
+      "category": "application",
+      "name": "Сбор дождевой воды и тумана",
+      "definition_or_role": "Концепт системы на стальной проволоке и деревянных сжатых элементах",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-029",
+      "category": "structure",
+      "name": "Spodek",
+      "definition_or_role": "Объект в Катовице; статья относит его к ранним крупным применениям принципа",
+      "load_mode_or_property": "",
+      "example_or_period": "1960s",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-030",
+      "category": "structure",
+      "name": "Seoul Olympic Gymnastics Arena",
+      "definition_or_role": "В статье указана как проект Дэвида Гейгера для летних Олимпийских игр 1988 года",
+      "load_mode_or_property": "",
+      "example_or_period": "1988",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-031",
+      "category": "structure",
+      "name": "Georgia Dome",
+      "definition_or_role": "Крупное сооружение, описанное в статье как tensegrity-подобная купольная система",
+      "load_mode_or_property": "",
+      "example_or_period": "1990s",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-032",
+      "category": "structure",
+      "name": "Tropicana Field",
+      "definition_or_role": "Купольная крыша упомянута как поддерживаемая большой tensegrity-конструкцией",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-033",
+      "category": "structure",
+      "name": "Kurilpa Bridge",
+      "definition_or_role": "Мост через реку Брисбен, приведенный как крупный пример применения принципов tensegrity",
+      "load_mode_or_property": "",
+      "example_or_period": "2009",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-034",
+      "category": "engineering_effect",
+      "name": "Жесткость относительно массы",
+      "definition_or_role": "Статья связывает tensegrity с высокой жесткостью при малой массе и сечении компонентов",
+      "load_mode_or_property": "stiffness-to-mass",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-035",
+      "category": "engineering_effect",
+      "name": "Экономия материала",
+      "definition_or_role": "В статье названа следствием высокой эффективности структуры по массе и сечению",
+      "load_mode_or_property": "material efficiency",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-036",
+      "category": "biological_analogy",
+      "name": "Опорно-двигательная система",
+      "definition_or_role": "Мышцы, связки и сухожилия описаны как растянутые элементы вокруг жестких костей",
+      "load_mode_or_property": "tension/compression analogy",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-037",
+      "category": "learning",
+      "name": "Физическая модель",
+      "definition_or_role": "Статья рекомендует построить модель своими руками, чтобы увидеть устойчивость и распределение усилий",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-038",
+      "category": "software",
+      "name": "Springie",
+      "definition_or_role": "Упомянут как наглядный симулятор самонапряженных структур",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-039",
+      "category": "reference",
+      "name": "Tensegrity Systems",
+      "definition_or_role": "Книга Robert E. Skelton и Mauricio C. de Oliveira приведена в литературе",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://dzen.ru/a/XpgZ6-KkPjd1INyO"
+    },
+    {
+      "record_id": "TEN-040",
+      "category": "publication",
+      "name": "Ridus",
+      "definition_or_role": "Независимая публикация об истории tensegrity, предоставленная автором набора",
+      "load_mode_or_property": "",
+      "example_or_period": "",
+      "source_url": "https://www.ridus.ru/stabilnost-sterzhnej-i-trosov--kak-razvivalas-istoriya-tensegriti-354667.html"
+    }
+  ]
+}
