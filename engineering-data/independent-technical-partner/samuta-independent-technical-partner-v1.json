@@ -567,5 +567,14 @@
       "evidence_class": "T4Power, 2024-03-25"
     }
   ],
-  "dateModified": "2026-09-25"
+  "dateModified": "2026-09-25",
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/independent-technical-partner/#dataset",
+  "name_ru": "Независимый технический партнёр промышленного предприятия",
+  "name_en": "Independent Technical Partner for Industrial B2B/B2G",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/independent-technical-partner/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/independent-technical-partner/"
 }
