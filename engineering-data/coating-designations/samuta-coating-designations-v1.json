@@ -1,0 +1,17 @@
+{
+  "@id": "https://pavel-samuta.github.io/engineering-data/coating-designations/#dataset",
+  "name_ru": "Обозначения покрытий на машиностроительных чертежах",
+  "name_en": "Coating Designations on Mechanical Drawings",
+  "version": "1.0",
+  "datePublished": "2026-09-25",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "source": [
+    "https://dzen.ru/a/ZCcB5PuCIC1iiLD_",
+    "https://pavel-samuta.livejournal.com/39970.html"
+  ],
+  "notice_ru": "Стандарты из исходной публикации требуют проверки по действующим редакциям перед применением в производственной КД.",
+  "notice_en": "Standards cited in the source publication must be checked against current editions before use in production drawings."
+}
