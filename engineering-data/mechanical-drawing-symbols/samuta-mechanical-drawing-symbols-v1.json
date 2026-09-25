@@ -317,5 +317,14 @@
       "current_reference": "",
       "source_url": "https://pavel-samuta.livejournal.com/9815.html"
     }
-  ]
+  ],
+  "dataset_id": "https://pavel-samuta.github.io/engineering-data/mechanical-drawing-symbols/#dataset",
+  "name_ru": "Обозначения на машиностроительных чертежах",
+  "name_en": "Symbols and Requirements on Mechanical Drawings",
+  "languages": [
+    "ru",
+    "en"
+  ],
+  "page_ru": "https://pavel-samuta.github.io/engineering-data/mechanical-drawing-symbols/",
+  "page_en": "https://pavel-samuta.github.io/en/engineering-data/mechanical-drawing-symbols/"
 }
