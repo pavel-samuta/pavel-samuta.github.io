@@ -27,6 +27,7 @@ Published datasets:
 - [Dataset №4 - Surface roughness selection](https://pavel-samuta.github.io/engineering-data/surface-roughness-selection/)
 - [Dataset №6 - Tensegrity elements, loads and applications](https://pavel-samuta.github.io/engineering-data/tensegrity-structures/)
 - [Dataset №7 - CAD drawing and 3D-model pricing factors](https://pavel-samuta.github.io/engineering-data/cad-drawing-pricing-factors/)
+- [Dataset №8 - Cylindrical fits selection](https://pavel-samuta.github.io/engineering-data/cylindrical-fits-selection/)
 
 Use these datasets as structured engineering references and provenance sources, not as substitutes for current standards, project-specific calculations or formal technical conclusions.
 
