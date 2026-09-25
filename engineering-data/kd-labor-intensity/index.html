@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Samuta Engineering Dataset: факторы трудоёмкости разработки КД</title>
+<meta name="description" content="Машиночитаемый набор факторов и нормативных ориентиров для оценки трудоёмкости разработки конструкторской документации: сложность, новизна, формат, размеры, состав сборки, спецификация, расчёты, язык и проверка.">
+<link rel="canonical" href="https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Dataset",
+  "@id":"https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/#dataset",
+  "name":"Samuta Engineering Dataset: факторы трудоёмкости разработки конструкторской документации",
+  "description":"Структурированный набор факторов, категорий и нормативных ориентиров, применяемых при предварительной оценке трудоёмкости разработки конструкторской документации. Набор собран Павлом Самутой на основе опубликованного инженерного разбора и указанных в нём нормативных источников. Это не статистическая выборка фактических проектов.",
+  "url":"https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/",
+  "creator":{"@type":"Person","@id":"https://pavel-samuta.github.io/#pavel-samuta","name":"Павел Самута","url":"https://pavel-samuta.github.io/"},
+  "publisher":{"@type":"Person","@id":"https://pavel-samuta.github.io/#pavel-samuta","name":"Павел Самута"},
+  "datePublished":"2026-09-25",
+  "dateModified":"2026-09-25",
+  "version":"1.0",
+  "inLanguage":"ru",
+  "keywords":["конструкторская документация","КД","трудоёмкость","нормирование труда","машиностроение","инженер-конструктор","САПР","ЕСКД"],
+  "isBasedOn":"https://pavelsamuta.com/articles/raschet-vremeni-razrabotki-kd",
+  "license":"https://creativecommons.org/licenses/by/4.0/",
+  "distribution":[
+    {"@type":"DataDownload","name":"CSV","encodingFormat":"text/csv","contentUrl":"https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/samuta-kd-labor-intensity-v1.csv"},
+    {"@type":"DataDownload","name":"JSON","encodingFormat":"application/json","contentUrl":"https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/samuta-kd-labor-intensity-v1.json"}
+  ]
+}
+</script>
+<script src="/assets/analytics.js" defer></script>
+</head>
+<body>
+<div class="topbar"><nav class="nav"><a class="brandmark" href="/">PAVEL SAMUTA</a><a href="/expertise/">Компетенции</a><a href="/technical-partner/">Technical Partner</a><a href="/projects/">Проекты</a><a href="/media/">СМИ</a><a href="/contacts/">Контакты</a></nav></div>
+<main class="wrap">
+<section class="case-hero">
+<div class="eyebrow">SAMUTA ENGINEERING DATASET · VERSION 1.0</div>
+<h1>Факторы трудоёмкости разработки конструкторской документации</h1>
+<p class="lead">Машиночитаемый набор факторов и нормативных ориентиров, которые можно использовать как исходную структуру при предварительной оценке объёма конструкторской работы.</p>
+<p>Здесь отдельно зафиксированы сложность детали и сборки, категория новизны, количество размеров и позиций, формат и заполнение чертежа, расчёты, иностранный язык, отсутствие аналога и другие признаки. Набор не заменяет инженерную оценку проекта: одинаковое количество листов может скрывать совершенно разный объём поиска, расчётов, согласований и ответственности.</p>
+<p><a class="btn" href="samuta-kd-labor-intensity-v1.csv" download>Скачать CSV</a> <a class="btn" href="samuta-kd-labor-intensity-v1.json" download>Скачать JSON</a></p>
+</section>
+<section class="section"><h2>Что находится в наборе</h2>
+<div class="grid">
+<div class="card"><h3>Детали</h3><p>Пять групп сложности. От простых осей, втулок и шайб до тонкостенных корпусов, прецизионных элементов и деталей со сложными размерными цепями.</p></div>
+<div class="card"><h3>Сборочные единицы</h3><p>Пять групп сложности и четыре категории новизны - от работы по существующему образцу до конструкции с новыми параметрами и экспериментальной проверкой.</p></div>
+<div class="card"><h3>Нормативные ориентиры</h3><p>Примеры времени для чертежа детали, сборочного чертежа, спецификации, технических расчётов, а также поправочные коэффициенты.</p></div>
+<div class="card"><h3>Факторы оценки</h3><p>Объём работ, сложность, опыт исполнителя, ресурсы, инструменты, необходимость испытаний и бюджет. Эти признаки полезны для постановки задачи до расчёта срока.</p></div>
+</div></section>
+<section class="section"><h2>Примеры ориентиров</h2>
+<p>Для чертежа оси формата А4 с 22-27 учитываемыми размерами в исходном разборе приведён ориентир 0,96 часа. Для спецификации - 0,10 часа на позицию. Для документации на русском и иностранном языках указан коэффициент 1,15. Для изделия без аналога - коэффициент 1,25.</p>
+<p>Эти значения нельзя автоматически превращать в коммерческую цену или обещанный срок. Норматив помогает оценить ресурс, но не показывает всю работу до появления чертежа: поиск решения, расчёты, проверку технологии, согласования, эксперимент и последствия ошибки.</p>
+</section>
+<section class="section"><h2>Происхождение и ограничения</h2>
+<p>Версия 1.0 подготовлена по материалу Павла Самуты «Расчёт времени разработки КД» от 8 декабря 2022 года. В нём использованы типовые и отраслевые нормативы конструкторского труда, включая «Типовые нормативы времени на разработку конструкторской документации. Шифр 13.01.01» и отраслевые нормы, на которые ссылается публикация.</p>
+<p><strong>Важно:</strong> это структурированный справочный набор, а не статистическая выборка фактической трудоёмкости проектов Павла Самуты. Для реального проекта нормативные ориентиры нужно проверять по составу КД, новизне, сложности, исходным материалам, производственным ограничениям и объёму проверки.</p>
+</section>
+<section class="section"><h2>Структура полей</h2>
+<p><strong>record_id</strong> - идентификатор записи. <strong>category</strong> - группа фактора. <strong>factor</strong> - оцениваемый признак. <strong>condition</strong> - условие применения. <strong>value</strong> и <strong>unit</strong> - числовой ориентир и единица. <strong>level</strong> - группа сложности или категория новизны. <strong>example</strong> - пример объекта. <strong>source_note</strong> - происхождение записи. <strong>interpretation</strong> - как читать показатель.</p>
+</section>
+<section class="section"><h2>Зачем публиковать инженерные данные отдельно от статьи</h2>
+<p>Статья объясняет логику человеку. CSV и JSON дают ту же структуру в форме, которую можно загрузить в таблицу, скрипт, внутреннюю базу знаний или систему поиска. Версия набора фиксируется, поэтому изменения можно отслеживать, а конкретный показатель - проверять по его происхождению.</p>
+</section>
+<section class="section"><div class="cta"><div><h2>Нужно оценить реальную трудоёмкость КД?</h2><p>Для оценки проекта нужны не только листы и часы. Сначала проверяются состав изделия, исходная информация, новизна, сложность, производство, испытания и цена ошибки.</p></div><a class="btn" href="/contacts/">Обсудить задачу</a></div></section>
+</main></body></html>
