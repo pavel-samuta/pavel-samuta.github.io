@@ -8,7 +8,7 @@
     "https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti",
     "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
   ],
-  "note": "Диапазоны и инженерные пояснения структурированы по авторской публикации. Значения являются справочными ориентирами и не гарантируют результат конкретного процесса.",
+  "note": "52 структурированные записи по авторской публикации: параметры, диапазоны процессов, типы поверхностей, функциональные ориентиры, контроль, направления неровностей и факторы обработки. Исторические ссылки на ГОСТ сохранены как содержание источника и требуют проверки актуальности перед применением в КД.",
   "records": [
     {
       "record_id": "SR-001",
@@ -339,6 +339,248 @@
       "function_or_effect": "При выборе требования автор предлагает учитывать требуемый уровень точности",
       "source_status": "source_statement",
       "source_url": "https://pavelsamuta.com/articles/kak-podobrat-neobkhodimuiu-sherokhovatost-poverkhnosti"
+    },
+    {
+      "record_id": "SR-031",
+      "category": "parameter",
+      "process_or_factor": "Ra",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Среднее арифметическое отклонение профиля",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-032",
+      "category": "parameter",
+      "process_or_factor": "Rz",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Высота неровностей профиля по десяти точкам",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-033",
+      "category": "parameter",
+      "process_or_factor": "Rmax",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Наибольшая высота неровностей профиля",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-034",
+      "category": "parameter",
+      "process_or_factor": "Sm",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Средний шаг неровностей профиля",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-035",
+      "category": "parameter",
+      "process_or_factor": "S",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Средний шаг неровностей профиля по вершинам",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-036",
+      "category": "parameter",
+      "process_or_factor": "tp",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Относительная опорная длина профиля",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-037",
+      "category": "surface_type",
+      "process_or_factor": "Ограничительные и соединительные поверхности",
+      "ra_min_um": "2.5",
+      "ra_max_um": "20",
+      "class_range": "",
+      "function_or_effect": "В публикации приведены Ra 20...2,5 мкм и Rz 80...10 мкм",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-038",
+      "category": "surface_type",
+      "process_or_factor": "Установочные поверхности",
+      "ra_min_um": "2.5",
+      "ra_max_um": "20",
+      "class_range": "",
+      "function_or_effect": "Неподвижный контакт без требований по герметичности; Ra 20...2,5 мкм, Rz 80...10 мкм",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-039",
+      "category": "surface_type",
+      "process_or_factor": "Рабочие поверхности",
+      "ra_min_um": "0.16",
+      "ra_max_um": "2.5",
+      "class_range": "",
+      "function_or_effect": "Поверхности с относительным движением; Ra 2,5...0,16 мкм, Rz 10...0,8 мкм",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-040",
+      "category": "surface_type",
+      "process_or_factor": "Специальные поверхности",
+      "ra_min_um": "1.25",
+      "ra_max_um": "5",
+      "class_range": "",
+      "function_or_effect": "Для внешних корпусов механизмов и агрегатов в публикации приведены Ra 5,0...1,25 мкм",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-041",
+      "category": "selection",
+      "process_or_factor": "Несопрягаемые неответственные поверхности",
+      "ra_min_um": "12.5",
+      "ra_max_um": "12.5",
+      "class_range": "",
+      "function_or_effect": "Авторский ориентир: основания, кронштейны, корпуса, проходные отверстия под крепёж, детали под сварку и гибку",
+      "source_status": "author_practice",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-042",
+      "category": "selection",
+      "process_or_factor": "Прилегающие непосадочные поверхности",
+      "ra_min_um": "6.3",
+      "ra_max_um": "6.3",
+      "class_range": "",
+      "function_or_effect": "Авторский ориентир: опорные плоскости корпусов и кронштейнов, крышки, торцы бобышек, канавки, фаски и зенковки",
+      "source_status": "author_practice",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-043",
+      "category": "selection",
+      "process_or_factor": "Гладкие функциональные поверхности",
+      "ra_min_um": "1.6",
+      "ra_max_um": "3.2",
+      "class_range": "",
+      "function_or_effect": "Авторская группа Ra 3,2; 2,5; 1,6: рабочие шпонки и пазы, профиль зуба, канавки под уплотнения, тепловой контакт и склейка",
+      "source_status": "author_practice",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-044",
+      "category": "selection",
+      "process_or_factor": "Точные посадочные и герметичные поверхности",
+      "ra_min_um": "0.2",
+      "ra_max_um": "0.8",
+      "class_range": "",
+      "function_or_effect": "Авторская группа Ra 0,8; 0,4; 0,2: точные посадки, притираемые герметичные соединения, цилиндры с манжетами, посадочные места подшипников",
+      "source_status": "author_practice",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-045",
+      "category": "control",
+      "process_or_factor": "Образцы шероховатости",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Сравнение поверхности изделия с образцами для конкретного способа обработки; публикация ссылается на ГОСТ 9378-93",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-046",
+      "category": "control",
+      "process_or_factor": "Профилометр",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Непосредственное измерение параметров шероховатости прибором",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-047",
+      "category": "principle",
+      "process_or_factor": "Экономически достаточная шероховатость",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Авторский принцип: назначать наиболее грубую отделку, которая обеспечивает требуемую работу детали, и не обрабатывать лучше требования без необходимости",
+      "source_status": "author_practice",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-048",
+      "category": "principle",
+      "process_or_factor": "Согласование параметров приёмки",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Проектировщику и производителю следует заранее согласовать, какие параметры Ra/Rz применяются для проверки и приёмки",
+      "source_status": "author_practice",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-049",
+      "category": "direction",
+      "process_or_factor": "Произвольное направление M",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "В публикации M используется для произвольного направления неровностей",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-050",
+      "category": "direction",
+      "process_or_factor": "Кругообразное направление C",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Кругообразное направление неровностей относительно центра поверхности",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-051",
+      "category": "direction",
+      "process_or_factor": "Радиальное направление R",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Радиальное направление неровностей относительно центра поверхности",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
+    },
+    {
+      "record_id": "SR-052",
+      "category": "direction",
+      "process_or_factor": "Хаотичное направление P",
+      "ra_min_um": "",
+      "ra_max_um": "",
+      "class_range": "",
+      "function_or_effect": "Хаотичное направление неровностей",
+      "source_status": "source_statement",
+      "source_url": "https://dzen.ru/a/YC5P7zrW7nh8YsuH"
     }
   ]
 }
