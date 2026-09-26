@@ -55,20 +55,23 @@
 
   const setupMobileNavigation = () => {
     const nav = document.querySelector(".topbar .nav");
-    if (!nav || nav.querySelector(".mobile-menu-toggle")) return;
+    if (!nav) return;
 
-    const toggle = document.createElement("button");
-    toggle.type = "button";
-    toggle.className = "mobile-menu-toggle";
-    toggle.setAttribute("aria-label", "Открыть меню");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.textContent = "☰";
+    let toggle = nav.querySelector(".mobile-menu-toggle");
+    if (!toggle) {
+      toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "mobile-menu-toggle";
+      toggle.setAttribute("aria-label", "Открыть меню");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "☰";
 
-    const brand = nav.querySelector(".brandmark");
-    if (brand && brand.nextSibling) {
-      nav.insertBefore(toggle, brand.nextSibling);
-    } else {
-      nav.appendChild(toggle);
+      const brand = nav.querySelector(".brandmark");
+      if (brand && brand.nextSibling) {
+        nav.insertBefore(toggle, brand.nextSibling);
+      } else {
+        nav.appendChild(toggle);
+      }
     }
 
     const closeMenu = () => {
