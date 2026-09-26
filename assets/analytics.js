@@ -53,6 +53,50 @@
     document.head.appendChild(yandexTag);
   }
 
+  const setupMobileNavigation = () => {
+    const nav = document.querySelector(".topbar .nav");
+    if (!nav || nav.querySelector(".mobile-menu-toggle")) return;
+
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "mobile-menu-toggle";
+    toggle.setAttribute("aria-label", "Открыть меню");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "☰";
+
+    const brand = nav.querySelector(".brandmark");
+    if (brand && brand.nextSibling) {
+      nav.insertBefore(toggle, brand.nextSibling);
+    } else {
+      nav.appendChild(toggle);
+    }
+
+    const closeMenu = () => {
+      nav.classList.remove("mobile-nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Открыть меню");
+      toggle.textContent = "☰";
+    };
+
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("mobile-nav-open");
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      toggle.textContent = open ? "×" : "☰";
+    });
+
+    nav.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest("a[href]")) closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 620) closeMenu();
+    });
+  };
+
+  setupMobileNavigation();
+
   const pagePath = () => window.location.pathname || "/";
 
   const sendEvent = (name, parameters) => {
