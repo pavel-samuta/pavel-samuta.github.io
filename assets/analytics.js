@@ -5,7 +5,6 @@
   const YM_ID = 112491722;
   const PRIMARY_LEAD_KEY = "ps_generate_lead_sent_at_v1";
   const PRIMARY_LEAD_WINDOW_MS = 30 * 60 * 1000;
-  const PRIMARY_CONTACT_METHODS = new Set(["phone", "telegram", "whatsapp"]);
   let primaryLeadSentAt = 0;
 
   window.dataLayer = window.dataLayer || [];
@@ -145,6 +144,7 @@
 
     if (protocol === "tel:") return "phone";
     if (protocol === "mailto:") return "email";
+    if (host === "max.ru") return "max";
     if (host === "t.me" || host === "telegram.me") return "telegram";
     if (host === "wa.me" || host === "api.whatsapp.com" || host === "web.whatsapp.com") return "whatsapp";
     return "";
@@ -171,9 +171,8 @@
     if (method) {
       sendEvent("contact_click", { contact_method: method });
 
-      if (PRIMARY_CONTACT_METHODS.has(method)) {
-        sendPrimaryLeadOnce({ contact_method: method });
-      }
+      // Opening a contact app is intent, not a confirmed enquiry.
+      sendEvent("contact_intent", { contact_method: method });
       return;
     }
 
