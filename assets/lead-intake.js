@@ -8,6 +8,7 @@
   const options = {
     "reverse-engineering": "Реверс-инжиниринг детали или узла",
     "design-documentation-recovery": "Разработка или восстановление КД",
+    "cnc-3d-modeling": "3D-модель механической детали для ЧПУ",
     "industrial-localization": "Локализация импортной детали",
     "equipment-modernization": "Модернизация оборудования",
     "supplier-technical-assessment": "Оценка поставщика или FAT",
