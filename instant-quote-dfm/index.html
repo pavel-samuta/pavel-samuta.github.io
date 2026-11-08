@@ -22,7 +22,9 @@
 <div class="field"><label for="currency">Валюта</label><select id="currency"><option>BYN</option><option>RUB</option><option>EUR</option><option>USD</option></select></div></div>
 <div class="actions"><button id="startCalc" type="button" class="primary">Начать расчёт</button><button id="reset" type="button">Сбросить файл</button><button id="demo" type="button">Пример: прямоугольная деталь</button></div>
 <p id="fileinfo" class="small" role="status">Ручной ввод. Габариты по умолчанию 100 × 60 × 20 мм, заполнение 45%.</p>
+<div class="field" style="margin:12px 0"><label for="dxfmode">Тип DXF</label><select id="dxfmode"><option value="cut">Готовый раскрой: проверить все контуры</option><option value="drawing">Конструкторский чертёж: выбрать контуры</option></select></div>
 <div class="field" style="margin:12px 0"><label for="dxfunit">Единицы DXF (при отсутствии единиц в файле)</label><select id="dxfunit"><option value="0">Из DXF ($INSUNITS)</option><option value="4">Миллиметры</option><option value="5">Сантиметры</option><option value="6">Метры</option><option value="1">Дюймы</option></select></div>
+<div id="drawingPanel" class="hidden" style="margin:14px 0;padding:14px;border:1px solid #69829a;border-radius:10px"><strong>Контуры конструкторского чертежа</strong><p class="small">Выберите один наружный контур детали и его отверстия. Контуры других проекций и оформления не выбирайте. Только после подтверждения контура программа рассчитает листовую деталь.</p><div id="drawingCandidates" style="max-height:260px;overflow:auto"></div><div class="actions"><button id="clearSelection" type="button">Снять выбор</button><button id="applySelection" type="button" class="primary">Подтвердить выбранные контуры</button></div><p class="small" id="drawingStatus"></p></div>
 <canvas class="viewer" id="viewer" width="800" height="420" aria-label="Вращаемая проекция STL"></canvas><p class="small">STL вращается мышью. DXF отображается сверху как плоский контур с отверстиями. Поддержаны LINE, ARC, CIRCLE и замкнутые LWPOLYLINE. Файлы обрабатываются локально, без внешних библиотек.</p>
 </section>
 <section class="panel"><h2>2. Технология и тарифы</h2><div class="grid">
@@ -78,12 +80,12 @@
 </div></div>
 <section class="panel" id="samuta-calculator-network"><h2>Другие инженерные калькуляторы SAMUTA</h2><p><a href="/part-cost-calculator/">Себестоимость детали</a> · <a href="/kd-time-calculator/">Трудоёмкость КД</a> · <a href="/kd-calculator/">Стоимость КД</a> · <a href="/fits-calculator/">Допуски и посадки</a> · <a href="/gear-calculator/">Зубчатые передачи</a> · <a href="/metal-calculator/">Металлопрокат и логистика</a></p><p><a href="/">Главная</a> · <a href="/engineering-data/">Инженерный справочник</a></p></section>
 <footer>© 2026 SAMUTA Engineering & Technology. Предварительная оценка, не производственная оферта и не инженерная экспертиза.</footer></main>
-<script src="./dxf.js"></script>
+<script src="./dxf.js"></script><script src="./dxf-drawing.js"></script>
 <script>
 (function(){"use strict";
 const $=id=>document.getElementById(id),fmt=(x,k=2)=>Number(x).toLocaleString("ru-RU",{maximumFractionDigits:k}),inputs=["length","width","height","volume","fill","density","qty","materialPrice","scrap","overhead","margin","setup","rate","rateHigh","finish","stock","mrr","aux","thickness","contour","cutspeed","pierces","piercetime","bends","bendtime","sheetUtil","infill","shell","supports","extrusion","printerExtra"];
 const densities={steel:7.85,al:2.70,stainless:7.9,abs:1.04,pla:1.24,petg:1.27};
-let geom=null,mesh=null,dxf=null,dxfText="",angleX=.3,angleY=-.4,drag=null,drawNeeded=false;
+let geom=null,mesh=null,dxf=null,dxfText="",drawing=null,selected=[],angleX=.3,angleY=-.4,drag=null,drawNeeded=false;
 function val(id){const t=$(id).value;if(t==="")throw Error("Введите "+id);const v=Number(t);if(!Number.isFinite(v))throw Error("Некорректное число: "+id);return v}
 function setGeometry(g){geom=g;["length","width","height"].forEach((id,i)=>$(id).value=+g.dims[i].toFixed(4));if(g.watertightApprox&&g.volume>0)$("volume").value=+g.volume.toFixed(4);else $("volume").value="0";render()}
 function readStl(buffer){const bytes=new Uint8Array(buffer),view=new DataView(buffer);if(buffer.byteLength<84)throw Error("STL слишком мал");let binary=false,nfaces=0;
@@ -98,6 +100,8 @@ for(let i=0;i<pts.length;i+=3){const [a,b,c]=[pts[i],pts[i+1],pts[i+2]];for(cons
 if(faces<=20000){const key=p=>p.map(x=>Math.round(x*10000)).join(",");const v=[key(a),key(b),key(c)];for(const [x,y] of [[0,1],[1,2],[2,0]]){const ek=v[x]<v[y]?v[x]+"|"+v[y]:v[y]+"|"+v[x];edges.set(ek,(edges.get(ek)||0)+1);}}}
 const watertightApprox=faces<=20000&&[...edges.values()].every(v=>v===2);const vol=Math.abs(signed)/1000;return {dims:high.map((x,k)=>x-low[k]),low,high,faces,area:area/100,volume:vol,watertightApprox,points:pts};}
 function renderModel(){const canvas=$("viewer"),ctx=canvas.getContext("2d"),W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);ctx.fillStyle="#0e1d2b";ctx.fillRect(0,0,W,H);
+if(drawing){const all=drawing.loops.flatMap(o=>o.points);if(!all.length)return;const b=[Math.min(...all.map(p=>p[0])),Math.min(...all.map(p=>p[1])),Math.max(...all.map(p=>p[0])),Math.max(...all.map(p=>p[1]))],dx=Math.max(b[2]-b[0],.001),dy=Math.max(b[3]-b[1],.001),scale=Math.min(W*.86/dx,H*.82/dy),x0=(W-dx*scale)/2,y0=(H-dy*scale)/2;
+drawing.loops.forEach((loop,i)=>{ctx.beginPath();loop.points.forEach((p,j)=>{const x=x0+(p[0]-b[0])*scale,y=H-y0-(p[1]-b[1])*scale;if(j===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.closePath();ctx.strokeStyle=selected.includes(i)?"#79f0ac":"#67859b";ctx.lineWidth=selected.includes(i)?3:1;ctx.stroke();});ctx.fillStyle="#b4cddd";ctx.font="16px system-ui";ctx.textAlign="left";ctx.fillText("Конструкторский DXF: выберите контуры в списке",14,25);return;}
 if(dxf){const b=dxf.bounds,dx=Math.max(b[2]-b[0],.001),dy=Math.max(b[3]-b[1],.001),scale=Math.min(W*.86/dx,H*.82/dy),x0=(W-dx*scale)/2,y0=(H-dy*scale)/2;ctx.lineWidth=2;
 for(const loop of dxf.loops){ctx.beginPath();loop.points.forEach((p,i)=>{const x=x0+(p[0]-b[0])*scale,y=H-y0-(p[1]-b[1])*scale;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.closePath();ctx.strokeStyle="#9fd8f4";ctx.stroke();}
 ctx.fillStyle="#b4cddd";ctx.font="17px system-ui";ctx.textAlign="left";ctx.fillText("DXF: "+fmt(dxf.area_mm2,1)+" мм² · рез "+fmt(dxf.cut_mm,1)+" мм · "+dxf.pierces+" контур(ов)",16,27);return;}
@@ -110,7 +114,8 @@ function calculate(){const p={};inputs.forEach(k=>p[k]=val(k));const process=$("
 if(!Number.isInteger(p.qty)||p.qty<=0||p.qty>1000000)throw Error("Количество деталей: 1–1 000 000");
 if([p.length,p.width,p.height,p.density].some(x=>x<=0)||p.fill<=0||p.fill>100)throw Error("Проверьте габариты, плотность и заполнение");
 if(p.volume<0||p.rate<0||p.rateHigh<p.rate||p.materialPrice<0||p.scrap<0||p.overhead<0||p.setup<0||p.finish<0||p.margin<0||p.margin>=95)throw Error("Проверьте ставки, себестоимость, наценки и объём");
-if(dxf&&process!=="sheet")throw Error("DXF 2D применим к листовой технологии. Для ЧПУ и FDM используйте STL или ручной ввод.");
+if((dxf||drawing)&&process!=="sheet")throw Error("DXF 2D применим к листовой технологии. Для ЧПУ и FDM используйте STL или ручной ввод.");
+if(drawing&&!dxf)throw Error("Выберите и подтвердите контур детали для расчёта.");
 const effectiveHeight=dxf&&process==="sheet"?p.thickness:p.height;
 const box=p.length*p.width*effectiveHeight/1000,vol=dxf&&process==="sheet"?dxf.area_mm2*p.thickness/1000:p.volume>0?p.volume:box*p.fill/100;if(vol>box*1.001)throw Error("Объём материала больше габаритного объёма");
 const density=p.density,partMass=vol*density/1000;let rawMass=0,time=0,notes=[],scrapMass=0;
@@ -140,6 +145,16 @@ $("startCalc").onclick=()=>{show();$("results").scrollIntoView({behavior:"smooth
 inputs.forEach(id=>$(id).addEventListener("input",()=>{if(dxf&&id==="thickness"){const t=Number($("thickness").value);$("height").value=t;$("volume").value=+(dxf.area_mm2*t/1000).toFixed(5);}show()}));["currency","process"].forEach(id=>$(id).addEventListener("change",()=>{const k=$("process").value;$("cncFields").classList.toggle("hidden",k!=="cnc");$("sheetFields").classList.toggle("hidden",k!=="sheet");$("printFields").classList.toggle("hidden",k!=="print");show()}));
 $("material").onchange=()=>{const v=$("material").value;if(densities[v])$("density").value=densities[v];show()};
 function loadDxfText(text,name){
+ if($("dxfmode").value==="drawing"){
+   drawing=window.SamutaDrawing.analyze(text,Number($("dxfunit").value));dxf=null;dxfText=text;selected=[];geom=null;mesh=null;
+   $("drawingPanel").classList.remove("hidden");$("process").value="sheet";$("cncFields").classList.add("hidden");$("sheetFields").classList.remove("hidden");$("printFields").classList.add("hidden");
+   $("drawingCandidates").innerHTML=drawing.loops.map((o,i)=>'<label style="display:block;padding:7px 0;border-bottom:1px solid #405569"><input type="checkbox" data-loop="'+i+'" style="width:auto;margin-right:8px">Контур '+(i+1)+' · слой '+String(o.layer).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]))+' · площадь '+fmt(o.area,1)+' мм² · рез '+fmt(o.perimeter,1)+' мм</label>').join("");
+   $("drawingCandidates").querySelectorAll("[data-loop]").forEach(e=>e.onchange=()=>{selected=[...$("drawingCandidates").querySelectorAll("[data-loop]")].filter(e=>e.checked).map(e=>Number(e.dataset.loop));dxf=null;$("drawingStatus").textContent=selected.length+" контур(ов) выбрано. Нажмите «Подтвердить».";renderModel();show()});
+   $("drawingStatus").textContent="Найдено "+drawing.loops.length+" замкнутых кандидатов, "+drawing.open+" разомкнутых цепочек. Исключённые типы: "+drawing.ignored.join(", ")+".";
+   $("fileinfo").textContent=name+" · чертёж: выберите проекцию и отверстия, затем подтвердите.";
+   renderModel();show();return;
+ }
+ drawing=null;selected=[];$("drawingPanel").classList.add("hidden");
  const parsed=window.SamutaDXF.parse(text,Number($("dxfunit").value));
  dxf=parsed;dxfText=text;geom=null;mesh=null;
  $("process").value="sheet";
@@ -157,11 +172,14 @@ $("file").onchange=async()=>{const f=$("file").files[0];if(!f)return;
   try{loadDxfText(await f.text(),f.name)}catch(e){dxf=null;dxfText="";$("fileinfo").textContent="Ошибка DXF: "+e.message;renderModel();show()}return;
  }
  if(!/\.stl$/i.test(f.name)){$("fileinfo").textContent="Поддерживаются STL и 2D DXF. Для STEP / IGES используйте ручной ввод.";return;}
- try{const g=readStl(await f.arrayBuffer());dxf=null;dxfText="";mesh=g;setGeometry(g);$("fileinfo").textContent=f.name+" · "+fmt(g.faces,0)+" треугольников · "+(g.watertightApprox?"сетка условно замкнута":"замкнутость не подтверждена")+" · "+fmt(g.volume,2)+" см³ (геометрическая оценка)";renderModel()}catch(e){mesh=null;geom=null;$("fileinfo").textContent="Ошибка загрузки: "+e.message;renderModel();show()}
+ try{const g=readStl(await f.arrayBuffer());dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");mesh=g;setGeometry(g);$("fileinfo").textContent=f.name+" · "+fmt(g.faces,0)+" треугольников · "+(g.watertightApprox?"сетка условно замкнута":"замкнутость не подтверждена")+" · "+fmt(g.volume,2)+" см³ (геометрическая оценка)";renderModel()}catch(e){mesh=null;geom=null;$("fileinfo").textContent="Ошибка загрузки: "+e.message;renderModel();show()}
 };
+$("clearSelection").onclick=()=>{selected=[];dxf=null;$("drawingCandidates").querySelectorAll("[data-loop]").forEach(x=>x.checked=false);$("drawingStatus").textContent="Выбор сброшен";renderModel();show()};
+$("applySelection").onclick=()=>{try{if(!drawing)throw Error("Сначала загрузите конструкторский DXF");const pick=window.SamutaDrawing.selectedGeometry(drawing,selected);dxf=pick;const t=Number($("thickness").value);$("length").value=+pick.dims[0].toFixed(4);$("width").value=+pick.dims[1].toFixed(4);$("height").value=t;$("volume").value=+(pick.area_mm2*t/1000).toFixed(5);$("contour").value=+(pick.cut_mm/1000).toFixed(5);$("pierces").value=pick.pierces;$("drawingStatus").textContent="Подтверждено "+pick.pierces+" контур(ов), площадь "+fmt(pick.area_mm2,2)+" мм².";renderModel();show()}catch(e){$("drawingStatus").textContent="Ошибка: "+e.message;dxf=null;show()}};
+$("dxfmode").onchange=()=>{if(dxfText){try{loadDxfText(dxfText,$("file").files[0]?.name||"DXF")}catch(e){$("fileinfo").textContent=e.message}}};
 $("dxfunit").onchange=()=>{if(dxfText){try{loadDxfText(dxfText,$("file").files[0]?.name||"DXF")}catch(e){$("fileinfo").textContent="Ошибка единиц DXF: "+e.message}}};
-$("reset").onclick=()=>{geom=null;mesh=null;dxf=null;dxfText="";$("file").value="";$("volume").value=0;$("fileinfo").textContent="STL сброшен. Ручной режим.";renderModel();show()};
-$("demo").onclick=()=>{geom=null;mesh=null;dxf=null;dxfText="";$("file").value="";$("length").value=100;$("width").value=60;$("height").value=20;$("volume").value=0;$("fill").value=45;$("fileinfo").textContent="Контрольный пример: габариты 100 × 60 × 20 мм, 45% заполнения.";renderModel();show()};
+$("reset").onclick=()=>{geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("volume").value=0;$("fileinfo").textContent="STL сброшен. Ручной режим.";renderModel();show()};
+$("demo").onclick=()=>{geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("length").value=100;$("width").value=60;$("height").value=20;$("volume").value=0;$("fill").value=45;$("fileinfo").textContent="Контрольный пример: габариты 100 × 60 × 20 мм, 45% заполнения.";renderModel();show()};
 const canvas=$("viewer");canvas.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener("pointermove",e=>{if(!drag)return;angleY+=(e.clientX-drag.x)*.01;angleX+=(e.clientY-drag.y)*.01;drag={x:e.clientX,y:e.clientY};renderModel()});canvas.addEventListener("pointerup",()=>drag=null);canvas.addEventListener("pointercancel",()=>drag=null);
 renderModel();show();$("watch").style.display="none";
 })();
