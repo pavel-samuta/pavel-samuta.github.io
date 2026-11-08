@@ -64,7 +64,7 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 <div class="tablewrap" id="lpackages"></div>
 <div class="actions"><button class="btn" id="ladd">Добавить упаковку</button></div>
 <div class="fieldgrid" style="margin-top:18px">
-<div class="field"><label><input type="checkbox" id="lspec" style="width:auto" checked> Использовать массу из спецификации металла</label></div>
+<div class="field"><label><input type="checkbox" id="lspec" style="width:auto"> Использовать массу из спецификации металла</label></div>
 <div class="field"><label for="lmanual">Масса самого груза, кг (вручную)</label><input id="lmanual" type="number" value="1000" step="any" min="0"></div>
 <div class="field"><label for="ltare">Вес упаковки, кг за место</label><input id="ltare" type="number" value="10" step="any" min="0"></div>
 <div class="field"><label for="lfactor">Коэффициент объёмного веса, кг/м³</label><input id="lfactor" type="number" value="250" step="any" min="0"></div>
@@ -250,7 +250,7 @@ function logisticsUpdate(){
 function packagesRender(){
  if(!packageRows.length)packageRows.push({l:120,w:80,h:60,q:1,unit:"cm"});
  el("lpackages").innerHTML='<table><thead><tr><th>Длина</th><th>Ширина</th><th>Высота</th><th>Ед.</th><th>Кол-во</th><th>Объём, м³</th><th></th></tr></thead><tbody>'+packageRows.map(function(p,i){var factor=packageUnits[p.unit];var vol=p.l*p.w*p.h*Math.pow(factor,3)*p.q;return '<tr data-row="'+i+'">'+["l","w","h"].map(function(key){return '<td><input type="number" data-key="'+key+'" value="'+p[key]+'" step="any" min=".001" aria-label="'+key+'" style="width:85px"></td>'}).join("")+'<td><select data-key="unit">'+["mm","cm","m"].map(function(u){return '<option value="'+u+'"'+(u===p.unit?" selected":"")+'>'+u+'</option>'}).join("")+'</select></td><td><input type="number" data-key="q" min="1" step="1" value="'+p.q+'" style="width:75px"></td><td class="num">'+format(vol,4)+'</td><td><button class="btn warn" data-remove="'+i+'">×</button></td></tr>'}).join("")+'</tbody></table>';
- el("lpackages").querySelectorAll("tr[data-row]").forEach(function(tr){var index=Number(tr.dataset.row);tr.querySelectorAll("input,select").forEach(function(input){input.addEventListener("input",function(){var k=input.dataset.key;packageRows[index][k]=k==="unit"?input.value:Number(input.value);packagesRender()})})});
+ el("lpackages").querySelectorAll("tr[data-row]").forEach(function(tr){var index=Number(tr.dataset.row);tr.querySelectorAll("input,select").forEach(function(input){input.addEventListener("input",function(){var k=input.dataset.key;packageRows[index][k]=k==="unit"?input.value:Number(input.value);logisticsUpdate()});input.addEventListener("change",packagesRender)})});
  el("lpackages").querySelectorAll("[data-remove]").forEach(function(button){button.onclick=function(){packageRows.splice(Number(button.dataset.remove),1);packagesRender()}});
  logisticsUpdate();
 }
