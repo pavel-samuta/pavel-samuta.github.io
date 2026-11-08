@@ -20,7 +20,7 @@
 <div class="field"><label for="density">Плотность, г/см³</label><input id="density" type="number" min=".01" step="any" value="7.85"></div>
 <div class="field"><label for="qty">Тираж, шт.</label><input id="qty" type="number" min="1" max="1000000" step="1" value="10"></div>
 <div class="field"><label for="currency">Валюта</label><select id="currency"><option>BYN</option><option>RUB</option><option>EUR</option><option>USD</option></select></div></div>
-<div class="actions"><button id="reset" type="button">Сбросить STL</button><button id="demo" type="button">Пример: прямоугольная деталь</button></div>
+<div class="actions"><button id="startCalc" type="button" class="primary">Начать расчёт</button><button id="reset" type="button">Сбросить файл</button><button id="demo" type="button">Пример: прямоугольная деталь</button></div>
 <p id="fileinfo" class="small" role="status">Ручной ввод. Габариты по умолчанию 100 × 60 × 20 мм, заполнение 45%.</p>
 <div class="field" style="margin:12px 0"><label for="dxfunit">Единицы DXF (при отсутствии единиц в файле)</label><select id="dxfunit"><option value="0">Из DXF ($INSUNITS)</option><option value="4">Миллиметры</option><option value="5">Сантиметры</option><option value="6">Метры</option><option value="1">Дюймы</option></select></div>
 <canvas class="viewer" id="viewer" width="800" height="420" aria-label="Вращаемая проекция STL"></canvas><p class="small">STL вращается мышью. DXF отображается сверху как плоский контур с отверстиями. Поддержаны LINE, ARC, CIRCLE и замкнутые LWPOLYLINE. Файлы обрабатываются локально, без внешних библиотек.</p>
@@ -59,7 +59,7 @@
 <div class="field"><label for="printerExtra">Непроизводительное время, ч/деталь</label><input id="printerExtra" type="number" min="0" value=".7" step="any"></div>
 </div><p class="small">Все тарифы задаёт пользователь. ЧПУ использует среднюю скорость съёма, лазер - длину реза, FDM - объём и скорость экструзии. Они не заменяют CAM, раскрой или слайсер.</p></section>
 </div><div>
-<section class="panel"><h2>Расчёт стоимости</h2><div class="metricgrid">
+<section class="panel" id="results"><h2>Расчёт стоимости</h2><div class="metricgrid">
 <div class="metric"><span>Габариты, мм</span><b id="dims">—</b></div>
 <div class="metric"><span>Объём детали</span><b id="vout">—</b></div>
 <div class="metric"><span>Масса детали</span><b id="mass">—</b></div>
@@ -136,6 +136,7 @@ $("csv").onclick=()=>{if(lastResult)download("samuta-instant-quote.csv","\uFEFF"
 $("json").onclick=()=>{if(lastResult)download("samuta-instant-quote.json",JSON.stringify(report(lastResult),null,2),"application/json")};
 $("copy").onclick=async()=>{if(!lastResult)return;try{await navigator.clipboard.writeText(JSON.stringify(report(lastResult),null,2));$("error").textContent="Отчёт скопирован."}catch(e){$("error").textContent="Копирование недоступно, используйте JSON."}};
 $("print").onclick=()=>window.print();
+$("startCalc").onclick=()=>{show();$("results").scrollIntoView({behavior:"smooth",block:"start"});};
 inputs.forEach(id=>$(id).addEventListener("input",()=>{if(dxf&&id==="thickness"){const t=Number($("thickness").value);$("height").value=t;$("volume").value=+(dxf.area_mm2*t/1000).toFixed(5);}show()}));["currency","process"].forEach(id=>$(id).addEventListener("change",()=>{const k=$("process").value;$("cncFields").classList.toggle("hidden",k!=="cnc");$("sheetFields").classList.toggle("hidden",k!=="sheet");$("printFields").classList.toggle("hidden",k!=="print");show()}));
 $("material").onchange=()=>{const v=$("material").value;if(densities[v])$("density").value=densities[v];show()};
 function loadDxfText(text,name){
