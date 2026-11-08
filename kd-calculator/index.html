@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Предварительная оценка бюджета на разработку конструкторской документации, реверс-инжиниринг и проектирование механических узлов. Samuta Engineering & Technology.">
+<title>Калькулятор стоимости разработки КД | Samuta Engineering & Technology</title>
+<style>
+:root{color-scheme:dark;--bg:#0e1824;--panel:#162538;--panel2:#1b2d42;--line:#33475e;--text:#f3f5f7;--sub:#b9c7d5;--gold:#ddb186;--input:#122133;--good:#bfe6cd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0%,#213750 0,transparent 43%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55}a{color:var(--gold)}.wrap{max-width:1060px;padding:36px 22px 56px;margin:auto}.brand{letter-spacing:.13em;font-weight:700;font-size:14px}.brand small{display:block;color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.22em;margin-top:3px}header{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:22px}header a{font-size:14px;text-decoration:none;color:var(--sub)}h1{font-size:clamp(30px,5.5vw,52px);max-width:850px;line-height:1.1;margin:40px 0 18px}h1 em{color:var(--gold);font-style:normal}p.intro{max-width:790px;color:var(--sub);font-size:17px;margin-bottom:30px}.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}.card{border:1px solid var(--line);background:var(--panel);padding:27px;border-radius:18px;box-shadow:0 12px 44px #07111b33}h2{font-size:22px;margin:0 0 24px}.field{margin-bottom:21px}label{display:block;font-weight:650;margin-bottom:8px;font-size:15px}.hint{display:block;font-size:13px;color:var(--sub);margin-top:7px}select,input[type=number],textarea{width:100%;background:var(--input);border:1px solid #526077;border-radius:10px;color:var(--text);font-size:16px;padding:13px 14px;outline:none;font-family:inherit}select:focus,input:focus,textarea:focus{border-color:var(--gold)}input[type=range]{accent-color:var(--gold);width:100%;cursor:pointer}.rangehead{display:flex;justify-content:space-between;align-items:center}.rangehead output{color:var(--gold);font-weight:800;font-size:21px}.check{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px}.check input{accent-color:var(--gold);width:18px;height:18px;margin-top:4px;flex:none}.check label{margin:0;font-weight:400;color:var(--sub)}.result{position:sticky;top:18px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-size:12px;font-weight:800}.price{font-size:clamp(30px,4vw,42px);font-weight:800;letter-spacing:-.04em;margin:8px 0 4px}.price-sub{color:var(--sub);font-size:13px}.rule{height:1px;background:var(--line);margin:22px 0}.item{display:flex;justify-content:space-between;gap:16px;margin:11px 0;color:var(--sub);font-size:14px}.item strong{color:var(--text);text-align:right}button,.button{font:inherit;display:block;text-align:center;width:100%;padding:14px 18px;border-radius:10px;border:1px solid var(--gold);background:var(--gold);color:#162334;font-weight:800;text-decoration:none;cursor:pointer;margin-top:12px}button.secondary{background:transparent;color:var(--gold);font-weight:650}button:hover,.button:hover{filter:brightness(1.08)}.disclaimer{font-size:13px;color:var(--sub);padding-top:12px}.foot{color:var(--sub);font-size:13px;margin-top:28px}.note{background:#263347;padding:12px 15px;border-left:3px solid var(--gold);border-radius:6px;color:var(--sub);font-size:13px}#toast{font-size:13px;min-height:20px;color:var(--good);margin-top:7px}textarea{resize:vertical;min-height:90px}footer{margin-top:45px;border-top:1px solid var(--line);padding-top:20px;color:var(--sub);font-size:13px} @media(max-width:780px){.layout{grid-template-columns:1fr}.result{position:static}.wrap{padding:22px 15px 32px}.card{padding:20px}header a{font-size:12px}h1{margin:30px 0 14px}}@media print{body{background:white;color:black}.card{background:white;color:black;box-shadow:none}.layout{display:block}.result{page-break-before:always}button,header a{display:none}.price,.eyebrow{color:black}.hint,.disclaimer,.item,.price-sub{color:#333}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand">PAVEL SAMUTA<small>ENGINEERING & TECHNOLOGY</small></div><a href="https://pavelsamuta.com/" target="_blank" rel="noopener">Основной сайт ↗</a></header>
+<h1>Калькулятор стоимости <em>инженерных работ</em></h1>
+<p class="intro">Предварительно оцените бюджет разработки конструкторской документации, восстановления деталей или проектирования узла. Расчёт поможет определить порядок затрат, а не заменяет техническую оценку проекта.</p>
+<main class="layout">
+<section class="card" aria-label="Параметры проекта">
+<h2>Параметры задачи</h2>
+<div class="field"><label for="service">Что требуется выполнить?</label><select id="service"><option value="kd">Разработка рабочей конструкторской документации</option><option value="reverse">Реверс-инжиниринг по образцу</option><option value="design">Проектирование нового механического узла</option><option value="audit">Проверка и доработка существующей КД</option></select></div>
+<div class="field"><label for="object">Тип изделия</label><select id="object"><option value="part">Одна деталь</option><option value="assembly">Сборочная единица / механизм</option><option value="machine">Оборудование / сложная система</option></select></div>
+<div class="field"><div class="rangehead"><label for="parts">Количество оригинальных деталей в проекте</label><output id="partsOut" for="parts">5</output></div><input id="parts" type="range" min="1" max="60" value="5" step="1"><span class="hint">Это не общий тираж: одинаковые экземпляры детали не увеличивают количество оригинальных позиций.</span></div>
+<div class="field"><label for="complexity">Техническая сложность</label><select id="complexity"><option value="1">Базовая: простые формы, исходные данные есть</option><option value="1.45" selected>Средняя: сопряжения, посадки, несколько деталей</option><option value="2.15">Высокая: сложная геометрия, кинематика, мало данных</option></select></div>
+<div class="field"><label for="sources">Состояние исходной информации</label><select id="sources"><option value="1">Есть актуальные чертежи / CAD-модели</option><option value="1.2" selected>Есть эскизы, фотографии или частичные чертежи</option><option value="1.45">Только образец / исходных чертежей нет</option></select></div>
+<div class="check"><input type="checkbox" id="calc"><label for="calc">Нужны дополнительные инженерные расчёты (предварительная оценка)</label></div>
+<div class="check"><input type="checkbox" id="support"><label for="support">Нужно сопровождение подготовки производства</label></div>
+<div class="field"><label for="description">Описание задачи (необязательно)</label><textarea id="description" placeholder="Например: заменить импортную шестерню, восстановить размеры и подготовить КД для изготовления"></textarea></div>
+<div class="note">Не вводите конфиденциальные сведения: калькулятор работает локально в вашем браузере. Текст будет отправлен только если вы сами воспользуетесь кнопкой связи.</div>
+</section>
+<aside class="card result" aria-live="polite">
+<div class="eyebrow">Предварительный бюджет</div><div class="price" id="price">—</div><div class="price-sub">BYN, ориентировочный диапазон, без предложения-оферты</div>
+<div class="rule"></div>
+<div class="item"><span>Услуга</span><strong id="serviceName">—</strong></div>
+<div class="item"><span>Масштаб</span><strong id="objectName">—</strong></div>
+<div class="item"><span>Оригинальных деталей</span><strong id="partCount">—</strong></div>
+<div class="item"><span>Расчёты / сопровождение</span><strong id="extraName">—</strong></div>
+<div class="rule"></div>
+<p class="disclaimer">Оценка основана на условной модели трудоёмкости и не является прайс-листом. Не включает изготовление, измерения подрядчика, лабораторные испытания, транспортировку, налоги и лицензии. Для точной стоимости нужно согласовать ТЗ, комплект КД и исходные данные.</p>
+<button id="copy">Скопировать параметры для заявки</button>
+<a class="button" href="https://pavelsamuta.com/contacts" target="_blank" rel="noopener">Связаться и получить точную смету ↗</a>
+<button class="secondary" id="print">Распечатать оценку</button>
+<div id="toast" role="status"></div>
+</aside>
+</main>
+<footer><strong>Samuta Engineering & Technology</strong> · Инженерная практика с 2007 года · <a href="https://pavelsamuta.com/">pavelsamuta.com</a><br>Предварительная оценка для промышленного машиностроения. Финальная стоимость и сроки фиксируются в согласованном коммерческом предложении / договоре.</footer>
+</div>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id); const names={kd:'Разработка КД',reverse:'Реверс-инжиниринг',design:'Проектирование узла',audit:'Доработка КД'};
+const objectNames={part:'Одна деталь',assembly:'Сборочная единица',machine:'Оборудование'};
+// Демонстрационная модель расчёта. Замените коэффициенты после калибровки на завершённых проектах.
+const base={kd:1000,reverse:2500,design:1900,audit:800};
+const perPart={kd:110,reverse:180,design:190,audit:85};
+const objectFactor={part:1,assembly:1.3,machine:1.8};
+const minPrice={kd:1000,reverse:2500,design:1900,audit:800};
+const rounded=x=>Math.round(x/50)*50; const money=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(n);
+let current='';
+function calculate(){
+ const s=$('service').value,o=$('object').value,n=+$('parts').value,c=+$('complexity').value,src=+$('sources').value;
+ const useCalc=$('calc').checked,useSupport=$('support').checked;
+ let mean=(base[s]+Math.max(0,n-1)*perPart[s])*objectFactor[o]*c*src;
+ if(useCalc)mean+=900+Math.min(n,15)*35;
+ if(useSupport)mean+=750+Math.min(n,15)*30;
+ mean=Math.max(minPrice[s],mean);
+ const lo=rounded(mean*.75),hi=rounded(mean*1.35);
+ $('price').textContent=money(lo)+'–'+money(hi)+' BYN';
+ $('partsOut').textContent=n; $('partCount').textContent=n;
+ $('serviceName').textContent=names[s];$('objectName').textContent=objectNames[o];
+ $('extraName').textContent=(useCalc?'расчёты':'без расчётов')+', '+(useSupport?'сопровождение':'без сопровождения');
+ const complexity=$('complexity').options[$('complexity').selectedIndex].text;
+ const source=$('sources').options[$('sources').selectedIndex].text;
+ current=`Заявка на предварительную оценку инженерных работ\nУслуга: ${names[s]}\nТип изделия: ${objectNames[o]}\nОригинальных деталей: ${n}\nСложность: ${complexity}\nИсходные данные: ${source}\nДополнительные расчёты: ${useCalc?'да':'нет'}\nСопровождение изготовления: ${useSupport?'да':'нет'}\nОриентир по калькулятору: ${money(lo)}–${money(hi)} BYN\nЗадача: ${$('description').value.trim()||'нужно уточнить'}\n\nПрошу уточнить состав работ, сроки и стоимость после анализа исходных материалов.`;
+}
+for(let id of ['service','object','parts','complexity','sources','calc','support','description'])$(id).addEventListener('input',calculate);
+$('copy').addEventListener('click',async()=>{try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(current)}else{const t=document.createElement('textarea');t.value=current;document.body.append(t);t.select();document.execCommand('copy');t.remove()}$('toast').textContent='Параметры скопированы. Вставьте их в сообщение на странице контактов.'}catch(e){$('toast').textContent='Автокопирование недоступно. Откройте страницу по HTTPS или перепишите параметры.'}});
+$('print').addEventListener('click',()=>window.print());calculate();
+})();
+</script>
+</body>
+</html>
