@@ -15,7 +15,7 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 <body><main class="wrap">
 <header class="top"><div><div class="brand">SAMUTA / ENGINEERING & TECHNOLOGY</div><div class="small">Инженерные инструменты для расчётов и закупок</div></div><nav><a href="../kd-calculator/">Калькулятор стоимости КД</a> &nbsp; · &nbsp; <a href="https://pavelsamuta.com/">Основной сайт</a></nav></header>
 <h1>Инженерный калькулятор металла</h1><p class="intro">Теоретическая масса проката по геометрии, плотности и количеству. Рассчитайте стоимость партии, соберите спецификацию, сохраните историю или выгрузите результат в CSV и JSON.</p>
-<div class="tabs" role="tablist"><button class="tab active" data-tab="calc">Расчёт</button><button class="tab" data-tab="spec">Спецификация <span id="count" class="pill">0</span></button><button class="tab" data-tab="materials">Материалы</button><button class="tab" data-tab="history">История</button></div>
+<div class="tabs" role="tablist"><button class="tab active" data-tab="calc">Расчёт</button><button class="tab" data-tab="spec">Спецификация <span id="count" class="pill">0</span></button><button class="tab" data-tab="standards">Сортаменты ГОСТ</button><button class="tab" data-tab="import">Импорт Excel</button><button class="tab" data-tab="materials">Материалы</button><button class="tab" data-tab="history">История</button></div>
 <section id="calc" class="tabcontent"><div class="grid">
 <div class="panel"><h2>Параметры заготовки</h2>
 <div class="fieldgrid">
@@ -40,10 +40,21 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 </div></div></section>
 <section id="spec" class="tabcontent hide print-allow"><div class="panel"><h2>Спецификация материалов</h2><p class="help">Сформируйте список позиций. Расчёты сохраняются в этом браузере, на сервер не передаются.</p><div id="spectable" class="tablewrap"></div><div class="summary"><div><span class="small">Всего позиций</span><b id="totalrows">0</b></div><div><span class="small">Закупочная масса</span><b id="totalmass">0 кг</b></div><div><span class="small">Стоимость по валютам</span><b id="totalcost">—</b></div></div>
 <div class="actions"><button class="btn" id="csv">Скачать CSV</button><button class="btn" id="json">Скачать JSON</button><button class="btn" id="print">Печать / PDF</button><button class="btn warn" id="clear">Очистить спецификацию</button></div></div></section>
+<section id="standards" class="tabcontent hide"><div class="panel"><h2>Сортаменты ГОСТ: табличная масса</h2><p class="help">Проверенные типоразмеры швеллера серии П (ГОСТ 8240-97) и двутавра с уклоном граней полок (ГОСТ 8239-89). Массы 1 м приведены для стали плотностью 7850 кг/м³. Это не полный каталог стандарта. Фактическая масса зависит от допуска и поставки.</p>
+<div class="fieldgrid"><div class="field"><label for="stdprofile">Профиль и номер</label><select id="stdprofile"></select></div><div class="field"><label for="stdlength">Длина одной единицы, м</label><input type="number" min=".001" step="any" value="6" id="stdlength"></div><div class="field"><label for="stdqty">Количество, шт.</label><input type="number" min="1" step="1" value="1" id="stdqty"></div><div class="field"><label for="stdwaste">Запас / отходы, %</label><input type="number" min="0" step="any" value="5" id="stdwaste"></div><div class="field"><label for="stdprice">Цена за кг</label><input type="number" min="0" step="any" value="0" id="stdprice"></div><div class="field"><label for="stdcurrency">Валюта</label><select id="stdcurrency"><option>BYN</option><option>RUB</option><option>EUR</option><option>USD</option></select></div></div>
+<div class="summary"><div><span class="small">Масса 1 м по сортаменту</span><b id="stdkgm">—</b></div><div><span class="small">Закупочная масса</span><b id="stdmass">—</b></div><div><span class="small">Стоимость</span><b id="stdcost">—</b></div></div>
+<div class="actions"><button class="btn primary" id="stdadd">Добавить профиль в спецификацию</button></div><div id="stdmsg" class="toast" role="status"></div><div class="notice">Ссылки для самостоятельной проверки: <a href="https://files.stroyinf.ru/Data2/1/4294847/4294847929.htm" target="_blank" rel="noopener">ГОСТ 8240-97</a>, <a href="https://files.stroyinf.ru/Data2/1/4294852/4294852738.htm" target="_blank" rel="noopener">ГОСТ 8239-89</a>. Для других марок стали и иных сечений используйте геометрический расчёт, а не табличную массу стального проката без корректировок.</div></div></section>
+<section id="import" class="tabcontent hide"><div class="panel"><h2>Импорт спецификации из Excel или CSV</h2><p class="help">Форматы XLSX, XLS и CSV. Данные читаются в браузере и не отправляются на сервер. Для XLSX/XLS требуется загрузка библиотеки обработки Excel через интернет. Если она недоступна, сохраните таблицу в CSV (UTF-8) и импортируйте её.</p>
+<div class="actions"><button class="btn" id="template">Скачать CSV-шаблон для Excel</button></div>
+<div class="fieldgrid" style="margin-top:16px"><div class="field full"><label for="importfile">Файл спецификации</label><input id="importfile" type="file" accept=".xlsx,.xls,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></div></div>
+<div class="actions"><button class="btn primary" id="importbutton">Импортировать позиции</button></div><div id="importmsg" class="toast" role="status"></div>
+<p class="help">Обязательные столбцы: «Профиль», «Длина м», «Количество». Для каждого профиля нужны размеры: «Ширина мм», «Высота мм», «Толщина мм», «Стенка мм», «Диаметр мм» или «Под ключ мм». Дополнительно: «Наименование», «Материал», «Плотность кг м3», «Запас %», «Цена за кг», «Валюта». Поддерживаемые профили: <code>sheet, round, tube, rect, square, rectsolid, hex, angle, angle2, channel, ibeam</code>. Строки с ошибками отклоняются, остальные можно импортировать.</p>
+<div id="importerrors" class="tablewrap"></div></div></section>
 <section id="materials" class="tabcontent hide"><div class="panel"><h2>Справочник плотностей</h2><p class="help">Плотности ориентировочные при температуре около 20 °C. Конкретный сплав, температура и состояние поставки могут изменять результат. Для расчёта по сертификату укажите своё значение плотности.</p><div id="materialtable" class="tablewrap"></div><h3 style="margin-top:23px">Добавить собственный материал</h3><div class="fieldgrid"><div class="field"><label for="matname">Название материала</label><input id="matname" maxlength="80" placeholder="Например, специальный сплав"></div><div class="field"><label for="matdensity">Плотность, кг/м³</label><input id="matdensity" type="number" min="1" step="any" placeholder="7850"></div></div><div class="actions"><button class="btn primary" id="addmat">Добавить материал</button></div><div id="matmsg" class="toast" role="status"></div></div></section>
 <section id="history" class="tabcontent hide"><div class="panel"><h2>История расчётов</h2><p class="help">Последние 50 добавленных позиций сохраняются только в этом браузере. Удаление данных браузера очищает историю.</p><div id="historytable" class="tablewrap"></div><div class="actions"><button class="btn warn" id="clearhistory">Очистить историю</button></div></div></section>
 <footer class="footer">© 2026 SAMUTA Engineering & Technology · <a href="https://pavelsamuta.com/">pavelsamuta.com</a> · Инструмент для предварительных инженерных оценок. Не заменяет КД, проверку сортамента и технический контроль.</footer>
-</main><script>
+</main><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+<script>
 (function(){
 "use strict";
 var SHAPES=[
@@ -93,7 +104,7 @@ if((sh==="angle"||sh==="angle2")&&t>=Math.min(w,h||w))throw Error("Толщин�
 var kgm=A*1e-6*density;var unit=kgm*len;var net=unit*qty;var gross=net*(1+waste/100);if(!Number.isFinite(gross))throw Error("Результат выходит за допустимые пределы.");
 return {shape:sh,shapeName:(SHAPES.find(function(x){return x[0]===sh})||SHAPES[0])[1],dims:v,material:materials()[Number(el("material").value)][0],density:density,name:el("name").value.trim(),length:len,qty:qty,waste:waste,price:price,currency:el("currency").value,area:A,kgm:kgm,unit:unit,net:net,gross:gross,cost:gross*price,date:new Date().toLocaleString("ru-RU")};}
 function update(){try{var v=getCalc();el("single").textContent=format(v.unit)+" кг";el("permetre").textContent=format(v.kgm)+" кг/м";el("net").textContent=format(v.net)+" кг";el("gross").textContent=format(v.gross)+" кг";el("cost").textContent=format(v.cost,2)+" "+v.currency;el("area").textContent=format(v.area,2)+" мм²";el("err").textContent=""}catch(e){["single","permetre","net","gross","cost","area"].forEach(function(k){el(k).textContent="—"});el("err").textContent=e.message;}}
-function dimsText(d){return Object.keys(d).map(function(k){return k.toUpperCase()+" "+format(d[k])}).join(" × ")+" мм"}
+function dimsText(d){if(d&&Object.prototype.hasOwnProperty.call(d,"Масса 1 м"))return "Табличная масса "+format(d["Масса 1 м"],3)+" кг/м";return Object.keys(d).map(function(k){return k.toUpperCase()+" "+format(d[k])}).join(" × ")+" мм"}
 function renderSpec(){el("count").textContent=state.rows.length;el("totalrows").textContent=state.rows.length;el("totalmass").textContent=format(state.rows.reduce(function(s,r){return s+Number(r.gross||0)},0))+" кг";var totals={};state.rows.forEach(function(r){totals[r.currency]=(totals[r.currency]||0)+Number(r.cost||0)});el("totalcost").textContent=Object.keys(totals).length?Object.keys(totals).map(function(c){return format(totals[c],2)+" "+c}).join(" / "):"—";
 if(!state.rows.length){el("spectable").innerHTML='<div class="empty">Спецификация пока пуста. Добавьте первую позицию из раздела «Расчёт».</div>';return}
 var s='<table><thead><tr><th>Поз.</th><th>Изделие / материал</th><th>Размеры</th><th>Длина, м</th><th>Шт.</th><th>Масса закупки, кг</th><th>Стоимость</th><th></th></tr></thead><tbody>';
@@ -115,6 +126,74 @@ function csvCell(x){return '"'+String(x).replace(/"/g,'""')+'"'}
 el("csv").onclick=function(){var lines=[["Поз.","Наименование","Профиль","Материал","Размеры, мм","Плотность, кг/м3","Длина, м","Количество","Запас, %","Масса нетто, кг","Масса закупки, кг","Цена за кг","Стоимость","Валюта"]];state.rows.forEach(function(r,i){lines.push([i+1,r.name||"",r.shapeName,r.material,dimsText(r.dims),r.density,r.length,r.qty,r.waste,r.net,r.gross,r.price,r.cost,r.currency])});download("samuta-metal-specification.csv","\ufeff"+lines.map(function(line){return line.map(csvCell).join(";")}).join("\r\n"),"text/csv;charset=utf-8")};
 el("json").onclick=function(){download("samuta-metal-specification.json",JSON.stringify({generator:"SAMUTA Metal Calculator",generatedAt:new Date().toISOString(),items:state.rows},null,2),"application/json")};
 el("print").onclick=function(){window.print()};
+
+var STANDARDS=[
+["ГОСТ 8240-97","Швеллер 5П",4.84],["ГОСТ 8240-97","Швеллер 6,5П",5.90],["ГОСТ 8240-97","Швеллер 8П",7.05],["ГОСТ 8240-97","Швеллер 10П",8.59],["ГОСТ 8240-97","Швеллер 12П",10.40],["ГОСТ 8240-97","Швеллер 14П",12.30],["ГОСТ 8240-97","Швеллер 16П",14.20],["ГОСТ 8240-97","Швеллер 18П",16.30],["ГОСТ 8240-97","Швеллер 20П",18.40],["ГОСТ 8240-97","Швеллер 22П",21.00],["ГОСТ 8240-97","Швеллер 24П",24.00],
+["ГОСТ 8239-89","Двутавр 10",9.46],["ГОСТ 8239-89","Двутавр 12",11.50],["ГОСТ 8239-89","Двутавр 14",13.70],["ГОСТ 8239-89","Двутавр 16",15.90],["ГОСТ 8239-89","Двутавр 18",18.40],["ГОСТ 8239-89","Двутавр 20",21.00],["ГОСТ 8239-89","Двутавр 22",24.00],["ГОСТ 8239-89","Двутавр 24",27.30],["ГОСТ 8239-89","Двутавр 27",31.50],["ГОСТ 8239-89","Двутавр 30",36.50]
+];
+function standardCalc(){
+ var p=STANDARDS[Number(el("stdprofile").value)],len=num("stdlength"),qty=num("stdqty"),waste=num("stdwaste"),price=num("stdprice"),currency=el("stdcurrency").value;
+ if(!p||!Number.isFinite(len)||len<=0||!Number.isInteger(qty)||qty<=0||!Number.isFinite(waste)||waste<0||!Number.isFinite(price)||price<0)throw Error("Проверьте длину, количество, запас и цену.");
+ var unit=p[2]*len,net=unit*qty,gross=net*(1+waste/100);
+ return {shape:"standard",shapeName:p[1],name:p[1]+" "+p[0],dims:{"Масса 1 м":p[2]},material:"Сталь (для массы по ГОСТ ρ=7850 кг/м³)",density:7850,length:len,qty:qty,waste:waste,price:price,currency:currency,area:p[2]/7850*1e6,kgm:p[2],unit:unit,net:net,gross:gross,cost:gross*price,standard:p[0],date:new Date().toLocaleString("ru-RU")};
+}
+function updateStandard(){try{var r=standardCalc();el("stdkgm").textContent=format(r.kgm,3)+" кг/м";el("stdmass").textContent=format(r.gross,3)+" кг";el("stdcost").textContent=format(r.cost,2)+" "+r.currency;el("stdmsg").textContent=""}catch(e){el("stdmsg").textContent=e.message;["stdkgm","stdmass","stdcost"].forEach(function(k){el(k).textContent="—"})}}
+el("stdprofile").innerHTML=STANDARDS.map(function(p,i){return '<option value="'+i+'">'+safe(p[1])+" · "+safe(p[0])+" · "+format(p[2],2)+" кг/м</option>"}).join("");
+["stdprofile","stdlength","stdqty","stdwaste","stdprice","stdcurrency"].forEach(function(k){el(k).addEventListener("input",updateStandard)});
+el("stdadd").onclick=function(){try{var r=standardCalc();state.rows.push(r);state.history.unshift(r);state.history=state.history.slice(0,50);save();renderSpec();renderHistory();switchTab("spec")}catch(e){el("stdmsg").textContent=e.message}};
+updateStandard();
+var IMPORT_HEADERS=["Наименование","Профиль","Материал","Ширина мм","Высота мм","Толщина мм","Стенка мм","Диаметр мм","Под ключ мм","Длина м","Количество","Запас %","Цена за кг","Валюта","Плотность кг м3"];
+var IMPORT_COLUMNS={"name":"Наименование","shape":"Профиль","material":"Материал","w":"Ширина мм","h":"Высота мм","t":"Толщина мм","s":"Стенка мм","d":"Диаметр мм","a":"Под ключ мм","length":"Длина м","qty":"Количество","waste":"Запас %","price":"Цена за кг","currency":"Валюта","density":"Плотность кг м3"};
+function parseNum(value,def){if(value===undefined||value===null||String(value).trim()==="")return def;return Number(String(value).replace(/\s/g,"").replace(",","."))}
+function parseDelimited(textData){
+ var lines=textData.replace(/^\uFEFF/,"").replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+ var firstLine=lines.split("\n")[0]||"",delimiter=firstLine.split(";").length>firstLine.split(",").length?";":",";
+ var rows=[],row=[],field="",quoted=false;
+ for(var i=0;i<lines.length;i++){var ch=lines[i];if(ch==='"'){if(quoted&&lines[i+1]==='"'){field+='"';i++}else{quoted=!quoted}}else if(!quoted&&ch===delimiter){row.push(field);field=""}else if(!quoted&&ch==="\n"){row.push(field);if(row.some(function(x){return x.trim()}))rows.push(row);row=[];field=""}else{field+=ch}}
+ row.push(field);if(row.some(function(x){return x.trim()}))rows.push(row);
+ var head=rows.shift()||[];return rows.map(function(c){var o={};head.forEach(function(x,i){o[x.trim()]=c[i]||""});return o});
+}
+function importedRow(source,index){
+ function value(k){return source[IMPORT_COLUMNS[k]]}
+ var shape=String(value("shape")||"").trim().toLowerCase();if(!SHAPES.some(function(s){return s[0]===shape}))throw Error("Неподдерживаемый профиль: "+shape);
+ var dimKeys=SHAPES.find(function(s){return s[0]===shape})[3],d={};
+ dimKeys.forEach(function(k){d[k]=parseNum(value(k),NaN);if(!Number.isFinite(d[k])||d[k]<=0)throw Error("Отсутствует или некорректен размер "+IMPORT_COLUMNS[k])});
+ var length=parseNum(value("length"),NaN),qty=parseNum(value("qty"),NaN),waste=parseNum(value("waste"),0),price=parseNum(value("price"),0),density=parseNum(value("density"),7850);
+ if(!Number.isFinite(length)||length<=0||!Number.isInteger(qty)||qty<=0||!Number.isFinite(waste)||waste<0||!Number.isFinite(price)||price<0||!Number.isFinite(density)||density<=0)throw Error("Некорректные длина, количество, запас, цена или плотность.");
+ var w=d.w||0,h=d.h||0,t=d.t||0,s=d.s||0,diam=d.d||0,a=d.a||0,A=0;
+ if(shape==="sheet")A=w*t;
+ if(shape==="round")A=Math.PI*diam*diam/4;
+ if(shape==="tube"){if(t*2>=diam)throw Error("Толщина трубы превышает радиус");A=Math.PI*(diam*diam-(diam-2*t)*(diam-2*t))/4}
+ if(shape==="rect"){if(t*2>=Math.min(w,h))throw Error("Стенка профильной трубы слишком толстая");A=w*h-(w-2*t)*(h-2*t)}
+ if(shape==="square")A=w*w;
+ if(shape==="rectsolid")A=w*h;
+ if(shape==="hex")A=Math.sqrt(3)*a*a/2;
+ if(shape==="angle"){if(t>=w)throw Error("Толщина уголка превышает полку");A=t*(2*w-t)}
+ if(shape==="angle2"){if(t>=Math.min(w,h))throw Error("Толщина уголка превышает полку");A=t*(w+h-t)}
+ if(shape==="channel"||shape==="ibeam"){if(t*2>=h)throw Error("Полки слишком толстые");A=2*w*t+(h-2*t)*s}
+ var kgm=A*1e-6*density,unit=kgm*length,net=unit*qty,gross=net*(1+waste/100),currency=String(value("currency")||"BYN").toUpperCase();
+ if(!["BYN","RUB","EUR","USD"].includes(currency))throw Error("Неизвестная валюта: "+currency);
+ if(!Number.isFinite(gross)||!Number.isFinite(gross*price))throw Error("Ошибка чисел / переполнение");
+ var name=String(value("name")||"").trim(),material=String(value("material")||"Сталь конструкционная (типовая)").trim();
+ return {shape:shape,shapeName:SHAPES.find(function(s){return s[0]===shape})[1],dims:d,material:material,density:density,name:name,length:length,qty:qty,waste:waste,price:price,currency:currency,area:A,kgm:kgm,unit:unit,net:net,gross:gross,cost:gross*price,date:new Date().toLocaleString("ru-RU")};
+}
+el("template").onclick=function(){var rows=[IMPORT_HEADERS,["Труба рамы 01","rect","Сталь конструкционная (типовая)","40","40","3","","","","6","10","5","2.5","BYN","7850"],["Круглый пруток","round","Сталь 40Х","","","","","35","","1.2","4","3","4","BYN","7820"]];download("samuta-import-template.csv","\ufeff"+rows.map(function(r){return r.map(csvCell).join(";")}).join("\r\n"),"text/csv;charset=utf-8")};
+el("importbutton").onclick=async function(){
+ var file=el("importfile").files[0];if(!file){el("importmsg").textContent="Выберите файл Excel или CSV.";return}
+ try{
+ var raw;
+ if(/\.csv$/i.test(file.name)){raw=parseDelimited(await file.text())}
+ else if(/\.(xlsx|xls)$/i.test(file.name)){if(typeof XLSX==="undefined")throw Error("Библиотека Excel недоступна. Сохраните файл в CSV (UTF-8) и повторите импорт.");var data=await file.arrayBuffer(),book=XLSX.read(data,{type:"array"});raw=XLSX.utils.sheet_to_json(book.Sheets[book.SheetNames[0]],{defval:"",raw:false})}
+ else throw Error("Разрешены только .xlsx, .xls и .csv");
+ if(!raw.length)throw Error("Файл не содержит строк.");
+ var required=["Профиль","Длина м","Количество"];required.forEach(function(key){if(!(key in raw[0]))throw Error("Отсутствует столбец «"+key+"». Скачайте шаблон.")});
+ var ok=[],errors=[];raw.forEach(function(item,i){try{ok.push(importedRow(item,i+2))}catch(e){errors.push("Строка "+(i+2)+": "+e.message)}});
+ if(ok.length){state.rows.push.apply(state.rows,ok);state.history.unshift.apply(state.history,ok.slice(0,50));state.history=state.history.slice(0,50);save();renderSpec();renderHistory()}
+ el("importmsg").textContent="Добавлено позиций: "+ok.length+". Ошибок: "+errors.length+".";
+ el("importerrors").innerHTML=errors.length?"<h3>Ошибки импорта</h3><p class='help'>"+errors.map(safe).join("<br>")+"</p>":"";
+ }catch(e){el("importmsg").textContent=e.message;el("importerrors").innerHTML=""}
+};
+
 populateMaterials();shapeChange();renderSpec();renderHistory();
 })();
 </script></body></html>
