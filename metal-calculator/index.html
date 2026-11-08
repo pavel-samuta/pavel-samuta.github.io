@@ -78,7 +78,7 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 <h3>Предварительный подбор транспорта</h3><div class="fieldgrid"><div class="field"><label for="lfill">Заполнение кузова, %</label><input id="lfill" type="number" value="80" min="10" max="100"></div><div class="field"><label for="lmode">Варианты</label><select id="lmode"><option value="both">Автомобиль и железная дорога</option><option value="road">Только автомобиль</option><option value="rail">Только ЖД</option></select></div></div><div class="summary"><div><span class="small">Автомобиль</span><b id="lvehicle">—</b></div><div><span class="small">Железная дорога</span><b id="lrail">—</b></div></div><p class="help" id="ltransportnote"></p><div class="summary">
 <div><span class="small">Общий объём</span><b id="lvolume">—</b></div><div><span class="small">Масса с упаковкой</span><b id="lactual">—</b></div>
 <div><span class="small">Объёмный вес</span><b id="lvolweight">—</b></div><div><span class="small">Расчётный вес</span><b id="lcharge">—</b></div>
-<div><span class="small">Предварительная стоимость</span><b id="lcost">—</b></div>
+<div><span class="small">Стоимость по автомобильному тарифу</span><b id="lcost">—</b></div>
 </div>
 <div id="lmessage" role="status" class="toast"></div>
 <div class="actions"><button class="btn" id="lcsv">Экспорт CSV</button><button class="btn" id="lcopy">Скопировать заявку перевозчику</button></div>
@@ -266,7 +266,7 @@ function logisticsCalc(){
  return {origin:el("lfrom").value.trim(),destination:el("lto").value.trim(),volume:volume,pieces:pieces,metalMass:mass,actual:actual,volWeight:volweight,charge:charge,price:price,currency:el("lcur").value,km:km,suggested:suggested,packages:packageRows.map(function(p){return Object.assign({},p)})};
 }
 function logisticsUpdate(){
- try{var x=logisticsCalc();el("lvolume").textContent=format(x.volume,4)+" м³";el("lactual").textContent=format(x.actual,2)+" кг";el("lvolweight").textContent=format(x.volWeight,2)+" кг";el("lcharge").textContent=format(x.charge,2)+" кг";el("lcost").textContent=format(x.price,2)+" "+x.currency;el("lvehicle").textContent=x.suggested.road;el("lrail").textContent=x.suggested.rail;el("ltransportnote").textContent=x.suggested.note;el("lmessage").textContent="";}
+ try{var x=logisticsCalc();el("lvolume").textContent=format(x.volume,4)+" м³";el("lactual").textContent=format(x.actual,2)+" кг";el("lvolweight").textContent=format(x.volWeight,2)+" кг";el("lcharge").textContent=format(x.charge,2)+" кг";el("lcost").textContent=el("lmode").value==="rail"?"Тариф ЖД не рассчитан":format(x.price,2)+" "+x.currency;el("lvehicle").textContent=x.suggested.road;el("lrail").textContent=x.suggested.rail;el("ltransportnote").textContent=x.suggested.note;el("lmessage").textContent="";}
  catch(e){["lvolume","lactual","lvolweight","lcharge","lcost","lvehicle","lrail"].forEach(function(id){el(id).textContent="—"});el("lmessage").textContent=e.message}
 }
 function packagesRender(){
