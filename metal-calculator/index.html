@@ -15,7 +15,7 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 <body><main class="wrap">
 <header class="top"><div><div class="brand">SAMUTA / ENGINEERING & TECHNOLOGY</div><div class="small">Инженерные инструменты для расчётов и закупок</div></div><nav><a href="../kd-calculator/">Калькулятор стоимости КД</a> &nbsp; · &nbsp; <a href="https://pavelsamuta.com/">Основной сайт</a></nav></header>
 <h1>Инженерный калькулятор металла</h1><p class="intro">Теоретическая масса проката по геометрии, плотности и количеству. Рассчитайте стоимость партии, соберите спецификацию, сохраните историю или выгрузите результат в CSV и JSON.</p>
-<div class="tabs" role="tablist"><button class="tab active" data-tab="calc">Расчёт</button><button class="tab" data-tab="spec">Спецификация <span id="count" class="pill">0</span></button><button class="tab" data-tab="standards">Сортаменты ГОСТ</button><button class="tab" data-tab="import">Импорт Excel</button><button class="tab" data-tab="materials">Материалы</button><button class="tab" data-tab="history">История</button></div>
+<div class="tabs" role="tablist"><button class="tab active" data-tab="calc">Расчёт</button><button class="tab" data-tab="spec">Спецификация <span id="count" class="pill">0</span></button><button class="tab" data-tab="standards">Сортаменты ГОСТ</button><button class="tab" data-tab="import">Импорт Excel</button><button class="tab" data-tab="materials">Материалы</button><button class="tab" data-tab="logistics">Объём и логистика</button><button class="tab" data-tab="history">История</button></div>
 <section id="calc" class="tabcontent"><div class="grid">
 <div class="panel"><h2>Параметры заготовки</h2>
 <div class="fieldgrid">
@@ -51,6 +51,39 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 <p class="help">Обязательные столбцы: «Профиль», «Длина м», «Количество». Для каждого профиля нужны размеры: «Ширина мм», «Высота мм», «Толщина мм», «Стенка мм», «Диаметр мм» или «Под ключ мм». Дополнительно: «Наименование», «Материал», «Плотность кг м3», «Запас %», «Цена за кг», «Валюта». Поддерживаемые профили: <code>sheet, round, tube, rect, square, rectsolid, hex, angle, angle2, channel, ibeam</code>. Строки с ошибками отклоняются, остальные можно импортировать.</p>
 <div id="importerrors" class="tablewrap"></div></div></section>
 <section id="materials" class="tabcontent hide"><div class="panel"><h2>Справочник плотностей</h2><p class="help">Плотности ориентировочные при температуре около 20 °C. Конкретный сплав, температура и состояние поставки могут изменять результат. Для расчёта по сертификату укажите своё значение плотности.</p><div id="materialtable" class="tablewrap"></div><h3 style="margin-top:23px">Добавить собственный материал</h3><div class="fieldgrid"><div class="field"><label for="matname">Название материала</label><input id="matname" maxlength="80" placeholder="Например, специальный сплав"></div><div class="field"><label for="matdensity">Плотность, кг/м³</label><input id="matdensity" type="number" min="1" step="any" placeholder="7850"></div></div><div class="actions"><button class="btn primary" id="addmat">Добавить материал</button></div><div id="matmsg" class="toast" role="status"></div></div></section>
+
+<section id="logistics" class="tabcontent hide">
+<div class="panel"><h2>Объём груза и стоимость доставки</h2>
+<p class="help">Рассчитайте объём нескольких типов упаковок, фактический и объёмный вес, затем предварительный бюджет перевозки Россия - Беларусь. Расстояние и тариф указываются вручную, онлайн-расценок перевозчиков нет.</p>
+<div class="fieldgrid">
+<div class="field"><label for="lfrom">Отправление</label><input id="lfrom" value="Смоленск, Россия" placeholder="Город, страна"></div>
+<div class="field"><label for="lto">Назначение</label><input id="lto" value="Минск, Беларусь" placeholder="Город, страна"></div>
+</div>
+<h3 style="margin-top:20px">Упаковки и грузовые места</h3>
+<p class="help">Каждая строка может иметь собственные габариты. Размеры можно вводить в мм, см и м.</p>
+<div class="tablewrap" id="lpackages"></div>
+<div class="actions"><button class="btn" id="ladd">Добавить упаковку</button></div>
+<div class="fieldgrid" style="margin-top:18px">
+<div class="field"><label><input type="checkbox" id="lspec" style="width:auto" checked> Использовать массу из спецификации металла</label></div>
+<div class="field"><label for="lmanual">Масса самого груза, кг (вручную)</label><input id="lmanual" type="number" value="1000" step="any" min="0"></div>
+<div class="field"><label for="ltare">Вес упаковки, кг за место</label><input id="ltare" type="number" value="10" step="any" min="0"></div>
+<div class="field"><label for="lfactor">Коэффициент объёмного веса, кг/м³</label><input id="lfactor" type="number" value="250" step="any" min="0"></div>
+<div class="field"><label for="lrate">Тариф за расчётный кг</label><input id="lrate" type="number" value="0" step="any" min="0"></div>
+<div class="field"><label for="lmin">Минимальная стоимость перевозки</label><input id="lmin" type="number" value="0" step="any" min="0"></div>
+<div class="field"><label for="lkm">Расстояние по маршруту, км</label><input id="lkm" type="number" value="0" step="any" min="0"></div>
+<div class="field"><label for="lkmrate">Тариф за км (дополнительно)</label><input id="lkmrate" type="number" value="0" step="any" min="0"></div>
+<div class="field"><label for="lextras">Погрузка, упаковка, оформление и прочие расходы</label><input id="lextras" type="number" value="0" step="any" min="0"></div>
+<div class="field"><label for="lcur">Валюта тарифа</label><select id="lcur"><option>BYN</option><option>RUB</option><option>EUR</option><option>USD</option></select></div>
+</div>
+<div class="summary">
+<div><span class="small">Общий объём</span><b id="lvolume">—</b></div><div><span class="small">Масса с упаковкой</span><b id="lactual">—</b></div>
+<div><span class="small">Объёмный вес</span><b id="lvolweight">—</b></div><div><span class="small">Расчётный вес</span><b id="lcharge">—</b></div>
+<div><span class="small">Предварительная стоимость</span><b id="lcost">—</b></div>
+</div>
+<div id="lmessage" role="status" class="toast"></div>
+<div class="actions"><button class="btn" id="lcsv">Экспорт CSV</button><button class="btn" id="lcopy">Скопировать заявку перевозчику</button></div>
+<div class="notice">Габариты относятся к упакованному грузу, а не к металлопрокату без тары. Для длинномерных изделий, негабаритных грузов и частичной загрузки автомобиля стоимость по весу может быть неприменима. Коэффициент объёмного веса зависит от договора с перевозчиком. Налоги, страхование, разрешения и таможенные расходы не включены, если вы не внесли их в дополнительные расходы.</div>
+</div></section>
 <section id="history" class="tabcontent hide"><div class="panel"><h2>История расчётов</h2><p class="help">Последние 50 добавленных позиций сохраняются только в этом браузере. Удаление данных браузера очищает историю.</p><div id="historytable" class="tablewrap"></div><div class="actions"><button class="btn warn" id="clearhistory">Очистить историю</button></div></div></section>
 <footer class="footer">© 2026 SAMUTA Engineering & Technology · <a href="https://pavelsamuta.com/">pavelsamuta.com</a> · Инструмент для предварительных инженерных оценок. Не заменяет КД, проверку сортамента и технический контроль.</footer>
 <section id="samuta-internal-links" style="max-width:1120px;margin:28px auto;padding:22px;border:1px solid #8b9aa355;border-radius:12px"><h2>Связанные инженерные инструменты и материалы</h2><p><a href="/engineering-data/" style="display:inline-block;margin:4px 12px 4px 0">Инженерный справочник</a> · <a href="/engineering-data/machine-part-design-elements/" style="display:inline-block;margin:4px 12px 4px 0">Элементы деталей машин</a> · <a href="/engineering-data/kd-labor-intensity/" style="display:inline-block;margin:4px 12px 4px 0">Трудоёмкость КД</a> · <a href="/kd-calculator/" style="display:inline-block;margin:4px 12px 4px 0">Стоимость разработки КД</a> · <a href="/gear-calculator/" style="display:inline-block;margin:4px 12px 4px 0">Калькулятор зубчатых передач</a> · <a href="/start/" style="display:inline-block;margin:4px 12px 4px 0">Запросить разработку</a></p></section></main><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
@@ -112,7 +145,7 @@ state.rows.forEach(function(r,i){s+='<tr><td>'+(i+1)+'</td><td><b>'+safe(r.name|
 el("spectable").innerHTML=s+"</tbody></table>";el("spectable").querySelectorAll(".remove").forEach(function(b){b.onclick=function(){state.rows.splice(Number(b.dataset.i),1);save();renderSpec()}})}
 function renderMaterials(){var s='<table><thead><tr><th>Материал</th><th>Плотность, кг/м³</th><th>Тип</th><th></th></tr></thead><tbody>';materials().forEach(function(m,i){s+='<tr><td>'+safe(m[0])+'</td><td>'+format(m[1],0)+'</td><td>'+(i<DEFAULT.length?"Справочный":"Пользовательский")+'</td><td>'+(i>=DEFAULT.length?'<button class="btn warn delmat" data-i="'+(i-DEFAULT.length)+'">Удалить</button>':"")+'</td></tr>'});el("materialtable").innerHTML=s+"</tbody></table>";el("materialtable").querySelectorAll(".delmat").forEach(function(b){b.onclick=function(){state.custom.splice(Number(b.dataset.i),1);save();populateMaterials()}})}
 function renderHistory(){var s='<table><thead><tr><th>Дата</th><th>Заготовка</th><th>Количество</th><th>Масса, кг</th><th></th></tr></thead><tbody>';state.history.forEach(function(r,i){s+='<tr><td>'+safe(r.date)+'</td><td>'+safe(r.name||r.shapeName)+'<br><span class="small">'+safe(dimsText(r.dims))+'</span></td><td>'+format(r.qty,0)+'</td><td>'+format(r.gross)+'</td><td><button class="btn restore" data-i="'+i+'">В спецификацию</button></td></tr>'});el("historytable").innerHTML=state.history.length?s+"</tbody></table>":'<div class="empty">История ещё не содержит расчётов.</div>';el("historytable").querySelectorAll(".restore").forEach(function(b){b.onclick=function(){state.rows.push({...state.history[Number(b.dataset.i)]});save();renderSpec();switchTab("spec")}})}
-function switchTab(id){document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("active",b.dataset.tab===id)});document.querySelectorAll(".tabcontent").forEach(function(s){s.classList.toggle("hide",s.id!==id)});if(id==="spec")renderSpec();if(id==="history")renderHistory();if(id==="materials")renderMaterials()}
+function switchTab(id){document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("active",b.dataset.tab===id)});document.querySelectorAll(".tabcontent").forEach(function(s){s.classList.toggle("hide",s.id!==id)});if(id==="spec")renderSpec();if(id==="history")renderHistory();if(id==="materials")renderMaterials();if(id==="logistics")logisticsUpdate()}
 document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){switchTab(b.dataset.tab)}});
 el("shape").innerHTML=SHAPES.map(function(s){return '<option value="'+s[0]+'">'+s[1]+'</option>'}).join("");
 el("shape").value="tube";el("shape").onchange=shapeChange;el("material").onchange=materialChanged;["density","length","qty","waste","price","currency"].forEach(function(id){el(id).addEventListener("input",update)});
@@ -193,6 +226,42 @@ el("importbutton").onclick=async function(){
  el("importerrors").innerHTML=errors.length?"<h3>Ошибки импорта</h3><p class='help'>"+errors.map(safe).join("<br>")+"</p>":"";
  }catch(e){el("importmsg").textContent=e.message;el("importerrors").innerHTML=""}
 };
+
+
+var packageRows=[{l:120,w:80,h:60,q:1,unit:"cm"}];
+var packageUnits={mm:.001,cm:.01,m:1};
+function lnum(id){return Number(el(id).value)}
+function logisticsCalc(){
+ var volume=0,pieces=0;
+ packageRows.forEach(function(p){var factor=packageUnits[p.unit];var nums=[p.l,p.w,p.h,p.q];if(!factor||nums.some(function(n){return !Number.isFinite(n)||n<=0})||!Number.isInteger(p.q))throw Error("Проверьте габариты и количество в строках упаковки.");volume+=p.l*p.w*p.h*Math.pow(factor,3)*p.q;pieces+=p.q});
+ var manual=lnum("lmanual"),tare=lnum("ltare"),coef=lnum("lfactor"),rate=lnum("lrate"),min=lnum("lmin"),km=lnum("lkm"),kmrate=lnum("lkmrate"),extras=lnum("lextras");
+ if([manual,tare,coef,rate,min,km,kmrate,extras].some(function(v){return !Number.isFinite(v)||v<0}))throw Error("Масса и тарифы не могут быть отрицательными.");
+ var specMass=state.rows.reduce(function(t,r){return t+Number(r.gross||0)},0);
+ if(el("lspec").checked&&state.rows.length===0)throw Error("Спецификация металла пуста. Добавьте позиции или отключите использование массы из спецификации.");
+ var mass=el("lspec").checked?specMass:manual;
+ var actual=mass+pieces*tare,volweight=volume*coef,charge=Math.max(actual,volweight);
+ var price=Math.max(min,charge*rate+km*kmrate)+extras;
+ return {origin:el("lfrom").value.trim(),destination:el("lto").value.trim(),volume:volume,pieces:pieces,metalMass:mass,actual:actual,volWeight:volweight,charge:charge,price:price,currency:el("lcur").value,km:km,packages:packageRows.map(function(p){return Object.assign({},p)})};
+}
+function logisticsUpdate(){
+ try{var x=logisticsCalc();el("lvolume").textContent=format(x.volume,4)+" м³";el("lactual").textContent=format(x.actual,2)+" кг";el("lvolweight").textContent=format(x.volWeight,2)+" кг";el("lcharge").textContent=format(x.charge,2)+" кг";el("lcost").textContent=format(x.price,2)+" "+x.currency;el("lmessage").textContent="";}
+ catch(e){["lvolume","lactual","lvolweight","lcharge","lcost"].forEach(function(id){el(id).textContent="—"});el("lmessage").textContent=e.message}
+}
+function packagesRender(){
+ if(!packageRows.length)packageRows.push({l:120,w:80,h:60,q:1,unit:"cm"});
+ el("lpackages").innerHTML='<table><thead><tr><th>Длина</th><th>Ширина</th><th>Высота</th><th>Ед.</th><th>Кол-во</th><th>Объём, м³</th><th></th></tr></thead><tbody>'+packageRows.map(function(p,i){var factor=packageUnits[p.unit];var vol=p.l*p.w*p.h*Math.pow(factor,3)*p.q;return '<tr data-row="'+i+'">'+["l","w","h"].map(function(key){return '<td><input type="number" data-key="'+key+'" value="'+p[key]+'" step="any" min=".001" aria-label="'+key+'" style="width:85px"></td>'}).join("")+'<td><select data-key="unit">'+["mm","cm","m"].map(function(u){return '<option value="'+u+'"'+(u===p.unit?" selected":"")+'>'+u+'</option>'}).join("")+'</select></td><td><input type="number" data-key="q" min="1" step="1" value="'+p.q+'" style="width:75px"></td><td class="num">'+format(vol,4)+'</td><td><button class="btn warn" data-remove="'+i+'">×</button></td></tr>'}).join("")+'</tbody></table>';
+ el("lpackages").querySelectorAll("tr[data-row]").forEach(function(tr){var index=Number(tr.dataset.row);tr.querySelectorAll("input,select").forEach(function(input){input.addEventListener("input",function(){var k=input.dataset.key;packageRows[index][k]=k==="unit"?input.value:Number(input.value);packagesRender()})})});
+ el("lpackages").querySelectorAll("[data-remove]").forEach(function(button){button.onclick=function(){packageRows.splice(Number(button.dataset.remove),1);packagesRender()}});
+ logisticsUpdate();
+}
+el("ladd").onclick=function(){packageRows.push({l:120,w:80,h:60,q:1,unit:"cm"});packagesRender()};
+["lfrom","lto","lspec","lmanual","ltare","lfactor","lrate","lmin","lkm","lkmrate","lextras","lcur"].forEach(function(id){el(id).addEventListener("input",logisticsUpdate)});
+function logReport(x){
+ return "Маршрут: "+x.origin+" → "+x.destination+"\nГрузовых мест: "+x.pieces+"\nОбъём: "+format(x.volume,4)+" м³\nМасса груза: "+format(x.metalMass,2)+" кг\nМасса с упаковкой: "+format(x.actual,2)+" кг\nОбъёмный вес: "+format(x.volWeight,2)+" кг\nРасчётный вес: "+format(x.charge,2)+" кг\nСтоимость: "+format(x.price,2)+" "+x.currency+"\n\nГабариты:\n"+x.packages.map(function(p,i){return (i+1)+". "+p.l+"×"+p.w+"×"+p.h+" "+p.unit+", "+p.q+" шт."}).join("\n");
+}
+el("lcopy").onclick=async function(){try{await navigator.clipboard.writeText(logReport(logisticsCalc()));el("lmessage").textContent="Данные скопированы."}catch(e){el("lmessage").textContent="Не удалось скопировать. Используйте CSV."}};
+el("lcsv").onclick=function(){try{var x=logisticsCalc();var output=[["Показатель","Значение"],["Отправление",x.origin],["Назначение",x.destination],["Количество мест",x.pieces],["Объём, м³",x.volume],["Масса груза, кг",x.metalMass],["Масса с упаковкой, кг",x.actual],["Объёмный вес, кг",x.volWeight],["Расчётный вес, кг",x.charge],["Стоимость",x.price],["Валюта",x.currency]];x.packages.forEach(function(p,i){output.push(["Упаковка "+(i+1),p.l+" × "+p.w+" × "+p.h+" "+p.unit+", "+p.q+" шт."])});download("samuta-metal-logistics.csv","\ufeff"+output.map(function(row){return row.map(csvCell).join(";")}).join("\r\n"),"text/csv;charset=utf-8")}catch(e){el("lmessage").textContent=e.message}};
+packagesRender();
 
 populateMaterials();shapeChange();renderSpec();renderHistory();
 })();
