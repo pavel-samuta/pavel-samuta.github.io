@@ -85,7 +85,7 @@
 (function(){"use strict";
 const $=id=>document.getElementById(id),fmt=(x,k=2)=>Number(x).toLocaleString("ru-RU",{maximumFractionDigits:k}),inputs=["length","width","height","volume","fill","density","qty","materialPrice","scrap","overhead","margin","setup","rate","rateHigh","finish","stock","mrr","aux","thickness","contour","cutspeed","pierces","piercetime","bends","bendtime","sheetUtil","infill","shell","supports","extrusion","printerExtra"];
 const densities={steel:7.85,al:2.70,stainless:7.9,abs:1.04,pla:1.24,petg:1.27};
-let geom=null,mesh=null,dxf=null,dxfText="",drawing=null,selected=[],angleX=.3,angleY=-.4,drag=null,drawNeeded=false;
+let geom=null,mesh=null,dxf=null,dxfText="",drawing=null,selected=[],angleX=.3,angleY=-.4,drag=null,drawNeeded=false,filePending=false,isBusy=false;
 function val(id){const t=$(id).value;if(t==="")throw Error("Введите "+id);const v=Number(t);if(!Number.isFinite(v))throw Error("Некорректное число: "+id);return v}
 function setGeometry(g){geom=g;["length","width","height"].forEach((id,i)=>$(id).value=+g.dims[i].toFixed(4));if(g.watertightApprox&&g.volume>0)$("volume").value=+g.volume.toFixed(4);else $("volume").value="0";render()}
 function readStl(buffer){const bytes=new Uint8Array(buffer),view=new DataView(buffer);if(buffer.byteLength<84)throw Error("STL слишком мал");let binary=false,nfaces=0;
@@ -125,7 +125,7 @@ notes.push(dxf?"DXF: площадь, длина реза и количество
 if(process==="print"){if(p.infill<=0||p.infill>100||p.shell<0||p.shell>100||p.supports<0||p.extrusion<=0||p.printerExtra<0)throw Error("Проверьте параметры FDM");const shellRatio=p.shell/100,extruded=vol*(shellRatio+(1-shellRatio)*p.infill/100)*(1+p.supports/100);rawMass=extruded*density/1000;time=extruded/p.extrusion+p.printerExtra;notes.push("FDM: эвристика оболочек/заполнения. Результат не заменяет слайсер, поддержки и фактический расход филамента.");}
 const matCost=rawMass*p.materialPrice-p.scrap*scrapMass;const unitSetup=p.setup/p.qty;function price(rate){const run=time*rate,setup=unitSetup*rate,direct=Math.max(0,matCost)+run+setup+p.finish,total=direct*(1+p.overhead/100),sell=total/(1-p.margin/100);return {direct,unit:total,sell,run,setup,material:Math.max(0,matCost),finish:p.finish,overhead:total-direct,batchCost:total*p.qty,batchPrice:sell*p.qty}}
 return {p,process,box,vol,partMass,rawMass,time,notes,low:price(p.rate),high:price(p.rateHigh),currency:$("currency").value};}
-function show(){try{const r=calculate();lastResult=r;const {p,low,high}=r,c=r.currency;const range=(a,b)=>fmt(a)+" – "+fmt(b)+" "+c;$("dims").textContent=[p.length,p.width,p.height].map(x=>fmt(x,1)).join(" × ");$("vout").textContent=fmt(r.vol,2)+" см³";$("mass").textContent=fmt(r.partMass,3)+" кг";$("time").textContent=fmt(r.time,2)+" ч";$("cost").textContent=range(low.unit,high.unit);$("price").textContent=range(low.sell,high.sell);$("batch").textContent=range(low.batchPrice,high.batchPrice);$("matWeight").textContent=fmt(r.rawMass*p.qty,3)+" кг";$("assumptions").textContent=r.notes.join(" ")+(dxf?" Объём листовой детали = площадь DXF × толщина.":!geom?" Объём детали рассчитан из доли заполнения габаритного объёма.":geom.watertightApprox?" Объём вычислен по ориентированным треугольникам STL.":" STL не подтверждён как замкнутый: объём не используется автоматически.");
+function show(){try{if(filePending)throw Error("Файл выбран, но ещё не обработан. Нажмите «Начать расчёт».");const r=calculate();lastResult=r;const {p,low,high}=r,c=r.currency;const range=(a,b)=>fmt(a)+" – "+fmt(b)+" "+c;$("dims").textContent=[p.length,p.width,p.height].map(x=>fmt(x,1)).join(" × ");$("vout").textContent=fmt(r.vol,2)+" см³";$("mass").textContent=fmt(r.partMass,3)+" кг";$("time").textContent=fmt(r.time,2)+" ч";$("cost").textContent=range(low.unit,high.unit);$("price").textContent=range(low.sell,high.sell);$("batch").textContent=range(low.batchPrice,high.batchPrice);$("matWeight").textContent=fmt(r.rawMass*p.qty,3)+" кг";$("assumptions").textContent=r.notes.join(" ")+(dxf?" Объём листовой детали = площадь DXF × толщина.":!geom?" Объём детали рассчитан из доли заполнения габаритного объёма.":geom.watertightApprox?" Объём вычислен по ориентированным треугольникам STL.":" STL не подтверждён как замкнутый: объём не используется автоматически.");
 const items=[["Сырьё",low.material,high.material],["Станочное время",low.run,high.run],["Наладка",low.setup,high.setup],["Контроль",low.finish,high.finish],["Накладные",low.overhead,high.overhead]];const max=Math.max(high.unit,1);$("breakdown").innerHTML=items.map(([name,a,b])=>'<div><div class="barrow"><span>'+name+'</span><b>'+range(a,b)+'</b></div><div class="bar"><i style="width:'+Math.min(100,b/max*100)+'%"></i></div></div>').join("");
 const flags=[];const minDim=Math.min(p.length,p.width,p.height);
 if(r.process==="cnc"){flags.push(minDim<1?"Малый габарит: проверьте возможность закрепления детали.":"Габариты нужно согласовать с ходами станка и схемой базирования.");if(p.stock>3)flags.push("Коэффициент заготовки свыше 3: высокий расход материала, проверьте исходный сортамент.");if(p.mrr>100)flags.push("Высокая скорость съёма: проверьте материал, инструмент и реальные режимы резания.");}
@@ -141,7 +141,25 @@ $("csv").onclick=()=>{if(lastResult)download("samuta-instant-quote.csv","\uFEFF"
 $("json").onclick=()=>{if(lastResult)download("samuta-instant-quote.json",JSON.stringify(report(lastResult),null,2),"application/json")};
 $("copy").onclick=async()=>{if(!lastResult)return;try{await navigator.clipboard.writeText(JSON.stringify(report(lastResult),null,2));$("error").textContent="Отчёт скопирован."}catch(e){$("error").textContent="Копирование недоступно, используйте JSON."}};
 $("print").onclick=()=>window.print();
-$("startCalc").onclick=()=>{show();$("results").scrollIntoView({behavior:"smooth",block:"start"});};
+$("startCalc").onclick=async()=>{
+ if(isBusy)return;
+ const button=$("startCalc");isBusy=true;button.disabled=true;button.textContent="Выполняется расчёт…";
+ try{
+  let ok=true;
+  if(filePending)ok=await processSelectedFile();
+  if(ok&&drawing&&!dxf){
+   $("drawingStatus").textContent+=" Выберите контуры и подтвердите их, затем получите расчёт.";
+   $("drawingPanel").scrollIntoView({behavior:"smooth",block:"center"});
+  }else if(ok){
+   show();
+   $("results").scrollIntoView({behavior:"smooth",block:"start"});
+  }else{
+   $("fileinfo").scrollIntoView({behavior:"smooth",block:"center"});
+  }
+ }catch(e){
+  $("fileinfo").textContent="Ошибка расчёта: "+e.message;
+ }finally{isBusy=false;button.disabled=false;button.textContent="Начать расчёт";}
+};
 inputs.forEach(id=>$(id).addEventListener("input",()=>{if(dxf&&id==="thickness"){const t=Number($("thickness").value);$("height").value=t;$("volume").value=+(dxf.area_mm2*t/1000).toFixed(5);}show()}));["currency","process"].forEach(id=>$(id).addEventListener("change",()=>{const k=$("process").value;$("cncFields").classList.toggle("hidden",k!=="cnc");$("sheetFields").classList.toggle("hidden",k!=="sheet");$("printFields").classList.toggle("hidden",k!=="print");show()}));
 $("material").onchange=()=>{const v=$("material").value;if(densities[v])$("density").value=densities[v];show()};
 function loadDxfText(text,name){
@@ -166,20 +184,45 @@ function loadDxfText(text,name){
  $("fileinfo").textContent=name+": площадь "+fmt(parsed.area_mm2,2)+" мм², рез "+fmt(parsed.cut_mm/1000,3)+" м, контуров "+parsed.pierces+". Единицы: "+({1:"дюймы",4:"мм",5:"см",6:"м"}[parsed.units])+".";
  renderModel();show();
 }
-$("file").onchange=async()=>{const f=$("file").files[0];if(!f)return;
- if(f.size>20*1024*1024){$("fileinfo").textContent="Размер файла выше 20 МБ. Упростите модель или чертёж.";return;}
- if(/\.dxf$/i.test(f.name)){
-  try{loadDxfText(await f.text(),f.name)}catch(e){dxf=null;dxfText="";$("fileinfo").textContent="Ошибка DXF: "+e.message;renderModel();show()}return;
- }
- if(!/\.stl$/i.test(f.name)){$("fileinfo").textContent="Поддерживаются STL и 2D DXF. Для STEP / IGES используйте ручной ввод.";return;}
- try{const g=readStl(await f.arrayBuffer());dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");mesh=g;setGeometry(g);$("fileinfo").textContent=f.name+" · "+fmt(g.faces,0)+" треугольников · "+(g.watertightApprox?"сетка условно замкнута":"замкнутость не подтверждена")+" · "+fmt(g.volume,2)+" см³ (геометрическая оценка)";renderModel()}catch(e){mesh=null;geom=null;$("fileinfo").textContent="Ошибка загрузки: "+e.message;renderModel();show()}
+$("file").onchange=()=>{
+ const f=$("file").files[0];
+ filePending=!!f;dxf=null;dxfText="";drawing=null;selected=[];geom=null;mesh=null;
+ $("drawingPanel").classList.add("hidden");
+ $("fileinfo").textContent=f?"Выбран файл "+f.name+". Нажмите «Начать расчёт», чтобы обработать геометрию.":"Ручной режим расчёта.";
+ renderModel();show();
 };
+async function processSelectedFile(){
+ const f=$("file").files[0];if(!f){filePending=false;return true;}
+ if(f.size>20*1024*1024){$("fileinfo").textContent="Размер файла выше 20 МБ. Упростите модель или чертёж.";return false;}
+ if(/\.dwg$/i.test(f.name)){$("fileinfo").textContent="DWG напрямую не поддерживается. Экспортируйте чертёж в DXF или 3D-модель в STL.";return false;}
+ if(/\.dxf$/i.test(f.name)){
+   try{
+     const txt=await f.text();
+     try{loadDxfText(txt,f.name);}
+     catch(e){
+      if($("dxfmode").value==="cut"){
+       $("dxfmode").value="drawing";
+       try{loadDxfText(txt,f.name);$("fileinfo").textContent="Производственный контур не найден: открыт режим конструкторского чертежа. Выберите контуры детали. "+f.name;}
+       catch(inner){throw Error(e.message+"; режим чертежа: "+inner.message);}
+      }else throw e;
+     }
+     filePending=false;return true;
+   }catch(e){dxf=null;drawing=null;dxfText="";$("fileinfo").textContent="Ошибка DXF: "+e.message;renderModel();show();return false;}
+ }
+ if(!/\.stl$/i.test(f.name)){$("fileinfo").textContent="Поддерживаются STL и DXF. STEP / IGES требуют ручного ввода, DWG нужно преобразовать в DXF.";return false;}
+ try{
+  const g=readStl(await f.arrayBuffer());
+  dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");mesh=g;setGeometry(g);
+  $("fileinfo").textContent=f.name+" · "+fmt(g.faces,0)+" треугольников · "+(g.watertightApprox?"сетка условно замкнута":"замкнутость не подтверждена")+" · "+fmt(g.volume,2)+" см³ (геометрическая оценка)";
+  filePending=false;renderModel();show();return true;
+ }catch(e){mesh=null;geom=null;$("fileinfo").textContent="Ошибка STL: "+e.message;renderModel();show();return false;}
+}
 $("clearSelection").onclick=()=>{selected=[];dxf=null;$("drawingCandidates").querySelectorAll("[data-loop]").forEach(x=>x.checked=false);$("drawingStatus").textContent="Выбор сброшен";renderModel();show()};
-$("applySelection").onclick=()=>{try{if(!drawing)throw Error("Сначала загрузите конструкторский DXF");const pick=window.SamutaDrawing.selectedGeometry(drawing,selected);dxf=pick;const t=Number($("thickness").value);$("length").value=+pick.dims[0].toFixed(4);$("width").value=+pick.dims[1].toFixed(4);$("height").value=t;$("volume").value=+(pick.area_mm2*t/1000).toFixed(5);$("contour").value=+(pick.cut_mm/1000).toFixed(5);$("pierces").value=pick.pierces;$("drawingStatus").textContent="Подтверждено "+pick.pierces+" контур(ов), площадь "+fmt(pick.area_mm2,2)+" мм².";renderModel();show()}catch(e){$("drawingStatus").textContent="Ошибка: "+e.message;dxf=null;show()}};
+$("applySelection").onclick=()=>{try{if(!drawing)throw Error("Сначала загрузите конструкторский DXF");const pick=window.SamutaDrawing.selectedGeometry(drawing,selected);dxf=pick;const t=Number($("thickness").value);$("length").value=+pick.dims[0].toFixed(4);$("width").value=+pick.dims[1].toFixed(4);$("height").value=t;$("volume").value=+(pick.area_mm2*t/1000).toFixed(5);$("contour").value=+(pick.cut_mm/1000).toFixed(5);$("pierces").value=pick.pierces;$("drawingStatus").textContent="Подтверждено "+pick.pierces+" контур(ов), площадь "+fmt(pick.area_mm2,2)+" мм².";renderModel();show();$("results").scrollIntoView({behavior:"smooth",block:"start"})}catch(e){$("drawingStatus").textContent="Ошибка: "+e.message;dxf=null;show()}};
 $("dxfmode").onchange=()=>{if(dxfText){try{loadDxfText(dxfText,$("file").files[0]?.name||"DXF")}catch(e){$("fileinfo").textContent=e.message}}};
 $("dxfunit").onchange=()=>{if(dxfText){try{loadDxfText(dxfText,$("file").files[0]?.name||"DXF")}catch(e){$("fileinfo").textContent="Ошибка единиц DXF: "+e.message}}};
-$("reset").onclick=()=>{geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("volume").value=0;$("fileinfo").textContent="STL сброшен. Ручной режим.";renderModel();show()};
-$("demo").onclick=()=>{geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("length").value=100;$("width").value=60;$("height").value=20;$("volume").value=0;$("fill").value=45;$("fileinfo").textContent="Контрольный пример: габариты 100 × 60 × 20 мм, 45% заполнения.";renderModel();show()};
+$("reset").onclick=()=>{filePending=false;geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("volume").value=0;$("fileinfo").textContent="STL сброшен. Ручной режим.";renderModel();show()};
+$("demo").onclick=()=>{filePending=false;geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("length").value=100;$("width").value=60;$("height").value=20;$("volume").value=0;$("fill").value=45;$("fileinfo").textContent="Контрольный пример: габариты 100 × 60 × 20 мм, 45% заполнения.";renderModel();show()};
 const canvas=$("viewer");canvas.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener("pointermove",e=>{if(!drag)return;angleY+=(e.clientX-drag.x)*.01;angleX+=(e.clientY-drag.y)*.01;drag={x:e.clientX,y:e.clientY};renderModel()});canvas.addEventListener("pointerup",()=>drag=null);canvas.addEventListener("pointercancel",()=>drag=null);
 renderModel();show();$("watch").style.display="none";
 })();
