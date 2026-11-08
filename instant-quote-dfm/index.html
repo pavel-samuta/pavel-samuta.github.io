@@ -87,7 +87,7 @@ const $=id=>document.getElementById(id),fmt=(x,k=2)=>Number(x).toLocaleString("r
 const densities={steel:7.85,al:2.70,stainless:7.9,abs:1.04,pla:1.24,petg:1.27};
 let geom=null,mesh=null,dxf=null,dxfText="",drawing=null,selected=[],angleX=.3,angleY=-.4,drag=null,drawNeeded=false,filePending=false,isBusy=false;
 function val(id){const t=$(id).value;if(t==="")throw Error("Введите "+id);const v=Number(t);if(!Number.isFinite(v))throw Error("Некорректное число: "+id);return v}
-function setGeometry(g){geom=g;["length","width","height"].forEach((id,i)=>$(id).value=+g.dims[i].toFixed(4));if(g.watertightApprox&&g.volume>0)$("volume").value=+g.volume.toFixed(4);else $("volume").value="0";render()}
+function setGeometry(g){geom=g;["length","width","height"].forEach((id,i)=>$(id).value=+g.dims[i].toFixed(4));if(g.watertightApprox&&g.volume>0)$("volume").value=+g.volume.toFixed(4);else $("volume").value="0";show()}
 function readStl(buffer){const bytes=new Uint8Array(buffer),view=new DataView(buffer);if(buffer.byteLength<84)throw Error("STL слишком мал");let binary=false,nfaces=0;
 nfaces=view.getUint32(80,true);if(nfaces>0&&84+nfaces*50===buffer.byteLength)binary=true;
 let pts=[],faces=0,coords,segments=[];
