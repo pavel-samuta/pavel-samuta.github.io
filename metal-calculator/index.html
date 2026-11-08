@@ -82,7 +82,7 @@ a{color:var(--blue)}.wrap{max-width:1250px;margin:auto;padding:22px}.brand{lette
 </div>
 <div id="lmessage" role="status" class="toast"></div>
 <div class="actions"><button class="btn" id="lcsv">Экспорт CSV</button><button class="btn" id="lcopy">Скопировать заявку перевозчику</button></div>
-<div class="notice">Габариты относятся к упакованному грузу, а не к металлопрокату без тары. Для длинномерных изделий, негабаритных грузов и частичной загрузки автомобиля стоимость по весу может быть неприменима. Коэффициент объёмного веса зависит от договора с перевозчиком. Налоги, страхование, разрешения и таможенные расходы не включены, если вы не внесли их в дополнительные расходы.</div>
+<div class="notice">Габариты относятся к упакованному грузу, а не к металлопрокату без тары. Для длинномерных изделий, негабаритных грузов и частичной загрузки автомобиля стоимость по весу может быть неприменима. Коэффициент объёмного веса зависит от договора с перевозчиком. Автоматический подбор транспорта предварительный: он не моделирует укладку, осевые нагрузки, доступность рейсов и разрешительные требования. Ж/д тариф не рассчитывается автомобильной формулой. Налоги, страхование, разрешения и таможенные расходы не включены, если вы не внесли их в дополнительные расходы.</div>
 </div></section>
 <section id="history" class="tabcontent hide"><div class="panel"><h2>История расчётов</h2><p class="help">Последние 50 добавленных позиций сохраняются только в этом браузере. Удаление данных браузера очищает историю.</p><div id="historytable" class="tablewrap"></div><div class="actions"><button class="btn warn" id="clearhistory">Очистить историю</button></div></div></section>
 <footer class="footer">© 2026 SAMUTA Engineering & Technology · <a href="https://pavelsamuta.com/">pavelsamuta.com</a> · Инструмент для предварительных инженерных оценок. Не заменяет КД, проверку сортамента и технический контроль.</footer>
@@ -262,11 +262,12 @@ function logisticsCalc(){
  var mass=el("lspec").checked?specMass:manual;
  var actual=mass+pieces*tare,volweight=volume*coef,charge=Math.max(actual,volweight);
  var price=Math.max(min,charge*rate+km*kmrate)+extras;
- return {origin:el("lfrom").value.trim(),destination:el("lto").value.trim(),volume:volume,pieces:pieces,metalMass:mass,actual:actual,volWeight:volweight,charge:charge,price:price,currency:el("lcur").value,km:km,packages:packageRows.map(function(p){return Object.assign({},p)})};
+ var suggested=transportChoice(actual,volume);
+ return {origin:el("lfrom").value.trim(),destination:el("lto").value.trim(),volume:volume,pieces:pieces,metalMass:mass,actual:actual,volWeight:volweight,charge:charge,price:price,currency:el("lcur").value,km:km,suggested:suggested,packages:packageRows.map(function(p){return Object.assign({},p)})};
 }
 function logisticsUpdate(){
- try{var x=logisticsCalc();el("lvolume").textContent=format(x.volume,4)+" м³";el("lactual").textContent=format(x.actual,2)+" кг";el("lvolweight").textContent=format(x.volWeight,2)+" кг";el("lcharge").textContent=format(x.charge,2)+" кг";el("lcost").textContent=format(x.price,2)+" "+x.currency;el("lmessage").textContent="";}
- catch(e){["lvolume","lactual","lvolweight","lcharge","lcost"].forEach(function(id){el(id).textContent="—"});el("lmessage").textContent=e.message}
+ try{var x=logisticsCalc();el("lvolume").textContent=format(x.volume,4)+" м³";el("lactual").textContent=format(x.actual,2)+" кг";el("lvolweight").textContent=format(x.volWeight,2)+" кг";el("lcharge").textContent=format(x.charge,2)+" кг";el("lcost").textContent=format(x.price,2)+" "+x.currency;el("lvehicle").textContent=x.suggested.road;el("lrail").textContent=x.suggested.rail;el("ltransportnote").textContent=x.suggested.note;el("lmessage").textContent="";}
+ catch(e){["lvolume","lactual","lvolweight","lcharge","lcost","lvehicle","lrail"].forEach(function(id){el(id).textContent="—"});el("lmessage").textContent=e.message}
 }
 function packagesRender(){
  if(!packageRows.length)packageRows.push({l:120,w:80,h:60,q:1,unit:"cm"});
@@ -276,7 +277,7 @@ function packagesRender(){
  logisticsUpdate();
 }
 el("ladd").onclick=function(){packageRows.push({l:120,w:80,h:60,q:1,unit:"cm"});packagesRender()};
-["lfrom","lto","lspec","lmanual","ltare","lfactor","lrate","lmin","lkm","lkmrate","lextras","lcur"].forEach(function(id){el(id).addEventListener("input",logisticsUpdate)});
+["lfrom","lto","lspec","lmanual","ltare","lfactor","lrate","lmin","lkm","lkmrate","lextras","lcur","lfill","lmode"].forEach(function(id){el(id).addEventListener("input",logisticsUpdate)});
 function logReport(x){
  return "Маршрут: "+x.origin+" → "+x.destination+"\nГрузовых мест: "+x.pieces+"\nОбъём: "+format(x.volume,4)+" м³\nМасса груза: "+format(x.metalMass,2)+" кг\nМасса с упаковкой: "+format(x.actual,2)+" кг\nОбъёмный вес: "+format(x.volWeight,2)+" кг\nРасчётный вес: "+format(x.charge,2)+" кг\nСтоимость: "+format(x.price,2)+" "+x.currency+"\n\nГабариты:\n"+x.packages.map(function(p,i){return (i+1)+". "+p.l+"×"+p.w+"×"+p.h+" "+p.unit+", "+p.q+" шт."}).join("\n");
 }
