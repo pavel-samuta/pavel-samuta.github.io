@@ -1,229 +1,32 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Instant Quote & DFM: расчёт по STL и DXF, ЧПУ, лист, FDM | SAMUTA</title><meta name="description" content="SAMUTA Instant Quote & DFM: 3D STL и 2D DXF, локальный просмотр модели и листовых контуров, площадь, периметр, масса, лазерная резка, гибка, ЧПУ и FDM, смета и CSV/JSON.">
-<style>:root{--bg:#0c1624;--pane:#17283a;--line:#3a5268;--text:#f1f6fa;--muted:#bbceda;--a:#a7dcff;--gold:#f0c992}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
-.shell{max-width:1270px;margin:auto;padding:22px}header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.brand{font-size:13px;letter-spacing:.15em;color:var(--gold);font-weight:750}a{color:var(--a)}nav{display:flex;gap:12px;flex-wrap:wrap}h1{font-size:clamp(28px,3.9vw,43px);line-height:1.2;margin:24px 0 10px}h2{font-size:21px;margin:0 0 13px}h3{font-size:17px;margin:12px 0}.intro,.small{color:var(--muted)}.intro{max-width:1000px}.small{font-size:13px}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,1fr);gap:16px;margin-top:20px}.panel{border:1px solid var(--line);background:var(--pane);border-radius:14px;padding:20px;margin-bottom:16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:13px;color:var(--muted)}.full{grid-column:1/-1}input,select,textarea{width:100%;min-width:0;color:var(--text);background:#0e1d2d;border:1px solid #577086;border-radius:9px;padding:10px;font:inherit}input:focus,select:focus,textarea:focus{outline:2px solid var(--a)}textarea{min-height:62px}button{border:1px solid #6a93af;border-radius:8px;background:#254963;color:white;padding:10px 13px;font:600 14px system-ui;cursor:pointer}.primary{background:var(--a);color:#122535;border-color:var(--a)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.metricgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:#0e1f2d;border-radius:10px;padding:12px}.metric span{color:var(--muted);font-size:12px;display:block}.metric b{font-size:22px;display:block;font-variant-numeric:tabular-nums}.warning{border-left:3px solid var(--gold);padding:11px;background:#102232;color:var(--muted);font-size:13px;margin:13px 0}.status{min-height:23px;font-size:13px;color:#ffd8a5}.hidden{display:none!important}.pill{background:#233c4d;padding:2px 9px;border-radius:14px;font-size:12px}.viewer{width:100%;height:280px;border:1px solid #40566b;border-radius:12px;background:#0d1b2b;cursor:grab;touch-action:none}.viewer:active{cursor:grabbing}.bars{display:grid;gap:10px}.barrow{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px}.bar{height:11px;background:#2e4052;border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:#7cb2d5}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:9px 7px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--muted)}.note{font-size:13px;color:var(--muted)}.checklist p{border-bottom:1px solid var(--line);padding:8px 0;margin:0}footer{border-top:1px solid var(--line);margin-top:20px;padding:20px 0;color:var(--muted);font-size:13px}
-@media(max-width:860px){.layout{grid-template-columns:1fr}}@media(max-width:460px){.grid,.metricgrid{grid-template-columns:1fr}.shell{padding:14px}.panel{padding:15px}}
-@media print{body{background:white;color:#111}.panel,.metric{background:#fff;color:#111;border:1px solid #aaa}.shell{max-width:none}header nav,.actions,.viewer,#watch{display:none!important}.small,.intro,.warning,.note{color:#333}input,select,textarea{color:#111;border-color:#aaa}footer{color:#333}}
-</style></head><body><main class="shell">
-<header><div><div class="brand">SAMUTA / ENGINEERING & TECHNOLOGY</div><div class="small">Инженерный калькулятор №7 · Instant Quote & DFM</div></div><nav><a href="/">Главная</a><a href="/part-cost-calculator/">Себестоимость</a><a href="/metal-calculator/">Материал</a><a href="/services/">Инженерные услуги</a></nav></header>
-<h1>Instant Quote & DFM</h1><p class="intro">Предварительный расчёт изготовления по 3D-модели и параметрам технологии. Поддержка <b>STL (ASCII и binary) и 2D DXF</b>: локальный просмотр, габариты, площадь, длина реза, масса и базовые технологические проверки. STEP и IGES пока требуют ручного ввода: автоматического анализа твердотельной CAD-модели нет.</p>
-<div class="warning" id="watch">JavaScript пока не выполнен. Если сообщение остаётся на экране, разрешите JavaScript и обновите страницу.</div><noscript>Для расчётов нужен JavaScript.</noscript>
-<div class="layout"><div>
-<section class="panel"><h2>1. CAD-модель или размеры</h2><div class="grid"><div class="field full"><label for="file">Загрузить STL или DXF 2D листовой детали (локально, до 20 МБ)</label><input id="file" type="file" accept=".stl,.dxf" /></div>
-<div class="field"><label for="length">Габарит X, мм</label><input id="length" type="number" min=".01" step="any" value="100"></div>
-<div class="field"><label for="width">Габарит Y, мм</label><input id="width" type="number" min=".01" step="any" value="60"></div>
-<div class="field"><label for="height">Габарит Z, мм</label><input id="height" type="number" min=".01" step="any" value="20"></div>
-<div class="field"><label for="volume">Объём материала детали, см³ (0 = оценка вручную по заполнению)</label><input id="volume" type="number" min="0" step="any" value="0"></div>
-<div class="field"><label for="fill">Заполнение габаритного объёма, %</label><input id="fill" type="number" min="1" max="100" step="any" value="45"></div>
-<div class="field"><label for="material">Материал</label><select id="material"><option value="steel">Сталь, 7,85 г/см³</option><option value="al">Алюминий, 2,70 г/см³</option><option value="stainless">Нержавеющая сталь, 7,90 г/см³</option><option value="abs">ABS, 1,04 г/см³</option><option value="pla">PLA, 1,24 г/см³</option><option value="petg">PETG, 1,27 г/см³</option><option value="custom">Пользовательский</option></select></div>
-<div class="field"><label for="density">Плотность, г/см³</label><input id="density" type="number" min=".01" step="any" value="7.85"></div>
-<div class="field"><label for="qty">Тираж, шт.</label><input id="qty" type="number" min="1" max="1000000" step="1" value="10"></div>
-<div class="field"><label for="currency">Валюта</label><select id="currency"><option>BYN</option><option>RUB</option><option>EUR</option><option>USD</option></select></div></div>
-<div class="actions"><button id="startCalc" type="button" class="primary">Начать расчёт</button><button id="reset" type="button">Сбросить файл</button><button id="demo" type="button">Пример: прямоугольная деталь</button></div>
-<p id="fileinfo" class="small" role="status">Ручной ввод. Габариты по умолчанию 100 × 60 × 20 мм, заполнение 45%.</p>
-<div class="field" style="margin:12px 0"><label for="dxfmode">Тип DXF</label><select id="dxfmode"><option value="cut">Готовый раскрой: проверить все контуры</option><option value="drawing">Конструкторский чертёж: выбрать контуры</option></select></div>
-<div class="field" style="margin:12px 0"><label for="dxfunit">Единицы DXF (при отсутствии единиц в файле)</label><select id="dxfunit"><option value="0">Из DXF ($INSUNITS)</option><option value="4">Миллиметры</option><option value="5">Сантиметры</option><option value="6">Метры</option><option value="1">Дюймы</option></select></div>
-<div id="drawingPanel" class="hidden" style="margin:14px 0;padding:14px;border:1px solid #69829a;border-radius:10px"><strong>Контуры конструкторского чертежа</strong><p class="small">Выберите один наружный контур детали и его отверстия. Контуры других проекций и оформления не выбирайте. Только после подтверждения контура программа рассчитает листовую деталь.</p><div id="drawingCandidates" style="max-height:260px;overflow:auto"></div><div class="actions"><button id="clearSelection" type="button">Снять выбор</button><button id="applySelection" type="button" class="primary">Подтвердить выбранные контуры</button></div><p class="small" id="drawingStatus"></p></div>
-<canvas class="viewer" id="viewer" width="800" height="420" aria-label="Вращаемая проекция STL"></canvas><p class="small">STL вращается мышью. DXF отображается сверху как плоский контур с отверстиями. Поддержаны LINE, ARC, CIRCLE и замкнутые LWPOLYLINE. Файлы обрабатываются локально, без внешних библиотек.</p>
-</section>
-<section class="panel"><h2>2. Технология и тарифы</h2><div class="grid">
-<div class="field full"><label for="process">Технология</label><select id="process"><option value="cnc">ЧПУ: токарная / фрезерная обработка</option><option value="sheet">Листовой металл: резка и гибка</option><option value="print">3D-печать FDM (приближённая модель)</option></select></div>
-<div class="field"><label for="materialPrice">Цена сырья, за кг</label><input id="materialPrice" type="number" min="0" value="7" step="any"></div>
-<div class="field"><label for="scrap">Возврат стоимости отходов, за кг</label><input id="scrap" type="number" min="0" value="0" step="any"></div>
-<div class="field"><label for="overhead">Накладные расходы, %</label><input id="overhead" type="number" min="0" value="15" step="any"></div>
-<div class="field"><label for="margin">Маржа от цены продажи, %</label><input id="margin" type="number" min="0" max="95" value="20" step="any"></div>
-<div class="field"><label for="setup">Наладка, ч на всю партию</label><input id="setup" type="number" min="0" value="1.5" step="any"></div>
-<div class="field"><label for="rate">Тариф оборудования, за час</label><input id="rate" type="number" min="0" value="55" step="any"></div>
-<div class="field"><label for="rateHigh">Верхний тариф, за час</label><input id="rateHigh" type="number" min="0" value="85" step="any"></div>
-<div class="field"><label for="finish">Контроль и упаковка, на штуку</label><input id="finish" type="number" min="0" value="3" step="any"></div>
-</div>
-<div id="cncFields" class="grid" style="margin-top:14px">
-<div class="field"><label for="stock">Коэффициент объёма заготовки к объёму детали</label><input id="stock" type="number" min="1" value="1.7" step="any"></div>
-<div class="field"><label for="mrr">Съём материала, см³/мин</label><input id="mrr" type="number" min=".01" value="12" step="any"></div>
-<div class="field"><label for="aux">Вспомогательное время, мин/шт.</label><input id="aux" type="number" min="0" value="12" step="any"></div>
-</div>
-<div id="sheetFields" class="grid hidden" style="margin-top:14px">
-<div class="field"><label for="thickness">Толщина листа, мм</label><input id="thickness" type="number" min=".1" value="2" step="any"></div>
-<div class="field"><label for="contour">Суммарная длина реза на деталь, м</label><input id="contour" type="number" min=".001" value="0.65" step="any"></div>
-<div class="field"><label for="cutspeed">Скорость резки, м/мин</label><input id="cutspeed" type="number" min=".001" value="1.5" step="any"></div>
-<div class="field"><label for="pierces">Число врезок на деталь</label><input id="pierces" type="number" min="0" step="1" value="3"></div>
-<div class="field"><label for="piercetime">Время врезки, сек.</label><input id="piercetime" type="number" min="0" value="3" step="any"></div>
-<div class="field"><label for="bends">Количество гибов</label><input id="bends" type="number" min="0" step="1" value="2"></div>
-<div class="field"><label for="bendtime">Время одного гиба, мин.</label><input id="bendtime" type="number" min="0" value="1" step="any"></div>
-<div class="field"><label for="sheetUtil">Коэффициент использования листа, %</label><input id="sheetUtil" type="number" min="1" max="100" value="75" step="any"></div>
-</div>
-<div id="printFields" class="grid hidden" style="margin-top:14px">
-<div class="field"><label for="infill">Заполнение печати, % (для внутреннего материала)</label><input id="infill" type="number" min="1" max="100" value="35" step="any"></div>
-<div class="field"><label for="shell">Оценочная доля оболочек в объёме, %</label><input id="shell" type="number" min="0" max="100" value="30" step="any"></div>
-<div class="field"><label for="supports">Дополнительный материал поддержек, %</label><input id="supports" type="number" min="0" value="15" step="any"></div>
-<div class="field"><label for="extrusion">Объёмная скорость экструзии, см³/ч</label><input id="extrusion" type="number" min=".01" value="14" step="any"></div>
-<div class="field"><label for="printerExtra">Непроизводительное время, ч/деталь</label><input id="printerExtra" type="number" min="0" value=".7" step="any"></div>
-</div><p class="small">Все тарифы задаёт пользователь. ЧПУ использует среднюю скорость съёма, лазер - длину реза, FDM - объём и скорость экструзии. Они не заменяют CAM, раскрой или слайсер.</p></section>
-</div><div>
-<section class="panel" id="results"><h2>Расчёт стоимости</h2><div class="metricgrid">
-<div class="metric"><span>Габариты, мм</span><b id="dims">—</b></div>
-<div class="metric"><span>Объём детали</span><b id="vout">—</b></div>
-<div class="metric"><span>Масса детали</span><b id="mass">—</b></div>
-<div class="metric"><span>Станочное время на 1 шт.</span><b id="time">—</b></div>
-<div class="metric"><span>Себестоимость за 1 шт.</span><b id="cost">—</b></div>
-<div class="metric"><span>Цена предложения без налогов, за шт.</span><b id="price">—</b></div>
-<div class="metric"><span>Стоимость партии без налогов</span><b id="batch">—</b></div>
-<div class="metric"><span>Материал на партию</span><b id="matWeight">—</b></div>
-</div><p id="assumptions" class="small"></p><div id="error" class="status" role="status"></div>
-<h3>Структура затрат партии</h3><div id="breakdown" class="bars"></div>
-<div class="actions"><button id="csv">CSV-отчёт</button><button id="json">JSON-отчёт</button><button id="copy">Скопировать</button><button id="print">Печать / PDF</button></div></section>
-<section class="panel"><h2>Предварительная DFM-проверка</h2><div id="dfm" class="checklist"></div>
-<div class="warning">DFM-подсказки основаны на габаритах и введённых технологических параметрах. Алгоритм не распознаёт карманы, резьбы, внутренние радиусы, допуски или ориентацию обработки и не подтверждает технологичность для производства.</div>
-</section>
-<section class="panel"><h2>Получить инженерную оценку</h2><p>Загрузите STL или 2D DXF для первичного анализа, сохраните отчёт и направьте данные на проверку конструкции, выбора технологии и стоимости.</p><p><a href="/services/">Инженерные услуги SAMUTA</a> · <a href="/part-cost-calculator/">Детальная себестоимость детали</a></p><div class="warning">Файлы обрабатываются только в текущей вкладке браузера. Платформа не отправляет их на сервер и не хранит загруженные модели. Не отправляйте конфиденциальную КД через сторонние формы без NDA.</div></section>
-</div></div>
-<section class="panel" id="samuta-calculator-network"><h2>Другие инженерные калькуляторы SAMUTA</h2><p><a href="/part-cost-calculator/">Себестоимость детали</a> · <a href="/kd-time-calculator/">Трудоёмкость КД</a> · <a href="/kd-calculator/">Стоимость КД</a> · <a href="/fits-calculator/">Допуски и посадки</a> · <a href="/gear-calculator/">Зубчатые передачи</a> · <a href="/metal-calculator/">Металлопрокат и логистика</a></p><p><a href="/">Главная</a> · <a href="/engineering-data/">Инженерный справочник</a></p></section>
-<footer>© 2026 SAMUTA Engineering & Technology. Предварительная оценка, не производственная оферта и не инженерная экспертиза.</footer></main>
-<script src="./dxf.js"></script><script src="./dxf-drawing.js"></script>
-<script>
-(function(){"use strict";
-const $=id=>document.getElementById(id),fmt=(x,k=2)=>Number(x).toLocaleString("ru-RU",{maximumFractionDigits:k}),inputs=["length","width","height","volume","fill","density","qty","materialPrice","scrap","overhead","margin","setup","rate","rateHigh","finish","stock","mrr","aux","thickness","contour","cutspeed","pierces","piercetime","bends","bendtime","sheetUtil","infill","shell","supports","extrusion","printerExtra"];
-const densities={steel:7.85,al:2.70,stainless:7.9,abs:1.04,pla:1.24,petg:1.27};
-let geom=null,mesh=null,dxf=null,dxfText="",drawing=null,selected=[],angleX=.3,angleY=-.4,drag=null,drawNeeded=false,filePending=false,isBusy=false;
-function val(id){const t=$(id).value;if(t==="")throw Error("Введите "+id);const v=Number(t);if(!Number.isFinite(v))throw Error("Некорректное число: "+id);return v}
-function setGeometry(g){geom=g;["length","width","height"].forEach((id,i)=>$(id).value=+g.dims[i].toFixed(4));if(g.watertightApprox&&g.volume>0)$("volume").value=+g.volume.toFixed(4);else $("volume").value="0";show()}
-function readStl(buffer){const bytes=new Uint8Array(buffer),view=new DataView(buffer);if(buffer.byteLength<84)throw Error("STL слишком мал");let binary=false,nfaces=0;
-nfaces=view.getUint32(80,true);if(nfaces>0&&84+nfaces*50===buffer.byteLength)binary=true;
-let pts=[],faces=0,coords,segments=[];
-function point(x,y,z){if(![x,y,z].every(Number.isFinite))throw Error("Недопустимые координаты в STL");pts.push([x,y,z]);}
-if(binary){if(nfaces>160000)throw Error("Больше 160 тыс. треугольников. Нужна упрощённая модель.");for(let i=0;i<nfaces;i++){const at=84+i*50;for(let j=0;j<3;j++){const p=at+12+j*12;point(view.getFloat32(p,true),view.getFloat32(p+4,true),view.getFloat32(p+8,true));}faces++;}}
-else{if(buffer.byteLength>12000000)throw Error("Большой ASCII STL. Преобразуйте в binary STL.");const str=new TextDecoder("utf-8",{fatal:false}).decode(bytes);const matches=[...str.matchAll(/vertex\s+([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?)\s+([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?)\s+([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?)/gi)];if(matches.length===0||matches.length%3!==0)throw Error("Не удалось прочитать треугольники STL");if(matches.length/3>160000)throw Error("Слишком много треугольников");matches.forEach(m=>point(Number(m[1]),Number(m[2]),Number(m[3])));faces=matches.length/3;}
-if(!faces)throw Error("STL не содержит треугольников");
-let low=[Infinity,Infinity,Infinity],high=[-Infinity,-Infinity,-Infinity],signed=0,area=0;const edges=new Map();
-for(let i=0;i<pts.length;i+=3){const [a,b,c]=[pts[i],pts[i+1],pts[i+2]];for(const p of [a,b,c])for(let k=0;k<3;k++){low[k]=Math.min(low[k],p[k]);high[k]=Math.max(high[k],p[k]);}const ab=b.map((x,k)=>x-a[k]),ac=c.map((x,k)=>x-a[k]),cross=[ab[1]*ac[2]-ab[2]*ac[1],ab[2]*ac[0]-ab[0]*ac[2],ab[0]*ac[1]-ab[1]*ac[0]];area+=Math.hypot(...cross)/2;signed+=(a[0]*(b[1]*c[2]-b[2]*c[1])+a[1]*(b[2]*c[0]-b[0]*c[2])+a[2]*(b[0]*c[1]-b[1]*c[0]))/6;
-if(faces<=20000){const key=p=>p.map(x=>Math.round(x*10000)).join(",");const v=[key(a),key(b),key(c)];for(const [x,y] of [[0,1],[1,2],[2,0]]){const ek=v[x]<v[y]?v[x]+"|"+v[y]:v[y]+"|"+v[x];edges.set(ek,(edges.get(ek)||0)+1);}}}
-const watertightApprox=faces<=20000&&[...edges.values()].every(v=>v===2);const vol=Math.abs(signed)/1000;return {dims:high.map((x,k)=>x-low[k]),low,high,faces,area:area/100,volume:vol,watertightApprox,points:pts};}
-function renderModel(){const canvas=$("viewer"),ctx=canvas.getContext("2d"),W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);ctx.fillStyle="#0e1d2b";ctx.fillRect(0,0,W,H);
-if(drawing){const all=drawing.loops.flatMap(o=>o.points);if(!all.length)return;const b=[Math.min(...all.map(p=>p[0])),Math.min(...all.map(p=>p[1])),Math.max(...all.map(p=>p[0])),Math.max(...all.map(p=>p[1]))],dx=Math.max(b[2]-b[0],.001),dy=Math.max(b[3]-b[1],.001),scale=Math.min(W*.86/dx,H*.82/dy),x0=(W-dx*scale)/2,y0=(H-dy*scale)/2;
-drawing.loops.forEach((loop,i)=>{ctx.beginPath();loop.points.forEach((p,j)=>{const x=x0+(p[0]-b[0])*scale,y=H-y0-(p[1]-b[1])*scale;if(j===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.closePath();ctx.strokeStyle=selected.includes(i)?"#79f0ac":"#67859b";ctx.lineWidth=selected.includes(i)?3:1;ctx.stroke();});ctx.fillStyle="#b4cddd";ctx.font="16px system-ui";ctx.textAlign="left";ctx.fillText("Конструкторский DXF: выберите контуры в списке",14,25);return;}
-if(dxf){const b=dxf.bounds,dx=Math.max(b[2]-b[0],.001),dy=Math.max(b[3]-b[1],.001),scale=Math.min(W*.86/dx,H*.82/dy),x0=(W-dx*scale)/2,y0=(H-dy*scale)/2;ctx.lineWidth=2;
-for(const loop of dxf.loops){ctx.beginPath();loop.points.forEach((p,i)=>{const x=x0+(p[0]-b[0])*scale,y=H-y0-(p[1]-b[1])*scale;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.closePath();ctx.strokeStyle="#9fd8f4";ctx.stroke();}
-ctx.fillStyle="#b4cddd";ctx.font="17px system-ui";ctx.textAlign="left";ctx.fillText("DXF: "+fmt(dxf.area_mm2,1)+" мм² · рез "+fmt(dxf.cut_mm,1)+" мм · "+dxf.pierces+" контур(ов)",16,27);return;}
-if(!mesh){ctx.fillStyle="#96afc1";ctx.font="24px system-ui";ctx.textAlign="center";ctx.fillText("Загрузите STL для просмотра модели",W/2,H/2);return}
-const d=mesh.dims,center=mesh.low.map((x,k)=>(x+mesh.high[k])/2),scale=Math.min(W,H)*.7/Math.max(...d,1e-5);const cx=Math.cos(angleX),sx=Math.sin(angleX),cy=Math.cos(angleY),sy=Math.sin(angleY);
-function project(p){const a=p[0]-center[0],b=p[1]-center[1],c=p[2]-center[2],x=a*cy+c*sy,z=-a*sy+c*cy,y=b*cx-z*sx,zz=b*sx+z*cx;return [W/2+x*scale,H/2-y*scale,zz]}
-const triangles=[];const stride=Math.max(1,Math.ceil(mesh.faces/7000));for(let i=0;i<mesh.faces;i+=stride){const base=i*3,p=[project(mesh.points[base]),project(mesh.points[base+1]),project(mesh.points[base+2])];triangles.push(p)}triangles.sort((a,b)=>a.reduce((s,p)=>s+p[2],0)-b.reduce((s,p)=>s+p[2],0));for(const tri of triangles){const edge=(tri[1][0]-tri[0][0])*(tri[2][1]-tri[0][1])-(tri[1][1]-tri[0][1])*(tri[2][0]-tri[0][0]);ctx.beginPath();ctx.moveTo(tri[0][0],tri[0][1]);ctx.lineTo(tri[1][0],tri[1][1]);ctx.lineTo(tri[2][0],tri[2][1]);ctx.closePath();ctx.fillStyle=edge<0?"#245879":"#548cb0";ctx.fill();ctx.strokeStyle="#a9d8f22a";ctx.lineWidth=.6;ctx.stroke();}}
-let lastResult=null;
-function calculate(){const p={};inputs.forEach(k=>p[k]=val(k));const process=$("process").value;
-if(!Number.isInteger(p.qty)||p.qty<=0||p.qty>1000000)throw Error("Количество деталей: 1–1 000 000");
-if([p.length,p.width,p.height,p.density].some(x=>x<=0)||p.fill<=0||p.fill>100)throw Error("Проверьте габариты, плотность и заполнение");
-if(p.volume<0||p.rate<0||p.rateHigh<p.rate||p.materialPrice<0||p.scrap<0||p.overhead<0||p.setup<0||p.finish<0||p.margin<0||p.margin>=95)throw Error("Проверьте ставки, себестоимость, наценки и объём");
-if((dxf||drawing)&&process!=="sheet")throw Error("DXF 2D применим к листовой технологии. Для ЧПУ и FDM используйте STL или ручной ввод.");
-if(drawing&&!dxf)throw Error("Выберите и подтвердите контур детали для расчёта.");
-const effectiveHeight=dxf&&process==="sheet"?p.thickness:p.height;
-const box=p.length*p.width*effectiveHeight/1000,vol=dxf&&process==="sheet"?dxf.area_mm2*p.thickness/1000:p.volume>0?p.volume:box*p.fill/100;if(vol>box*1.001)throw Error("Объём материала больше габаритного объёма");
-const density=p.density,partMass=vol*density/1000;let rawMass=0,time=0,notes=[],scrapMass=0;
-if(process==="cnc"){if(p.stock<1||p.mrr<=0||p.aux<0)throw Error("Проверьте заготовку, MRR и вспомогательное время");rawMass=partMass*p.stock;scrapMass=Math.max(0,rawMass-partMass);time=((rawMass-partMass)*1000/density)/p.mrr/60+p.aux/60;notes.push("ЧПУ: время по средней скорости съёма материала и вспомогательным минутам. Траектории инструмента не анализируются.");}
-if(process==="sheet"){if(p.thickness<=0||p.contour<=0||p.cutspeed<=0||p.sheetUtil<=0||p.sheetUtil>100||![p.pierces,p.bends].every(Number.isInteger)||p.pierces<0||p.bends<0||p.bendtime<0||p.piercetime<0)throw Error("Проверьте параметры лазерной резки и гибки");rawMass=partMass/(p.sheetUtil/100);scrapMass=rawMass-partMass;time=(p.contour/p.cutspeed+p.pierces*p.piercetime/60+p.bends*p.bendtime)/60;
-notes.push(dxf?"DXF: площадь, длина реза и количество врезок рассчитаны по плоским контурам. Гибы задаются вручную; самопересечения требуют CAD-проверки.":"Лист: объём рассчитан из STL или ввода, не по развёртке. Толщина и расход листа вводятся технологом; геометрия гибов автоматически не разворачивается.");}
-if(process==="print"){if(p.infill<=0||p.infill>100||p.shell<0||p.shell>100||p.supports<0||p.extrusion<=0||p.printerExtra<0)throw Error("Проверьте параметры FDM");const shellRatio=p.shell/100,extruded=vol*(shellRatio+(1-shellRatio)*p.infill/100)*(1+p.supports/100);rawMass=extruded*density/1000;time=extruded/p.extrusion+p.printerExtra;notes.push("FDM: эвристика оболочек/заполнения. Результат не заменяет слайсер, поддержки и фактический расход филамента.");}
-const matCost=rawMass*p.materialPrice-p.scrap*scrapMass;const unitSetup=p.setup/p.qty;function price(rate){const run=time*rate,setup=unitSetup*rate,direct=Math.max(0,matCost)+run+setup+p.finish,total=direct*(1+p.overhead/100),sell=total/(1-p.margin/100);return {direct,unit:total,sell,run,setup,material:Math.max(0,matCost),finish:p.finish,overhead:total-direct,batchCost:total*p.qty,batchPrice:sell*p.qty}}
-return {p,process,box,vol,partMass,rawMass,time,notes,low:price(p.rate),high:price(p.rateHigh),currency:$("currency").value};}
-function show(){try{if(filePending)throw Error("Файл выбран, но ещё не обработан. Нажмите «Начать расчёт».");const r=calculate();lastResult=r;const {p,low,high}=r,c=r.currency;const range=(a,b)=>fmt(a)+" – "+fmt(b)+" "+c;$("dims").textContent=[p.length,p.width,p.height].map(x=>fmt(x,1)).join(" × ");$("vout").textContent=fmt(r.vol,2)+" см³";$("mass").textContent=fmt(r.partMass,3)+" кг";$("time").textContent=fmt(r.time,2)+" ч";$("cost").textContent=range(low.unit,high.unit);$("price").textContent=range(low.sell,high.sell);$("batch").textContent=range(low.batchPrice,high.batchPrice);$("matWeight").textContent=fmt(r.rawMass*p.qty,3)+" кг";$("assumptions").textContent=r.notes.join(" ")+(dxf?" Объём листовой детали = площадь DXF × толщина.":!geom?" Объём детали рассчитан из доли заполнения габаритного объёма.":geom.watertightApprox?" Объём вычислен по ориентированным треугольникам STL.":" STL не подтверждён как замкнутый: объём не используется автоматически.");
-const items=[["Сырьё",low.material,high.material],["Станочное время",low.run,high.run],["Наладка",low.setup,high.setup],["Контроль",low.finish,high.finish],["Накладные",low.overhead,high.overhead]];const max=Math.max(high.unit,1);$("breakdown").innerHTML=items.map(([name,a,b])=>'<div><div class="barrow"><span>'+name+'</span><b>'+range(a,b)+'</b></div><div class="bar"><i style="width:'+Math.min(100,b/max*100)+'%"></i></div></div>').join("");
-const flags=[];const minDim=Math.min(p.length,p.width,p.height);
-if(r.process==="cnc"){flags.push(minDim<1?"Малый габарит: проверьте возможность закрепления детали.":"Габариты нужно согласовать с ходами станка и схемой базирования.");if(p.stock>3)flags.push("Коэффициент заготовки свыше 3: высокий расход материала, проверьте исходный сортамент.");if(p.mrr>100)flags.push("Высокая скорость съёма: проверьте материал, инструмент и реальные режимы резания.");}
-if(r.process==="sheet"){if(dxf){flags.push("DXF: "+fmt(dxf.area_mm2,1)+" мм², длина реза "+fmt(dxf.cut_mm/1000,3)+" м, "+dxf.pierces+" контур(ов) и врезок.");flags.push("Вложенные контуры трактуются как отверстия; проверьте самопересечения, удаление внутренних вырезов и карту раскроя.");}flags.push(Math.abs(p.height-p.thickness)>0.2?"Толщина листа не совпадает с габаритом Z: для гнутых деталей это нормально, но модель не содержит автоматической развёртки.":"Толщина Z близка к толщине листа.");if(p.bends>0)flags.push("Гибы требуют проверки радиуса, расположения отверстий относительно линии гиба и последовательности операций.");if(p.sheetUtil<60)flags.push("Низкий коэффициент использования листа: проверьте карту раскроя.");}
-if(r.process==="print"){flags.push(p.height>250?"Высота более 250 мм: убедитесь, что изделие помещается в камеру печати.":"Размеры необходимо сверить с областью печати.");if(p.supports>30)flags.push("Много материала поддержек: проверьте ориентацию изделия.");flags.push("Прочность печати зависит от направления слоёв, оболочек и материала, здесь не рассчитывается.");}
-if(geom){flags.unshift("STL: "+fmt(geom.faces,0)+" треугольников, площадь поверхности ≈ "+fmt(geom.area)+" см².");if(!geom.watertightApprox)flags.push("Сетка STL не прошла упрощённую проверку замкнутости: массу и объём необходимо проверить.");}
-$("dfm").innerHTML=flags.map(x=>'<p>'+x+'</p>').join("");$("error").textContent="";
-}catch(e){lastResult=null;$("error").textContent=e.message;["dims","vout","mass","time","cost","price","batch","matWeight"].forEach(id=>$(id).textContent="—");$("dfm").textContent="";$("breakdown").textContent="";}}
-function report(r){const p=r.p;return {version:"1.0",method:"preliminary",material:$("material").value,process:r.process,dimensions_mm:[p.length,p.width,p.height],volume_cm3:r.vol,part_mass_kg:r.partMass,raw_material_mass_kg:r.rawMass,machine_time_hours:r.time,quantity:p.qty,unit_cost_range:[r.low.unit,r.high.unit],unit_price_range_excl_tax:[r.low.sell,r.high.sell],batch_price_range_excl_tax:[r.low.batchPrice,r.high.batchPrice],currency:r.currency,assumptions:r.notes,watertight:geom?geom.watertightApprox:null,dxf:dxf?{area_mm2:dxf.area_mm2,cut_length_mm:dxf.cut_mm,pierces:dxf.pierces,units:dxf.units}:null,inputs:p};}
-function download(file,content,type){const a=document.createElement("a"),u=URL.createObjectURL(new Blob([content],{type}));a.href=u;a.download=file;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000)}
-function exportTxt(){const r=report(lastResult);return Object.entries(r).map(([k,v])=>k+";"+JSON.stringify(v)).join("\r\n")}
-$("csv").onclick=()=>{if(lastResult)download("samuta-instant-quote.csv","\uFEFF"+exportTxt(),"text/csv;charset=utf-8")};
-$("json").onclick=()=>{if(lastResult)download("samuta-instant-quote.json",JSON.stringify(report(lastResult),null,2),"application/json")};
-$("copy").onclick=async()=>{if(!lastResult)return;try{await navigator.clipboard.writeText(JSON.stringify(report(lastResult),null,2));$("error").textContent="Отчёт скопирован."}catch(e){$("error").textContent="Копирование недоступно, используйте JSON."}};
-$("print").onclick=()=>window.print();
-$("startCalc").onclick=async()=>{
- if(isBusy)return;
- const button=$("startCalc");isBusy=true;button.disabled=true;button.textContent="Выполняется расчёт…";
- try{
-  let ok=true;
-  if(filePending)ok=await processSelectedFile();
-  if(ok&&drawing&&!dxf){
-   $("drawingStatus").textContent+=" Выберите контуры и подтвердите их, затем получите расчёт.";
-   $("drawingPanel").scrollIntoView({behavior:"smooth",block:"center"});
-  }else if(ok){
-   show();
-   $("results").scrollIntoView({behavior:"smooth",block:"start"});
-  }else{
-   $("fileinfo").scrollIntoView({behavior:"smooth",block:"center"});
-  }
- }catch(e){
-  $("fileinfo").textContent="Ошибка расчёта: "+e.message;
- }finally{isBusy=false;button.disabled=false;button.textContent="Начать расчёт";}
-};
-inputs.forEach(id=>$(id).addEventListener("input",()=>{if(dxf&&id==="thickness"){const t=Number($("thickness").value);$("height").value=t;$("volume").value=+(dxf.area_mm2*t/1000).toFixed(5);}show()}));["currency","process"].forEach(id=>$(id).addEventListener("change",()=>{const k=$("process").value;$("cncFields").classList.toggle("hidden",k!=="cnc");$("sheetFields").classList.toggle("hidden",k!=="sheet");$("printFields").classList.toggle("hidden",k!=="print");show()}));
-$("material").onchange=()=>{const v=$("material").value;if(densities[v])$("density").value=densities[v];show()};
-function loadDxfText(text,name){
- if($("dxfmode").value==="drawing"){
-   drawing=window.SamutaDrawing.analyze(text,Number($("dxfunit").value));dxf=null;dxfText=text;selected=[];geom=null;mesh=null;
-   $("drawingPanel").classList.remove("hidden");$("process").value="sheet";$("cncFields").classList.add("hidden");$("sheetFields").classList.remove("hidden");$("printFields").classList.add("hidden");
-   $("drawingCandidates").innerHTML=drawing.loops.map((o,i)=>'<label style="display:block;padding:7px 0;border-bottom:1px solid #405569"><input type="checkbox" data-loop="'+i+'" style="width:auto;margin-right:8px">Контур '+(i+1)+' · слой '+String(o.layer).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]))+' · площадь '+fmt(o.area,1)+' мм² · рез '+fmt(o.perimeter,1)+' мм</label>').join("");
-   $("drawingCandidates").querySelectorAll("[data-loop]").forEach(e=>e.onchange=()=>{selected=[...$("drawingCandidates").querySelectorAll("[data-loop]")].filter(e=>e.checked).map(e=>Number(e.dataset.loop));dxf=null;$("drawingStatus").textContent=selected.length+" контур(ов) выбрано. Нажмите «Подтвердить».";renderModel();show()});
-   $("drawingStatus").textContent="Найдено "+drawing.loops.length+" замкнутых кандидатов, "+drawing.open+" разомкнутых цепочек. Исключённые типы: "+drawing.ignored.join(", ")+".";
-   $("fileinfo").textContent=name+" · чертёж: выберите проекцию и отверстия, затем подтвердите.";
-   renderModel();show();return;
- }
- drawing=null;selected=[];$("drawingPanel").classList.add("hidden");
- const parsed=window.SamutaDXF.parse(text,Number($("dxfunit").value));
- dxf=parsed;dxfText=text;geom=null;mesh=null;
- $("process").value="sheet";
- $("cncFields").classList.add("hidden");$("sheetFields").classList.remove("hidden");$("printFields").classList.add("hidden");
- $("length").value=+parsed.dims[0].toFixed(4);$("width").value=+parsed.dims[1].toFixed(4);
- const t=Number($("thickness").value);$("height").value=t;
- $("volume").value=+(parsed.area_mm2*t/1000).toFixed(5);
- $("contour").value=+(parsed.cut_mm/1000).toFixed(5);$("pierces").value=parsed.pierces;
- $("fileinfo").textContent=name+": площадь "+fmt(parsed.area_mm2,2)+" мм², рез "+fmt(parsed.cut_mm/1000,3)+" м, контуров "+parsed.pierces+". Единицы: "+({1:"дюймы",4:"мм",5:"см",6:"м"}[parsed.units])+".";
- renderModel();show();
-}
-$("file").onchange=()=>{
- const f=$("file").files[0];
- filePending=!!f;dxf=null;dxfText="";drawing=null;selected=[];geom=null;mesh=null;
- $("drawingPanel").classList.add("hidden");
- $("fileinfo").textContent=f?"Выбран файл "+f.name+". Нажмите «Начать расчёт», чтобы обработать геометрию.":"Ручной режим расчёта.";
- renderModel();show();
-};
-async function processSelectedFile(){
- const f=$("file").files[0];if(!f){filePending=false;return true;}
- if(f.size>20*1024*1024){$("fileinfo").textContent="Размер файла выше 20 МБ. Упростите модель или чертёж.";return false;}
- if(/\.dwg$/i.test(f.name)){$("fileinfo").textContent="DWG напрямую не поддерживается. Экспортируйте чертёж в DXF или 3D-модель в STL.";return false;}
- if(/\.dxf$/i.test(f.name)){
-   try{
-     const txt=await f.text();
-     try{loadDxfText(txt,f.name);}
-     catch(e){
-      if($("dxfmode").value==="cut"){
-       $("dxfmode").value="drawing";
-       try{loadDxfText(txt,f.name);$("fileinfo").textContent="Производственный контур не найден: открыт режим конструкторского чертежа. Выберите контуры детали. "+f.name;}
-       catch(inner){throw Error(e.message+"; режим чертежа: "+inner.message);}
-      }else throw e;
-     }
-     filePending=false;return true;
-   }catch(e){dxf=null;drawing=null;dxfText="";$("fileinfo").textContent="Ошибка DXF: "+e.message;renderModel();show();return false;}
- }
- if(!/\.stl$/i.test(f.name)){$("fileinfo").textContent="Поддерживаются STL и DXF. STEP / IGES требуют ручного ввода, DWG нужно преобразовать в DXF.";return false;}
- try{
-  const g=readStl(await f.arrayBuffer());
-  dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");mesh=g;setGeometry(g);
-  $("fileinfo").textContent=f.name+" · "+fmt(g.faces,0)+" треугольников · "+(g.watertightApprox?"сетка условно замкнута":"замкнутость не подтверждена")+" · "+fmt(g.volume,2)+" см³ (геометрическая оценка)";
-  filePending=false;renderModel();show();return true;
- }catch(e){mesh=null;geom=null;$("fileinfo").textContent="Ошибка STL: "+e.message;renderModel();show();return false;}
-}
-$("clearSelection").onclick=()=>{selected=[];dxf=null;$("drawingCandidates").querySelectorAll("[data-loop]").forEach(x=>x.checked=false);$("drawingStatus").textContent="Выбор сброшен";renderModel();show()};
-$("applySelection").onclick=()=>{try{if(!drawing)throw Error("Сначала загрузите конструкторский DXF");const pick=window.SamutaDrawing.selectedGeometry(drawing,selected);dxf=pick;const t=Number($("thickness").value);$("length").value=+pick.dims[0].toFixed(4);$("width").value=+pick.dims[1].toFixed(4);$("height").value=t;$("volume").value=+(pick.area_mm2*t/1000).toFixed(5);$("contour").value=+(pick.cut_mm/1000).toFixed(5);$("pierces").value=pick.pierces;$("drawingStatus").textContent="Подтверждено "+pick.pierces+" контур(ов), площадь "+fmt(pick.area_mm2,2)+" мм².";renderModel();show();$("results").scrollIntoView({behavior:"smooth",block:"start"})}catch(e){$("drawingStatus").textContent="Ошибка: "+e.message;dxf=null;show()}};
-$("dxfmode").onchange=()=>{if(dxfText){try{loadDxfText(dxfText,$("file").files[0]?.name||"DXF")}catch(e){$("fileinfo").textContent=e.message}}};
-$("dxfunit").onchange=()=>{if(dxfText){try{loadDxfText(dxfText,$("file").files[0]?.name||"DXF")}catch(e){$("fileinfo").textContent="Ошибка единиц DXF: "+e.message}}};
-$("reset").onclick=()=>{filePending=false;geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("volume").value=0;$("fileinfo").textContent="STL сброшен. Ручной режим.";renderModel();show()};
-$("demo").onclick=()=>{filePending=false;geom=null;mesh=null;dxf=null;dxfText="";drawing=null;selected=[];$("drawingPanel").classList.add("hidden");$("file").value="";$("length").value=100;$("width").value=60;$("height").value=20;$("volume").value=0;$("fill").value=45;$("fileinfo").textContent="Контрольный пример: габариты 100 × 60 × 20 мм, 45% заполнения.";renderModel();show()};
-const canvas=$("viewer");canvas.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener("pointermove",e=>{if(!drag)return;angleY+=(e.clientX-drag.x)*.01;angleX+=(e.clientY-drag.y)*.01;drag={x:e.clientX,y:e.clientY};renderModel()});canvas.addEventListener("pointerup",()=>drag=null);canvas.addEventListener("pointercancel",()=>drag=null);
-renderModel();show();$("watch").style.display="none";
-})();
-</script></body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0;url=https://samuta-engineering-dfm-7.ai.studio/">
+  <meta name="robots" content="noindex,follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>SAMUTA Instant Quote &amp; DFM №7 - переход в приложение</title>
+  <meta name="description" content="SAMUTA Instant Quote & DFM: расчёт производства по CAD-модели. Переход к приложению SAMUTA Engineering.">
+  <link rel="canonical" href="https://samuta-engineering-dfm-7.ai.studio/">
+  <style>
+    body{background:#0c1624;color:#f1f6fa;font:16px/1.6 system-ui,-apple-system,Segoe UI,Arial,sans-serif;display:grid;min-height:100vh;place-items:center;margin:0;padding:22px}
+    main{max-width:570px;background:#17283a;border:1px solid #3a5268;border-radius:16px;padding:28px;text-align:center}
+    h1{font-size:clamp(24px,5vw,36px);line-height:1.25;margin:0 0 14px}
+    p{color:#c5d7e5}
+    a{color:#112535;background:#a7dcff;display:inline-block;padding:12px 22px;border-radius:9px;font-weight:700;text-decoration:none}
+    .small{font-size:13px;color:#b4c8d8;margin-top:24px}
+    .brand{letter-spacing:.13em;color:#f0c992;font-size:12px;margin-bottom:20px;font-weight:bold}
+  </style>
+  <script>window.location.replace("https://samuta-engineering-dfm-7.ai.studio/");</script>
+</head>
+<body>
+<main>
+  <div class="brand">SAMUTA / ENGINEERING &amp; TECHNOLOGY</div>
+  <h1>Instant Quote &amp; DFM №7</h1>
+  <p>Калькулятор теперь работает в опубликованном приложении SAMUTA Engineering. Если переход не произошёл автоматически, откройте его по ссылке.</p>
+  <p><a href="https://samuta-engineering-dfm-7.ai.studio/" rel="noopener noreferrer">Открыть калькулятор №7</a></p>
+  <p class="small">Предварительный инженерно-коммерческий расчёт, не производственная оферта.</p>
+</main>
+</body>
+</html>
