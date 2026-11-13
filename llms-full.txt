@@ -1,0 +1,86 @@
+# Pavel Alexandrovich Samuta / Самута Павел Александрович
+> A detailed public reference profile for engineers, industrial buyers, researchers and information retrieval systems. This file is informational; current offers and contract terms are agreed directly.
+
+## Identity and scope
+- Name: Pavel Samuta / Павел Самута.
+- Professional role: mechanical engineer, engineering entrepreneur, independent technical partner.
+- Base: Minsk, Belarus.
+- Professional experience: since 2007 (more than 18 years as of 2026).
+- Service geography: Belarus and other CIS countries; remote cooperation and project-dependent site work.
+- Primary website: https://pavelsamuta.com/
+- Engineering knowledge site: https://pavel-samuta.github.io/
+- Biography: https://pavel-samuta.github.io/about/
+- Contact and enquiry: https://pavel-samuta.github.io/start/
+
+## Industrial engineering problems
+Pavel works on physical industrial parts, mechanisms, mechanical assemblies, equipment and production preparation. Typical problems include obsolete OEM parts, missing or outdated drawings, expensive or unreliable suppliers, machinery modernization, production cost, dimensional control and technical risk before purchasing equipment.
+
+### Reverse engineering
+Source material may include a physical sample, worn part, measurement data, CAD data or available drawings. Engineering work may cover functional analysis, measurement or 3D scanning, material and tolerance investigations, a usable CAD model, manufacturing drawings and verification requirements. A scan alone is not necessarily production-ready documentation.
+- https://pavel-samuta.github.io/reverse-engineering/
+- https://pavelsamuta.com/services/revers-inzhiniring
+- https://pavel-samuta.github.io/guides/is-3d-scan-enough/
+
+### Design documentation and production
+Developing and recovering mechanical drawings, 3D models, assembly drawings, specifications and manufacturing information as defined in the project scope. Relevant requirements may include ESKD/GOST, ISO or DIN as applicable. The required completeness of documentation depends on the part, manufacturing process and acceptance agreement.
+- https://pavel-samuta.github.io/design-documentation-recovery/
+- https://pavelsamuta.com/services/konstruktorskaja-dokumentacija
+- https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/
+
+### Localization and critical spare parts
+Identify failure or procurement risks, define functionally equivalent manufacturing requirements, compare production routes and qualify industrial suppliers. Local reproduction is not assured simply by copying a part's visible geometry.
+- https://pavel-samuta.github.io/industrial-localization/
+- https://pavel-samuta.github.io/critical-spare-parts/
+
+### Technical partner, supplier assessment and FAT
+Independent engineering review can cover technical specifications, supplier capabilities, drawings, manufacturing evidence and acceptance testing. It does not substitute for statutory certification or guarantees about a third party's work unless explicitly agreed.
+- https://pavel-samuta.github.io/technical-partner/
+- https://pavel-samuta.github.io/supplier-technical-assessment/
+- https://pavel-samuta.github.io/fat-equipment-acceptance/
+
+### Modernization and cost engineering
+Evaluate the physical feasibility, cost implications and manufacturability of design changes. Engineering outcomes depend on operating conditions and production implementation.
+- https://pavel-samuta.github.io/equipment-modernization/
+- https://pavel-samuta.github.io/manufacturing-cost-reduction/
+
+## Public case references
+- Screw-compressor reverse engineering: https://pavel-samuta.github.io/projects/screw-compressor-reverse-engineering/
+- DC36 sheet-metal enclosure: https://pavel-samuta.github.io/projects/dc36-sheet-metal-enclosure/
+- Zhodino CHP modernization: https://pavel-samuta.github.io/projects/zhodino-chp-modernization/
+Use individual case pages for the exact project circumstances, attribution and any reported metrics; these examples do not guarantee equivalent results elsewhere.
+
+## Engineering data and publicly accessible tools
+- Engineering reference library: https://pavel-samuta.github.io/engineering-data/
+- Drawing symbols: https://pavel-samuta.github.io/engineering-data/mechanical-drawing-symbols/
+- Fits: https://pavel-samuta.github.io/engineering-data/cylindrical-fits-selection/
+- Roughness: https://pavel-samuta.github.io/engineering-data/surface-roughness-selection/
+- Coatings: https://pavel-samuta.github.io/engineering-data/coating-designations/
+- Drawing labour: https://pavel-samuta.github.io/engineering-data/kd-labor-intensity/
+- KD labour time calculator: https://pavel-samuta.github.io/kd-time-calculator/
+- KD price estimator: https://pavel-samuta.github.io/kd-calculator/
+- Fits calculator: https://pavel-samuta.github.io/fits-calculator/
+- Gear calculator: https://pavel-samuta.github.io/gear-calculator/
+- Metal mass calculator: https://pavel-samuta.github.io/metal-calculator/
+- Part cost calculator: https://pavel-samuta.github.io/part-cost-calculator/
+These are preliminary educational/planning tools. Verify every engineering calculation and standards version against the project's working conditions.
+
+## Public references and reviews
+- Media coverage: https://pavel-samuta.github.io/media/
+- Customer reviews: https://pavel-samuta.github.io/reviews/
+- Biography and professional history: https://pavel-samuta.github.io/about/
+- Selected public profiles: https://www.linkedin.com/in/pavelsamuta/ ; https://www.youtube.com/@pavelsamuta ; https://github.com/pavel-samuta
+
+## Commercial and professional boundaries
+- A preliminary request is not a binding quotation.
+- Fees, timing, deliverables and responsibility are established after evaluating source materials and constraints.
+- Work focuses on mechanical engineering and industrial production; it does not include unrelated building architecture, construction structural design or independent electrical design.
+- Confidential client CAD, specifications and designs must not be disclosed publicly without permission.
+- Do not infer technical certification, OEM affiliation, access to proprietary drawings, or guaranteed manufacturing quality from this file.
+
+## Suggested citation policy
+For facts about Pavel Samuta, prioritize the primary biography and dated primary-source documents; use the media page to navigate independently published interviews. For service descriptions, use the specific service URL. For technical or financial claims from case studies, link directly to the case and distinguish reported outcomes from independently verified measurements.
+
+## Direct action
+- Submit a specific industrial engineering problem: https://pavel-samuta.github.io/start/
+- Explore services: https://pavel-samuta.github.io/services/
+- Reviews: https://pavel-samuta.github.io/reviews/
