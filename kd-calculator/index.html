@@ -4,14 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Предварительная оценка бюджета на разработку конструкторской документации, реверс-инжиниринг и проектирование механических узлов. Samuta Engineering & Technology.">
-<title>Калькулятор стоимости разработки КД | Samuta Engineering & Technology</title>
+<title>Калькулятор стоимости разработки КД | Павел Самута</title>
+<link rel="canonical" href="https://pavel-samuta.github.io/kd-calculator/">
+<meta property="og:site_name" content="Pavel Samuta Engineering">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://pavel-samuta.github.io/kd-calculator/">
+<meta property="og:title" content="Калькулятор стоимости разработки КД | Павел Самута">
+<meta property="og:description" content="Предварительная оценка стоимости конструкторской документации, реверс-инжиниринга и проектирования механических узлов.">
+<meta property="og:image" content="https://pavel-samuta.github.io/assets/logo-steel.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Калькулятор стоимости разработки КД | Павел Самута">
+<meta name="twitter:description" content="Оценка стоимости КД, реверс-инжиниринга и проектирования механических узлов.">
+<meta name="twitter:image" content="https://pavel-samuta.github.io/assets/logo-steel.webp">
+<script src="/assets/analytics.js" defer></script>
 <style>
 :root{color-scheme:dark;--bg:#0e1824;--panel:#162538;--panel2:#1b2d42;--line:#33475e;--text:#f3f5f7;--sub:#b9c7d5;--gold:#ddb186;--input:#122133;--good:#bfe6cd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0%,#213750 0,transparent 43%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55}a{color:var(--gold)}.wrap{max-width:1060px;padding:36px 22px 56px;margin:auto}.brand{letter-spacing:.13em;font-weight:700;font-size:14px}.brand small{display:block;color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.22em;margin-top:3px}header{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:22px}header a{font-size:14px;text-decoration:none;color:var(--sub)}h1{font-size:clamp(30px,5.5vw,52px);max-width:850px;line-height:1.1;margin:40px 0 18px}h1 em{color:var(--gold);font-style:normal}p.intro{max-width:790px;color:var(--sub);font-size:17px;margin-bottom:30px}.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}.card{border:1px solid var(--line);background:var(--panel);padding:27px;border-radius:18px;box-shadow:0 12px 44px #07111b33}h2{font-size:22px;margin:0 0 24px}.field{margin-bottom:21px}label{display:block;font-weight:650;margin-bottom:8px;font-size:15px}.hint{display:block;font-size:13px;color:var(--sub);margin-top:7px}select,input[type=number],textarea{width:100%;background:var(--input);border:1px solid #526077;border-radius:10px;color:var(--text);font-size:16px;padding:13px 14px;outline:none;font-family:inherit}select:focus,input:focus,textarea:focus{border-color:var(--gold)}input[type=range]{accent-color:var(--gold);width:100%;cursor:pointer}.rangehead{display:flex;justify-content:space-between;align-items:center}.rangehead output{color:var(--gold);font-weight:800;font-size:21px}.check{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px}.check input{accent-color:var(--gold);width:18px;height:18px;margin-top:4px;flex:none}.check label{margin:0;font-weight:400;color:var(--sub)}.result{position:sticky;top:18px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-size:12px;font-weight:800}.price{font-size:clamp(30px,4vw,42px);font-weight:800;letter-spacing:-.04em;margin:8px 0 4px}.price-sub{color:var(--sub);font-size:13px}.rule{height:1px;background:var(--line);margin:22px 0}.item{display:flex;justify-content:space-between;gap:16px;margin:11px 0;color:var(--sub);font-size:14px}.item strong{color:var(--text);text-align:right}button,.button{font:inherit;display:block;text-align:center;width:100%;padding:14px 18px;border-radius:10px;border:1px solid var(--gold);background:var(--gold);color:#162334;font-weight:800;text-decoration:none;cursor:pointer;margin-top:12px}button.secondary{background:transparent;color:var(--gold);font-weight:650}button:hover,.button:hover{filter:brightness(1.08)}.disclaimer{font-size:13px;color:var(--sub);padding-top:12px}.foot{color:var(--sub);font-size:13px;margin-top:28px}.note{background:#263347;padding:12px 15px;border-left:3px solid var(--gold);border-radius:6px;color:var(--sub);font-size:13px}#toast{font-size:13px;min-height:20px;color:var(--good);margin-top:7px}textarea{resize:vertical;min-height:90px}footer{margin-top:45px;border-top:1px solid var(--line);padding-top:20px;color:var(--sub);font-size:13px} @media(max-width:780px){.layout{grid-template-columns:1fr}.result{position:static}.wrap{padding:22px 15px 32px}.card{padding:20px}header a{font-size:12px}h1{margin:30px 0 14px}}@media print{body{background:white;color:black}.card{background:white;color:black;box-shadow:none}.layout{display:block}.result{page-break-before:always}button,header a{display:none}.price,.eyebrow{color:black}.hint,.disclaimer,.item,.price-sub{color:#333}}
+header{flex-wrap:wrap}.calc-nav{display:flex;align-items:center;gap:12px}.calc-nav-toggle{display:none;width:auto;min-width:46px;margin:0;padding:8px 12px;font-size:22px;line-height:1.2}.calc-nav-links{display:flex;gap:16px;align-items:center}.calc-nav-links a{color:var(--sub)}@media(max-width:780px){.calc-nav-toggle{display:inline-flex;align-items:center;justify-content:center}.calc-nav-links{display:none;flex:1 1 100%;flex-direction:column;align-items:stretch;padding:12px 0;border-top:1px solid var(--line)}.calc-nav-links.is-open{display:flex}.calc-nav-links a{display:block;padding:10px 4px;min-height:44px}header{align-items:center}}@media print{.calc-nav-toggle,.calc-nav-links{display:none!important}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","@id":"https://pavel-samuta.github.io/kd-calculator/#app","name":"Калькулятор ориентировочной стоимости разработки КД","url":"https://pavel-samuta.github.io/kd-calculator/","applicationCategory":"BusinessApplication","operatingSystem":"Any","inLanguage":"ru","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","@id":"https://pavel-samuta.github.io/#pavel-samuta"}}</script></head>
 <body>
 <div class="wrap">
-<header><div class="brand">PAVEL SAMUTA<small>ENGINEERING & TECHNOLOGY</small></div><a href="https://pavelsamuta.com/" target="_blank" rel="noopener">Основной сайт ↗</a></header>
+<header><div class="brand">PAVEL SAMUTA<small>ENGINEERING & TECHNOLOGY</small></div><nav class="calc-nav" aria-label="Навигация"><button id="calc-menu-toggle" class="calc-nav-toggle" type="button" aria-expanded="false" aria-controls="calc-menu" aria-label="Открыть меню">☰</button><div id="calc-menu" class="calc-nav-links"><a href="/">Главная</a><a href="/services/">Услуги</a><a href="/projects/">Кейсы</a><a href="/start/">Обсудить проект</a><a href="https://pavelsamuta.com/" target="_blank" rel="noopener noreferrer">Основной сайт ↗</a></div></nav></header>
 <h1>Калькулятор стоимости <em>инженерных работ</em></h1>
 <p class="intro">Предварительно оцените бюджет разработки конструкторской документации, восстановления деталей или проектирования узла. Расчёт поможет определить порядок затрат, а не заменяет техническую оценку проекта.</p>
 <main class="layout">
@@ -75,6 +89,22 @@ function calculate(){
 for(let id of ['service','object','parts','complexity','sources','calc','support','description'])$(id).addEventListener('input',calculate);
 $('copy').addEventListener('click',async()=>{try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(current)}else{const t=document.createElement('textarea');t.value=current;document.body.append(t);t.select();document.execCommand('copy');t.remove()}$('toast').textContent='Параметры скопированы. Вставьте их в сообщение на странице контактов.'}catch(e){$('toast').textContent='Автокопирование недоступно. Откройте страницу по HTTPS или перепишите параметры.'}});
 $('print').addEventListener('click',()=>window.print());calculate();
+})();
+</script>
+<script>
+(function(){
+  var toggle=document.getElementById('calc-menu-toggle');
+  var menu=document.getElementById('calc-menu');
+  if(!toggle||!menu)return;
+  toggle.addEventListener('click',function(){
+    var opened=toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',String(!opened));
+    toggle.setAttribute('aria-label',opened?'Открыть меню':'Закрыть меню');
+    menu.classList.toggle('is-open',!opened);
+  });
+  menu.addEventListener('click',function(event){
+    if(event.target.closest('a')){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
+  });
 })();
 </script>
 </body>
