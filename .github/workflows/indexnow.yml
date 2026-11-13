@@ -1,0 +1,64 @@
+name: Notify IndexNow of changed public pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Submit changed published URLs to IndexNow
+        env:
+          INDEXNOW_KEY: c4eb033b62ed5fe52a581a0e4c33baa3cf15a472
+          SITE_HOST: pavel-samuta.github.io
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os, subprocess, json, urllib.request, urllib.error
+          from urllib.parse import quote
+          key = os.environ["INDEXNOW_KEY"]
+          host = os.environ["SITE_HOST"]
+          try:
+              paths = subprocess.check_output(
+                  ["git", "diff", "--name-only", "HEAD^", "HEAD"], text=True
+              ).splitlines()
+          except subprocess.CalledProcessError:
+              print("No parent commit available; skipping.")
+              raise SystemExit(0)
+          urls = set()
+          for path in paths:
+              if path == "index.html":
+                  urls.add(f"https://{host}/")
+              elif path.endswith("/index.html"):
+                  urls.add(f"https://{host}/" + quote(path[:-10].strip("/")) + "/")
+              elif path in ("llms.txt", "llms-full.txt"):
+                  urls.add(f"https://{host}/" + path)
+          if not urls:
+              print("No changed public HTML pages.")
+              raise SystemExit(0)
+          payload = json.dumps({
+              "host": host,
+              "key": key,
+              "keyLocation": f"https://{host}/{key}.txt",
+              "urlList": sorted(urls)
+          }).encode("utf-8")
+          request = urllib.request.Request(
+              "https://api.indexnow.org/indexnow", data=payload,
+              headers={"Content-Type": "application/json; charset=utf-8"},
+              method="POST"
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=25) as response:
+                  print(f"IndexNow HTTP {response.status}; submitted {len(urls)} URL(s)")
+          except urllib.error.HTTPError as e:
+              print(f"IndexNow rejected submission, HTTP {e.code}")
+              raise
+          PY
