@@ -99,6 +99,54 @@
 
   setupMobileNavigation();
 
+  // Standalone calculators use their own <header><nav> template, not .topbar .nav.
+  // Keep this handler separate from the main-site menu and from kd-calculator's custom menu.
+  const setupStandaloneCalculatorMenus = () => {
+    const standaloneNavs = [...document.querySelectorAll("header nav")].filter(
+      nav => !nav.closest(".topbar") && !nav.classList.contains("calc-nav")
+    );
+    if (!standaloneNavs.length) return;
+
+    const css = document.createElement("style");
+    css.id = "samuta-standalone-mobile-nav-css";
+    css.textContent = [
+      "@media (min-width:621px){.samuta-standalone-mobile-nav>.mobile-menu-toggle{display:none!important}}",
+      "@media (max-width:620px){",
+      ".samuta-standalone-mobile-nav{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px!important}",
+      ".samuta-standalone-mobile-nav>.mobile-menu-toggle{display:inline-flex!important;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;border-radius:8px;border:1px solid #b48a61;background:#8c6a4a;color:white;font:700 24px Arial,sans-serif;cursor:pointer;margin-left:auto}",
+      ".samuta-standalone-mobile-nav>a{display:none!important}",
+      ".samuta-standalone-mobile-nav.samuta-menu-open>a{display:inline-flex!important;width:100%!important;min-height:44px;align-items:center;padding:6px 8px;border-top:1px solid #647384}",
+      "}"
+    ].join("");
+    document.head.appendChild(css);
+
+    for (const nav of standaloneNavs) {
+      const toggle = nav.querySelector(":scope > .mobile-menu-toggle");
+      if (!toggle) continue;
+      nav.classList.add("samuta-standalone-mobile-nav");
+      const close = () => {
+        nav.classList.remove("samuta-menu-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Открыть меню");
+        toggle.textContent = "☰";
+      };
+      toggle.addEventListener("click", () => {
+        const opened = nav.classList.toggle("samuta-menu-open");
+        toggle.setAttribute("aria-expanded", String(opened));
+        toggle.setAttribute("aria-label", opened ? "Закрыть меню" : "Открыть меню");
+        toggle.textContent = opened ? "×" : "☰";
+      });
+      nav.addEventListener("click", e => {
+        if (e.target instanceof Element && e.target.closest("a[href]")) close();
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 620) close();
+      });
+    }
+  };
+  setupStandaloneCalculatorMenus();
+
+
   const pagePath = () => window.location.pathname || "/";
 
   const sendEvent = (name, parameters) => {
